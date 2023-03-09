@@ -1,0 +1,51 @@
+@keyframes sun {
+    from {
+        filter: brightness(80%);
+        left : 120% ;
+    }
+    to {
+        filter: brightness(10%);
+        left : -30% ;
+    }
+}.cloud-1{
+    animation: sun 40s ease-in 0s infinite ;
+}
+@keyframes moving_down {
+    from {
+        left : 110% ;
+        top : 5% ;
+    }to {
+        left : -40% ;
+        top : 20% ;
+    }
+}.cloud-2{
+    animation: moving_down 40s ease-in 0s infinite ;
+}
+@keyframes moving_left {
+    from {
+        left : 123% ;
+        top : 12% ;
+    }to {
+        left : -27% ;
+        top : -3% ;
+    }
+}
+@keyframes moving_sun {
+    from {left : 133%; top : 20%}
+    to {left : -17%; top : 7%}
+}
+.cloud-3{
+    animation: moving_left 12s ease-in-out 18s infinite ;
+}.cloud-4{
+    animation: moving_left 40s ease-in 0s infinite ;
+}.cloud-5{
+    animation: moving_sun 40s ease-in 0s infinite ;
+}
+
+@media screen and (max-width : 800px) {
+    .cloud-1{scale : 1}
+    .cloud-2{scale : 1}
+    .cloud-3{scale : 1}
+    .cloud-4{scale : 1}
+    .cloud-5{scale : 1}
+}

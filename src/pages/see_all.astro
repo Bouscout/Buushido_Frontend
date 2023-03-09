@@ -1,0 +1,17 @@
+---
+import MainLayout from "../layouts/main_layout.astro";
+import Navi from "../components/navbar/navbar";
+import Footer from "../layouts/footer.astro";
+import Voir_tout from "../components/voir_tout/voir_tout";
+import "../components/voir_tout/voir.css";
+
+const series_data = await fetch("https://buushido.ml/api/all/")
+const series = await series_data.json()
+
+---
+
+<MainLayout>
+    <Navi client:only/>
+    <Voir_tout data={series} />
+    <Footer />
+</MainLayout>

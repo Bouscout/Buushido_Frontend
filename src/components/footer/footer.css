@@ -1,0 +1,89 @@
+
+#stars{
+    background: #00000077;
+    background: linear-gradient(to left, black, rgba(0, 0, 0, 0.352)), linear-gradient(to top, transparent, rgba(0, 0, 0, 0.885)),url('ronin.jpg.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    position: relative;
+    height: 60vh;
+    /* display: grid;
+    grid-template-rows: auto auto; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: none;
+    margin: none;
+}#stars h1{
+    font-size: 1.2rem;
+    color: #f8a100;
+}#stars h1:hover {color : purple ;}
+#stars h3{
+    font-size: 0.7rem;
+}#stars a{
+  text-decoration: none;
+  cursor: pointer;
+}
+#stars a:hover{
+    color : red ;
+}
+.compact{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+#contacts{
+    display: grid;
+    /* justify-content: center;
+    justify-items: center; */
+    line-height: 110%;
+    justify-content: center;
+    justify-items: center;
+    text-align: right;
+    /* padding-right: 5rem; */
+    grid-template-columns: repeat(auto-fit, minmax(60px, 20vw));
+}#contacts h2{
+  color : #f8a10076;
+}
+#main{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 1px;
+    width: 1px;
+    animation: move_down 20s linear 0s infinite ;
+    /* animation: move 20s linear 0s infinite alternate-reverse; */
+    background-color: #fff;
+    border-radius: 50%;
+  box-shadow: 8vw 32vh 2px 2px #fff,-48vw 27vh 2px 2px #fff,23vw -17vh 3px 3px #fff,-13vw -5vh 0px 0px #fff,4vw -21vh 1px 1px #fff,-16vw 18vh 2px 1px #fff,-27vw -41vh 3px 0px #fff,-10vw -23vh 3px 1px #fff,23vw 50vh 1px 3px #fff,41vw 11vh 3px 3px #fff,-15vw 1vh 0px 1px #fff,27vw 14vh 0px 2px #fff,19vw 4vh 1px 3px #fff,-30vw -16vh 1px 1px #fff,-30vw -22vh 3px 2px #fff,-20vw -23vh 3px 3px #fff,2vw 28vh 3px 1px #fff,28vw 25vh 1px 1px #fff,7vw -40vh 2px 2px #fff,-43vw -10vh 0px 1px #fff,29vw 50vh 3px 3px #fff,21vw -6vh 3px 3px #fff,42vw 5vh 3px 3px #fff,44vw 50vh 3px 0px #fff,42vw -28vh 3px 2px #fff,26vw -12vh 1px 3px #fff,-18vw 30vh 1px 0px #fff,-39vw 13vh 0px 1px #fff,34vw 12vh 0px 1px #fff,0vw 24vh 2px 2px #fff,19vw 39vh 2px 2px #fff,-24vw 4vh 3px 3px #fff,-35vw -27vh 1px 2px #fff,-19vw -34vh 3px 3px #fff,17vw 33vh 1px 2px #fff,-47vw 12vh 2px 1px #fff,3vw -15vh 3px 1px #fff,21vw 19vh 0px 0px #fff,-18vw -7vh 3px 1px #fff,21vw -1vh 1px 0px #fff,42vw 49vh 1px 0px #fff,-15vw 22vh 1px 1px #fff,15vw -19vh 1px 2px #fff,9vw -4vh 3px 0px #fff,-1vw 21vh 2px 0px #fff,10vw 17vh 0px 3px #fff,-12vw 1vh 0px 1px #fff,30vw -8vh 1px 2px #fff,-48vw 15vh 0px 2px #fff,26vw -19vh 2px 0px #fff,-39vw 26vh 2px 2px #fff,-50vw 32vh 0px 0px #fff,46vw 41vh 0px 2px #fff,28vw 32vh 2px 3px #fff,9vw -34vh 3px 3px #fff,33vw 5vh 1px 0px #fff,-30vw -7vh 0px 2px #fff,-2vw -38vh 0px 3px #fff,15vw -13vh 2px 1px #fff,39vw -17vh 0px 1px #fff,-37vw -49vh 1px 2px #fff,37vw -30vh 2px 3px #fff,18vw -42vh 3px 0px #fff,-35vw -16vh 1px 1px #fff,21vw -49vh 3px 1px #fff,7vw 6vh 1px 2px #fff,-32vw 28vh 1px 1px #fff,12vw 5vh 2px 1px #fff,-4vw 30vh 0px 1px #fff,30vw -1vh 1px 2px #fff,-34vw 4vh 3px 0px #fff,35vw 46vh 0px 2px #fff,37vw 26vh 0px 3px #fff,7vw 19vh 2px 2px #fff,-9vw -45vh 0px 0px #fff,-48vw 50vh 2px 3px #fff,-24vw -7vh 2px 2px #fff,40vw -31vh 3px 3px #fff,9vw 31vh 2px 2px #fff,48vw 3vh 1px 1px #fff,-16vw 10vh 0px 3px #fff,42vw 6vh 3px 3px #fff,-14vw 25vh 3px 3px #fff,50vw -46vh 0px 1px #fff,21vw -32vh 0px 2px #fff,29vw 46vh 3px 2px #fff,-32vw 39vh 0px 0px #fff,-44vw -47vh 3px 3px #fff,-25vw 24vh 0px 2px #fff,42vw -48vh 0px 0px #fff,36vw 12vh 2px 0px #fff,39vw 50vh 3px 2px #fff,-8vw 7vh 0px 2px #fff,34vw -2vh 3px 0px #fff,11vw -38vh 0px 3px #fff,-24vw 2vh 1px 3px #fff,-49vw -33vh 2px 3px #fff,-18vw -37vh 1px 0px #fff,35vw -50vh 2px 0px #fff,-6vw -4vh 3px 2px #fff;
+  }
+  @keyframes move {
+    from{scale : 1}
+    to{scale: 2;}
+  }
+  @keyframes move_down {
+    from {transform: translateY(-200px);}
+    to {transform: translateY(50px);}
+  }
+
+  @media screen and (max-width : 800px) {
+    #stars{
+        background-size: auto 100%;
+        margin-top: 4rem;
+        height: 70vh;
+    }
+    .compact {
+      flex-direction: column;
+      border-bottom: 01px solid #f8a100;
+      width: 88%;
+      margin: 0 auto;
+    }
+    #contacts{
+      display: flex;
+      line-height: 40%;
+      flex-direction: column;
+      justify-content: flex-end;
+      text-align: right;
+    }
+  }

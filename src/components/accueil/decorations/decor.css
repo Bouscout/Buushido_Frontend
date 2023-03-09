@@ -1,0 +1,142 @@
+.cloud-1{
+    background: url('Classical_Clouds_Vectors_01.svg') no-repeat -86px -519px;
+	width: 188px;
+	height: 65px;
+    position: absolute;
+    left: 50%;
+    /* transform: translate(-50%); */
+    filter: grayscale(0%);
+
+    z-index: -1;
+    scale: 2;
+    overflow: hidden;
+}
+.cloud-2{
+    background: url('Classical_Clouds_Vectors_01.svg') no-repeat -576px -295px;
+	width: 136px;
+	height: 58px;
+    position: absolute;
+    left: 50%;
+    opacity: 0.7;
+    /* transform: translate(-50%); */
+    filter: grayscale(70%);
+    z-index: -1;
+    scale: 1.8;
+    overflow: hidden;
+}
+.cloud-3{
+    background: url('Classical_Clouds_Vectors_01.svg') no-repeat -390px -339px;
+	width: 83px;
+    opacity: 0.7;
+	height: 46px;
+    position: absolute;
+    left: 50%;
+    /* transform: translate(-50%); */
+    filter: grayscale(65%);
+    z-index: -1;
+    scale: 1.8;
+    overflow: hidden;
+}
+.cloud-4{
+    opacity: 0.7;
+    background: url('Classical_Clouds_Vectors_01.svg') no-repeat -22px -182px;
+	width: 125px;
+	height: 76px;
+    position: absolute;
+    left: 50%;
+    /* transform: translate(-50%); */
+    filter: grayscale(65%);
+    z-index: -1;
+    scale: 1.8;
+    overflow: hidden;
+}
+.cloud-5{
+    background: url('Classical_Clouds_Vectors_01.svg') no-repeat -445px -481px;
+	width: 110px;
+    opacity: 0.7;
+	height: 51px;
+    position: absolute;
+    left: 50%;
+    /* transform: translate(-50%); */
+    filter: grayscale(65%);
+    z-index: -1;
+    scale: 1.8;
+    overflow: hidden;
+    
+}
+
+.cloud-6{
+    background: url('golden-sun.png.webp');
+    background-position: center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+	width: 90vw;
+	height: 80vh;
+    position: absolute;
+    top : 42% ;
+
+    left: 0%;
+    z-index: -1;
+    /* transform: translate(-50%); */
+    /* filter: brightness(50%); */
+    /* z-index: -1; */
+    /* scale: 6; */
+    
+}
+.cloud-7{
+    background: url('Classical_Clouds_Vectors_01.svg') no-repeat -307px -296px;
+	width: 78px;
+	height: 78px;
+    position: absolute;
+    left: 50%;
+    /* transform: translate(-50%); */
+    filter: brightness(50%);
+    z-index: -1;
+    scale: 6;
+    overflow: hidden;
+}
+.cloud-8{
+    overflow: hidden;
+    background: url('Classical_Clouds_Vectors_01.svg') no-repeat -574px -376px;
+	width: 111px;
+	height: 85px;
+    position: absolute;
+    left: 50%;
+    /* transform: translate(-50%); */
+    filter: brightness(50%);
+    z-index: -1;
+    scale: 4;
+    
+}
+.cloud-9{
+    background: url('Classical_Clouds_Vectors_01.svg') no-repeat 87.464% 0;
+	width: 413px;
+	height: 274px;
+    position: absolute;
+    left: 40%;
+    overflow: hidden;
+    filter: brightness(30%);
+    z-index: -3;
+    scale: 3;
+}
+
+@media screen and (max-width : 650px) {
+    .cloud-9{
+        scale: 1.5;
+        left: 5%;
+    }.cloud-8{
+        left: 40%;
+        scale: 2.3;
+    }.cloud-7{
+        scale: 3.7;
+    }.cloud-6{
+        top : 35% ;
+    }
+    
+}@media screen and (max-width : 400px){
+    .cloud-9{
+        width: 360px;
+        scale: 1.5;
+        left: 0%;
+    }
+}

@@ -1,0 +1,35 @@
+---
+import MainLayout from "../../layouts/main_layout.astro"
+import { Nuage_9 } from "../../components/accueil/decorations/decor"
+import Footer from "../../layouts/footer.astro"
+import Genres_serie from "../../components/genres/genre.jsx"
+import "../../components/genres/genre.css"
+import Navi from "../../components/navbar/navbar"
+
+export async function getStaticPaths(){
+const genres = ['Action', 'Aventure', 'Horreur', 'Romance', 'Mystere', 'Comedie', 'Drama', 'Thriller', 'Fantaisie', 'Sci-fi', 
+'Seinen', 'Shonen', 'Shojo', 'Ecchi', 'Slice of life', 'Isekai']
+return genres.map(genre => ({
+    params : {genre : genre},
+})) 
+}
+
+const {genre} = Astro.params
+const serie_genre = await fetch('https://buushido.ml/api/genre/'+genre+'/')
+const serie_data = await serie_genre.json()
+---
+
+<MainLayout>
+    <Navi client:only/>
+    <Genres_serie name={genre} data={serie_data} />
+    <Nuage_9 style={{
+        top : '90px',
+        filter : 'brightness(17%)',
+    }} />
+    <!-- <Nuage_8  style={{
+        top : '1000px' ,
+        filter : 'brightness(30%)',
+        scale : '4'
+    }}/> -->
+    <Footer />
+</MainLayout>

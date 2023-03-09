@@ -1,0 +1,123 @@
+
+@keyframes sunrise {
+    /* from {background: #ffe373;} */
+    from {background: #101f40;}
+    50% {background: #1c0143;}
+    75% {background: #08183a;}
+    to {background: #101010;}
+}
+#inscription{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 65vw;
+    height: 85vh;
+    gap: 2rem;
+    border-radius: 15px;
+    background: #101010cb;
+
+}#inscription h2{font-size: 0.6rem; text-align: left;}
+#formulaire{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 60vw;
+    height: 70vh;
+    /* border: solid #f8a100; */
+    border-radius: 15px;
+    background: #101010cb;
+    /* background: url('Classical_Clouds_Vectors_01.svg') no-repeat -307px 0; */
+}
+#decoration {
+    position: absolute;
+    top: 50%;
+    z-index: -1;
+    left: 50%;
+    translate: -50% -50%;
+	background: url('Classical_Clouds_Vectors_01.svg') no-repeat -307px 0;
+	/* width: 60vw;
+	height: 70vh; */
+	width: 413px;
+	height: 274px;
+    scale: 1.9;
+    filter : brightness(10%) ;
+}
+form {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 2rem;
+}#username{
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    border-bottom: 2px solid #f8a100 ;
+}#username h3{
+    position: absolute;
+    top: -20px;
+    left: 0;
+    z-index: -1;
+}#username input{
+    opacity: 0;
+}
+#password{
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    border-bottom: 2px solid #f8a100 ;
+}
+#formulaire input{
+    width: 100%;
+    padding: 10px 0;
+    outline: none;
+    border: none;
+    color : #fee;
+    background: transparent;
+    /* outline: 2px solid orange; */
+}#formulaire label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    pointer-events: none;
+    transition: all 250ms;
+}
+
+input:focus ~ label{
+    top : -30px ;
+    left : 0 ;
+    font-size: 14px;
+}input:active ~ label{
+    top : -30px ;
+    left : 0 ;
+    font-size: 14px;
+}
+
+#confirme{
+    text-align: center;
+    font-size: 1.1rem;
+    width: 40%;
+    margin : 0 auto ;
+    color: black;
+    background-color: #f8a100;
+    border-radius: 8px;
+    margin-bottom: 15px ;
+}
+
+
+@media screen and (max-width : 800px) {
+    #formulaire{width: 80vw;}
+    #inscription{width: 80vw;}
+}

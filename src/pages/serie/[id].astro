@@ -1,0 +1,39 @@
+---
+import MainLayout from "../../layouts/main_layout.astro"
+import Serie_accueil from "../../components/page_serie/page_serie.jsx"
+import "../../components/page_serie/serie.css"
+import Footer from "../../layouts/footer.astro"
+import { Nuage_9, Nuage_6 } from "../../components/accueil/decorations/decor"
+import Navi from "../../components/navbar/navbar"
+
+export async function getStaticPaths(){
+    const series = await fetch('https://buushido.ml/api/build/')
+    const series_data = await series.json()
+    
+
+   return series_data.map(serie => ({params : {id: serie.id}, props: {serie}}))
+}   
+    // return({
+    //     params : {id : serie.id},
+    //     props : {serie},
+    // })}
+    // )
+const {id} = Astro.params
+const show = await fetch('https://buushido.ml/api/serie/'+id+'/')
+const show_data = await show.json()
+const pos_9 = {
+    filter : 'brightness(13%)',
+    top : '56%',
+}
+const pos_6 = {
+ filter : 'brightness(50%)',
+}
+---
+
+<MainLayout>
+    <Navi client:only/>
+    <Nuage_6  style={pos_6}/>
+    <Nuage_9  style={pos_9}/>
+    <Serie_accueil data={show_data} id={id} client:only />
+    <Footer />
+</MainLayout>
