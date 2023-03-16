@@ -1,4 +1,4 @@
-import './decor.css'
+// import './decor.css'
 
 export function Nuage_1(props){
     return <div className='cloud-1' style={props.style ? props.style : null}/>

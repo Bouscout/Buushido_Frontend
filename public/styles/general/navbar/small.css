@@ -1,0 +1,32 @@
+@media screen and (max-width : 800px) {
+    #navbar{
+        font-size: 12px;
+        width: 100%;
+    }
+    #navbar a{
+        padding: 0 17px;
+    }
+    /* #dropdown-content{right: 3px;} */
+    #dropdown-content{
+        width: 100%;
+        gap: 0px;
+    }
+    #dropdown-content a{
+        font-size: 18px;
+        color : #f8a100 ;
+        margin: 20px 0;
+    }
+    
+    .small{
+        display: none;
+    }
+    #icon-text{
+        display: none;
+    }#icon-image{
+        left: -5%;
+        top: -45%;
+    }
+    #logo{
+        width: 10px;
+    }
+}

@@ -6,18 +6,20 @@ html{
     font-size: 30px;
   max-width: 100%;
   overflow-x: hidden;
-  /* font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;  */
+   font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;  
+ 
+  background-color: #090909; 
   font-family: odachi;
   font-style: normal;
   font-variant: normal;
   font-weight: 700;
   line-height: 26.4px; 
+  font-display: swap;
   -webkit-tap-highlight-color: transparent;
 }
 body{
   max-width: 100%;
     background-color: #101010;
-    /* background-color: #090909; */
     overflow-x: hidden;
     position: relative;
     color: #f8a100;
@@ -25,4 +27,4 @@ body{
 
 @media screen and (max-width : 800px) {
   html{font-size: 20px;}
-}
+} 

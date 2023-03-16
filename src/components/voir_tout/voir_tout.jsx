@@ -1,5 +1,7 @@
 // import './voir.css'
 
+import { useState } from "react";
+
 export default function Voir_tout(props){
     //getting the data from the api
     const couplet = props.data
@@ -23,7 +25,7 @@ function All_index(props){
     let index = props.data
     return (
         <section style={{marginTop : '4rem'}}>
-        <h1 style={{textAlign : 'center', fontSize : '2.5rem',}}>Choississez une lettre</h1>
+        <h1 style={{textAlign : 'center', fontSize : '1.4rem', whiteSpace : 'nowrap', }}>Choississez une lettre</h1>
         <div id="indexes">
             {index.map((letter, i) => {
                 return (
@@ -47,11 +49,9 @@ function Lettre(props){
             {/* <div id='ferme'><h1><i className="fa-regular fa-circle-xmark"></i></h1></div> */}
 
                 {serie.map((serie, i) => {
+
                     return (
-                        <div className='show'>
-                        <a href="javascript:void(0);"><h3>{serie.name}</h3></a>
-                        <Extra serie={serie} />
-                        </div>
+                        <Serie_name key={i} serie={serie} />
                     )
                 })}
             </div>
@@ -59,15 +59,33 @@ function Lettre(props){
     )
 }
 
+function Serie_name(props){
+    const [details, setDetails] = useState(false)
+    const serie = props.serie
+
+    async function hide_again(){
+        console.log('on est dedans ', details)
+        setTimeout(()=>{setDetails(false)}, 7000)
+        
+    }
+
+    return (
+        <div className="show">
+            <a><h3 onClick={()=>{setDetails(!details) ; !details ? hide_again():null}}>{serie.name}</h3></a>
+            {details ? <Extra serie={serie} /> : null}
+        </div>
+    )
+}
 
 
 
 //a little bubble that would display more details about the show without directly switching page
 function Extra(props){
     let serie = props.serie
-
+    // let show = props.etat
     return (
         <>
+        {/* <div className='extra' style={show ? {display : 'flex',}:{display : 'none',}}> */}
         <div className='extra'>
         <h1 style={{fontSize : '1.5rem'}}>{serie.name}</h1>
         <div style={{display : 'flex', justifyContent : 'space-evenly', color : '#f8a100'}}>

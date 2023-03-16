@@ -1,0 +1,33 @@
+@media screen and (max-width : 800px){
+    .info h3 {
+      display : none !important ;
+    }.info h1{
+      font-size: 2.1rem;
+      line-height: 120%;
+    }
+    .info{width: 100%;
+          text-align: center;
+          margin: 0 0;
+    }.info .watch{margin-left: 0;}
+    .poster{
+      height: 70vh;
+      text-align: center;
+    }.watch{
+      font-size: 1.0rem;
+      margin-left: 0;
+    }html{
+      font-size: 18px;
+    }.lumiere{
+      clip-path: polygon(35% 0, 65% 0, 100% 100%, 0 100%);
+  
+    }img{
+      min-width: 190px;
+    }.contenu{
+      box-shadow: inset 10px 0 10px #f8a100;
+  
+    }.onglet-name{
+      font-size: 1.3rem;
+    }#all_onglets{
+      margin-top: 80vh;
+    }
+  }

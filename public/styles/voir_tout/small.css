@@ -1,0 +1,20 @@
+@media screen and (max-width : 800px) {
+    #indexes a {font-size: 1rem; border: none;}
+    #contenu-tout{width: 100%;}
+    .extra{width: 70vw; left: 25%; top: 6%; max-height: 80vh;}
+    .extra h3{
+        font-size: 0.5rem;
+        max-height: 50%;
+        overflow: scroll;
+    }
+    .extra h2{
+        font-size: 0.5rem;
+    }
+    .extra button{
+        font-size: 0.7rem;
+        max-height: 10%;
+    }
+}
+@media screen and (max-width : 400px) {
+    .extra h1{font-size: 1rem;}
+}

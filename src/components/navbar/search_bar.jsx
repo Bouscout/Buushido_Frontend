@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import './search_bar.css'
+import { useState } from "react";
+// import './search_bar.css'
 import ImagePortrait from "../self-contained/image-portrait";
 import Loader_1 from "../self-contained/load_test";
 
@@ -75,7 +75,7 @@ function Results(props){
             </div>
             {reultats.map((serie, i) => {
                 return(
-                    <a key={i} href={'/serie/'+serie.id+'/'}>
+                    <a key={i} href={'/serie/'+serie.id}>
                     <div  className="search-compact">
                     <ImagePortrait src={serie.tof_url} alt={serie.name} style={style_pic} />
                     <div className="details-search">

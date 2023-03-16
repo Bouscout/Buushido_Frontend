@@ -1,0 +1,5 @@
+
+  @keyframes move_down {
+    from {transform: translateY(-200px);}
+    to {transform: translateY(50px);}
+  }

@@ -1,0 +1,16 @@
+#conteneur-para{
+    border: solid red;
+    display: grid;
+    width: 100%;
+    overflow-x: scroll;
+    grid-template-columns: repeat(10, minmax(min-content, 1fr));
+    gap : 1vmin ;
+
+}
+
+#conteneur-para img{
+    width: 35vmin;
+    aspect-ratio: 10 / 16;
+    object-fit: cover;
+    object-position: center;
+}

@@ -1,0 +1,12 @@
+#navbar a:hover{
+    color : #f8a100; }
+    #dropdown-content a:hover{    
+        color: purple;
+    }
+    #dropdown-content a{
+        margin: 25px 5px;
+        padding: 14px 50px;
+    
+        color: rgb(246, 229, 250);
+    }
+    

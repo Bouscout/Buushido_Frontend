@@ -1,0 +1,38 @@
+
+@media screen and (max-width : 800px) {
+    html{font-size: 14px !important;}
+      #water{
+          background-size: auto 100%;
+      }#genres h2{
+        font-size: 15px;
+        text-shadow : 0 -4px 10px, 0 0 2px, 0 0 0.1rem purple, 0 0 0.5rem purple, 0 0 0.1rem purple;
+  
+      }.option button{
+        font-size: 2rem;
+      }
+      footer{
+        font-size: 20px !important;
+      }
+      #watching {
+        height : 30vh ;
+        top : 25% ;
+      }#watching iframe{
+        height: 30vh;
+      }#close{font-size: 33px;}  
+      #heading h1{
+          font-size: 3rem;
+      }#details h2{
+        font-size: 0.8rem;
+      }#details-serie{width: 100%; padding: 0.3rem;}
+      #details-serie h1{
+        font-size: 2.5rem;
+      }
+      .cloud-9{
+        scale : 2 ;
+      }
+  }@media screen and (max-width : 400px){
+    #heading h1{font-size: 1.5rem;}
+    .compact-details h2{
+      font-size: 0.5rem;
+    }
+  }

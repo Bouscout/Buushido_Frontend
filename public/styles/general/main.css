@@ -1,0 +1,8 @@
+body{
+  max-width: 100%;
+  z-index: -3;
+    overflow-x: hidden;
+    background: linear-gradient(to bottom, #101010 0% 50%, #000 );
+    position: relative;
+    color: #f8a100;
+}

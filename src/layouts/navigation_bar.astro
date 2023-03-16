@@ -1,0 +1,10 @@
+---
+import Navi from "../components/navbar/navbar";
+---
+<link rel="preload stylesheet" href="/styles/general/navbar/main.css" as="style" type="text/css">
+<link rel="preload stylesheet" href="/styles/general/navbar/big_only.css" as="style" type="text/css" media="screen and (min-width : 800px)">
+<link rel="preload stylesheet" href="/styles/general/navbar/small.css" as="style" type="text/css" media="screen and (max-width : 800px)">
+<link rel="preload stylesheet" href="/styles/general/navbar/load.css" as="style" type="text/css">
+<nav>
+    <Navi client:only/>
+</nav>

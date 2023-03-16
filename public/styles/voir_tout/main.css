@@ -1,0 +1,100 @@
+#contenu-tout{
+    width: 70%;
+    margin : 0 auto ;
+    margin-top: 3rem;
+    background: #101010;
+}
+
+.boite{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-items: center ;
+    justify-content: center;
+}.boite h1{
+    font-size: 2rem;
+    padding-left: 2rem;
+}
+.boite h3{
+    text-decoration: none;
+    font-size: 0.6rem;
+    color: #fff;
+    font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;  
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 26.4px;
+    cursor: pointer;
+}.boite a{
+    text-decoration: none;
+    font-size: 0.6rem;
+    color: #fff;
+    font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;  
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 26.4px;
+}
+.boite h3:active, .boite h3:focus{color: #f8a100;}
+#indexes{
+    width : 90% ;
+    margin: 0 auto;
+    display :grid ;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    grid-template-columns: repeat(auto-fit, minmax(20px, 11%));
+    gap: 1rem;
+    /* background: #101010; */
+}#indexes a{
+    font-size: 1.5rem;
+    color: gold;
+    transition: all 100ms;
+    text-decoration: none;
+    border: 1px solid gold;
+    border-radius: 15px;
+}
+.show{
+    position: relative;
+    padding-left: 2rem;
+
+}
+
+.extra{
+    display: flex ;
+    position: fixed;
+    z-index: 3;
+    width: 50vw;
+    font-size: 1rem;
+    border-radius: 20px;
+    top: 30%;
+    left : 40%;
+    color: #fff;
+    animation: fade 0.3s linear 3s 1 both;
+    flex-direction: column;
+    background: #141414af;
+    
+}.extra h1{text-align: center; font-size: 1rem; padding: 0;}
+.extra h3{
+    font-size: 0.6rem;
+    padding: 0 1rem;
+    font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;  
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 26.4px;
+}.extra h2{
+    color : purple ;
+    font-size: 1rem;
+}.extra button{
+    background-color: #191919; cursor: pointer; 
+    outline: none;
+    border: none;
+    border-radius: 10px;
+}.extra button h2{color: red; font-family: odachi; font-size: 1rem;}
+#ferme{
+    visibility: hidden;
+    position: fixed;
+    top: 8%;
+    left: 7%;
+}

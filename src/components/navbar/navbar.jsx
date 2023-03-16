@@ -1,4 +1,4 @@
-import './navbar.css'
+// import './navbar.css'
 import Search_bar from './search_bar';
 import logo from './logo.jpg.webp'
 import { useState } from "react";
@@ -19,7 +19,7 @@ export default function Navi(){
             <a href='/' id='logo'>
                 <img id='icon-image' src={logo} alt='logo'></img>
                 <h3 id='icon-text'>Buushido</h3>
-                <h2 className='lightray' style={{visibility : 'hidden'}}>Home</h2>
+                {/* <h2 className='lightray' style={{visibility : 'hidden'}}>Home</h2> */}
             </a>
             {/* <a href="/"  className={ray[0] ? 'lightray':'lightray-off'} onClick={()=>{spotlight(0)}}>
                 <i className="fa-solid fa-house-chimney-window "></i>
@@ -45,8 +45,7 @@ function Dropdown(){
     window.onclick = (e) => {
         if(!e.target.matches('#dropdown')){
             setActive(false)
-            console.log('reverse it')
-        }
+      }
     }
     function show_drop(){
         setTimeout(()=>{
@@ -76,8 +75,7 @@ function Dropdown(){
             <>
             <a className="lightray-off" id="dropdown" onClick={()=>{show_drop()}}><i className="fa-brands fa-ioxhost "></i>
                 <span className="small">  Categories</span></a>
-                    <section id="dropdown-content">
-                    </section>
+                   
             </>
         )
 

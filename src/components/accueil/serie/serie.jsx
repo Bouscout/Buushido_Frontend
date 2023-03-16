@@ -30,7 +30,20 @@ export default function OngletSerie(props){
 }
 
 function Montre(props){
-   
+    const [scrl, setScrl] = useState('0%')
+
+    // we'll use the scroll event to find the scroll value and then update the images
+    //object position through some percentage of the max scroll width
+    function handle_scroll(event){
+        let value = event.target
+        
+        //find max scroll width
+        let max = value.scrollWidth - value.clientWidth
+        // find percentage
+        let new_pos = (value.scrollLeft * 100) / max
+        // console.log(`new pos ${new_pos}`)
+        setScrl(new_pos.toString()+'%')
+    }
     
     if (props.donne.length > 0){
         let data = props.donne
@@ -40,13 +53,13 @@ function Montre(props){
             <section>
             {data.map((couplet, i)=>{
                 return (
-                    <section className="ongle" key={i}>
+                    <section className="ongle" key={i} >
                         {/* <div className="lumiere"> */}
                         <div>
                         <h1 className="onglet-name"
                         >{couplet[0]}</h1>
                         </div>
-                        <div className="container">
+                        <div className="container" onScroll={e=>{handle_scroll(e)}}>
                         {couplet[1].map((serie, a) =>{
                             return(
                             <div className="contenu" key={a}>
@@ -54,6 +67,7 @@ function Montre(props){
                                 <ImageNext 
                                 src={serie.background_tof}
                                 alt={serie.name}
+                                posX={scrl}
                                 />
                             </a>
                             </div>
@@ -93,11 +107,15 @@ const ImageNext = ({
     src, 
     alt, 
     mediatype = 'image/webp' ,
+    posX,
 }) => {
+    let pos = {
+        objectPosition : posX + ' 50%',
+    }
     return (
         <picture>           
             <source srcSet={'https://buushido.ml'+src+'.webp'} type={mediatype} />
-            <img src={'https://buushido.ml'+src} alt={alt} />
+            <img src={'https://buushido.ml'+src} alt={alt} loading='lazy' style={pos} />
         </picture>
     )
 }

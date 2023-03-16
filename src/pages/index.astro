@@ -1,40 +1,47 @@
 ---
-import "../components/accueil/decorations/index.css";
+// import "../components/accueil/decorations/index.css";
+
 import MainLayout from "../layouts/main_layout.astro";
-import Footer from "../components/footer/footer";
+import Footer from "../layouts/footer.astro";
 import TopHead from "../components/accueil/head";
 import OngletSerie from "../components/accueil/serie/serie";
-import Navi from "../components/navbar/navbar";
+import NavigationBar from "../layouts/navigation_bar.astro";
 import { Nuage_9, Nuage_8, Nuage_7} from "../components/accueil/decorations/decor.jsx";
 // const poster = await fetch('http://10.0.0.89:8000/api/poster/');
 const poster = await fetch('https://buushido.ml/api/poster/');
-// const series = await fetch('http://10.0.0.89:8000/api/')
 const series = await fetch('https://buushido.ml/api1/').then(response => response.json())
 const series2 = await fetch('https://buushido.ml/api2/').then(response => response.json())
 const series3 = await fetch('https://buushido.ml/api3/').then(response => response.json())
+// const series = await fetch('http://10.0.0.89:8000/api/').then(response => response.json())
 const poster_data = await poster.json();
 // const series_data = await series.json()
 ---
 
+<link rel="preload stylesheet" href="/styles/accueil/main.css" as="style" type="text/css">
+<link rel="preload stylesheet" href="/styles/accueil/small.css" as="style" type="text/css" media="screen and (max-width: 800px)">
+<link rel="preload stylesheet" href="/styles/accueil/big_only.css" as="style" media="screen and (min-width : 800px)" type="text/css">
+<link rel="preload stylesheet" href="/styles/general/clouds.css" as="style" type="text/css">	
 
 <MainLayout>
 	<!-- <Anime /> this is for the animation of the sun and clouds -->
-	<Navi client:only/>
+	<NavigationBar />
 	<Nuage_9 style={{
-		top : '30%',
+		top : '25%',
 	}}/>
 	<Nuage_8 style={{
 		top : '60%',
-		scale : '4',
 	}}/>
 	<Nuage_7 style={{
 		top : '75%',
 		left : '40%',
 	}}/>
+	
 	<TopHead choix={poster_data} client:load/>
-	<OngletSerie data={series}/>
-	<OngletSerie data={series2} num={'2'}  />
-	<OngletSerie data={series3} num={'3'}  />
+	<section id="all_onglets">
+		<OngletSerie data={series} client:visible/>
+		<OngletSerie data={series2} num={'2'} client:visible />
+		<OngletSerie data={series3} num={'3'}  client:visible/>
+	</section>
 	<!-- <OngletSerie series={series_data} /> -->
 	<Footer />
 </MainLayout>

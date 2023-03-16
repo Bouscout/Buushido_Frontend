@@ -28,9 +28,10 @@ function Loading() {
     );
   }
 
-export default function Loader_numero_uno(){
+export default function Loader_numero_uno(props){
+
     return(
-    <div style={{
+    <div style={props.style ? props.style : {
       position : 'fixed',
       display : 'flex',
       justifyContent : 'center',

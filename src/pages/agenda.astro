@@ -1,21 +1,36 @@
 ---
 import MainLayout from "../layouts/main_layout.astro";
-import Loader_numero_uno from "../components/self-contained/load_test";
-
-
-
+import Paralax from "../components/test_features/paralax";
+const pos = {
+    top : '50%',
+    left : '50%',
+    translate : '-50% -50%',
+    position : 'fixed',
+}
 ---
-<style>
+<!-- <style>
     div{
         position: fixed;
         top: 50%;
         left: 50%;
         translate : -50% -50%
     }
+</style> -->
+<link rel="preload stylesheet" href="/styles/general/test/main_test.css" as="style" type="text/css">	
+
+<style>
+    h1{
+        margin-bottom: 30px;
+        font-size: 50px;
+        text-align: center;
+    }
 </style>
 <MainLayout>
+    <!-- <Nuage_9 style={pos} /> -->
+    <h1>On va faire un test</h1>
     <div>
-        <h1>This page is not ready yet</h1>
+        <Paralax client:visible/>
+        <!-- <h1>This page is not ready yet</h1> -->
     </div>    
     <!-- <Loader_numero_uno /> -->
 </MainLayout>

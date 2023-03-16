@@ -1,0 +1,71 @@
+#navbar{
+    display: flex;
+    justify-content: space-evenly;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.772), transparent);
+    color : rgb(0, 0, 0) ;
+    font-size: 17px;
+  font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif; 
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 26.4px;  
+    padding: 20px 0;
+}
+#navbar a{
+z-index: 2;
+  border-radius: 20px;
+  margin-top: 12px;
+  cursor: pointer;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  text-decoration: none;
+  font-size: 22px;
+  transition: all 500ms;
+}
+ #logo{
+    position: relative;
+    width: 35px;
+    height: 35px;
+    padding: 0 5px;
+} 
+#icon-image{
+    position: absolute;
+    top: -60%;
+    left: -70%;
+    border: solid white;
+    background-color: rgb(1, 1, 70);
+    border-radius: 50%;
+    filter: sepia(90%);
+    width: 4vw;
+    min-width: 50px;
+    height: auto;
+}
+#icon-text{
+    display: none;
+    position: absolute;
+    top: -50%;
+    font-size: 1.0rem;
+    left: -70%;
+    font-family: odachi;
+    color : purple;
+} 
+#dropdown{
+    transition: all 500ms;
+    position: relative;    
+}
+#dropdown-content{
+    transition: all 500ms;
+    display: none;
+    position: absolute;
+    background-color: #000;
+    border-radius: 10px;
+    top : 70px ;
+    right: 0;
+}
+

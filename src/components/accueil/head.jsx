@@ -6,8 +6,8 @@ import TopPoster from "./poster/poster";
 export default function TopHead(props){
     //getting the data from the api about the poster and then setting them and set the state of every poster
     const [data, setData] = useState(props.choix)
-    const [etat, setEtat] = useState([])
-    let active = 0 ;
+    const [etat, setEtat] = useState([false, true, false, false, false])
+    let active = 1 ;
     
     useEffect(()=>{
        //get api data
@@ -23,25 +23,32 @@ export default function TopHead(props){
     
     useEffect(() => {
         //setting the states of the poster after receiving data from api
-        setEtat(new_etat())
+        // setEtat(new_etat())
         change_posteur()
     }, [])
     
     //function to set the states of all the poster for the first time before passing them
-    function new_etat(){
-        let fake = []
-        for (let i=0 ; i < data.length ; i++ ){
-            let state = false
-            if (i===0){
-                state = true
-            }
-            fake.push(state)
-        }
-        return fake
-    }
+    // async function new_etat(){
+    //     let fake = []
+    //     for (let i=0 ; i < data.length ; i++ ){
+    //         let state = false
+    //         if (i===0){
+    //             state = true
+    //         }
+    //         fake.push(state)
+    //     }
+    //     return fake
+    // }
    
     // when one of the cards is clicked    
-    function handleclick(i){
+    // async function handleclick(i){
+    //     print('la liste actuelle est : ', etat)
+    //     for (let x=0; x < etat.length ; x++){
+    //         etat[x] = false
+    //     }
+    //     etat[i] = true
+    // }
+    async function handleclick(i){
         let fake = etat.splice()
         fake[active] = false
         fake[i] = true
@@ -49,7 +56,7 @@ export default function TopHead(props){
         setEtat(fake)
     }
     //recursively change the poster every 7 seconds
-    function change_posteur(){
+    async function change_posteur(){
         let nouveau = active +1
         nouveau = nouveau > 4 ? 0 : nouveau 
         handleclick(nouveau)

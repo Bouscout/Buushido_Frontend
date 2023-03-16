@@ -1,0 +1,17 @@
+@font-face {
+    font-family: odachi;
+    src: url(Odachi.woff);
+    font-display: swap;
+  }
+  html{
+      font-size: 30px;
+    max-width: 100%;
+    overflow-x: hidden; 
+    background-color: #090909; 
+    -webkit-tap-highlight-color: transparent;
+    font-family: odachi;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 26.4px; 
+  }

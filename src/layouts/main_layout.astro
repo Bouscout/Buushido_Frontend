@@ -1,16 +1,24 @@
 ---
-import './styling/index.css'
+// import './styling/index.css'
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link href='https://fonts.googleapis.com/css?family=Finger Paint' rel='stylesheet'>
+		<!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+		<!-- <link href='https://fonts.googleapis.com/css?family=Finger Paint' rel='stylesheet'> -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
-		<script src="https://kit.fontawesome.com/1882ba5dd5.js" crossorigin="anonymous"></script>
-		<title>buushido</title>
+		<link rel="preload stylesheet" href="/styles/general/main.css" as="style" type="text/css">
+		<link rel="preload stylesheet" href="/styles/general/small.css" as="style" type="text/css" media="screen and (max-width: 800px)">
+		<link rel="preload stylesheet" href="/styles/general/load.css" as="style" type="text/css" crossorigin="anonymous">		
+		<link rel="preload stylesheet" href="/styles/general/big_only.css" as="style" type="text/css" crossorigin="anonymous" media="screen and (min-width: 800px)">
+		<!-- <link rel="stylesheet preload" href="/styles/general/load.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+			<noscript><link rel="stylesheet" href="/styles/general/load.css"></noscript> -->
+		<script src="https://kit.fontawesome.com/1882ba5dd5.js" crossorigin="anonymous" defer></script>
+			<!-- <link rel="preconnect stylesheet" href="https://kit.fontawesome.com/1882ba5dd5.css" as="style" type="type/css" crossorigin="anonymous"> -->
+		<!-- <link rel="stylesheet" href="https://kit.fontawesome.com/1882ba5dd5.css" crossorigin="anonymous"> -->
+			<title>buushido</title>
 	</head>
 	<body>
 		<slot>if nothing is here</slot>

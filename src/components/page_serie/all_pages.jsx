@@ -1,23 +1,22 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 // import './serie.css'
 export default function Pages(props){
     const data = props.donne
     const [status, setEtat] = useState([true, false, false])
-    const [episodes, setEpisodes] = useState([])
+    // const [episodes, setEpisodes] = useState(data[1])
     const active = {borderBottom : 'solid #f8a100',}
     const inactive = {borderBottom : 'solid transparent',}
 
     //let's fetch the updated episodes list from the api
-    useEffect(()=>{
-        fetch('https://buushido.ml/api/episode/'+props.id+'/')
-        .then(response => response.json())
-        .then(data => {
-            console.log('API CAllED')
-            console.log('les donnes recueillis sont : ', data)
-            setEpisodes(data)
-        })
-    }, [])
-    console.log('after api called : ', episodes)
+    // useEffect(()=>{
+    //     fetch('https://buushido.ml/api/episode/'+props.id+'/')
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         console.log('API CAllED')
+    //         // console.log('les donnes recueillis sont : ', data)
+    //         setEpisodes(data)
+    //     })
+    // }, [])
     function handleclick(x){
         let fake = [false, false, false]
         fake[x] = true
@@ -47,7 +46,7 @@ export default function Pages(props){
             <button onClick={()=>{handleclick(2)}} style={status[2] ? active : inactive}>Commentaires</button>
         </div>
     {/* <Detail_serie donne={data[0]} /> */}
-    <Episodes donne={episodes} serie={data[0].name} />
+    <Episodes donne={data[1]} serie={data[0].name} />
     {/* <Episodes donne={episodes.length > 0 ? episodes : data[1]} serie={data[0].name} /> */}
         </> 
     )
@@ -101,15 +100,20 @@ function Episodes(props){
         setWatching(request ? request : false)
     }
    
+    //let's find the last saison by checking the last episode on the list
+    // A better way to process this would be to check all episodes and just keep the last saison
     let last_saison = epi.slice(-1)
     last_saison = last_saison[0].saison
+    
+    
     // let's split the episodes bwtween the different saisons in an array
     let saison_split = []
     for (let i= 0 ; i< last_saison;i++){
         saison_split.push([])
     }
     epi.map(epis => {
-        saison_split[epis.saison -1].push(epis)
+        //since we know the array start at index 0, we'll substract one to the equivalent saison
+        saison_split[epis.saison - 1].push(epis)
     })
 
     // function to handle then user choose to filter episodes by saison
@@ -120,12 +124,12 @@ function Episodes(props){
     
     if (watching){
     return (
-        <section id="page_2">
+    <section id="page_2">
         <Dropdown_epi filter={filter_by_saison} saison={last_saison}/>
         <section id="episodes">
             {epi.map((epis, i) => {
                 return (
-                    <div className="epi" onClick={()=>{watch_request(epis.url)}} key={i}>
+                    <div className="epi" onClick={()=>{watch_request(epis)}} key={i}>
                     <iframe frameBorder={0} src={epis.url} style={{pointerEvents : 'none'}}/>
                     <div style={{paddingLeft : '1rem'}}>
                     <h3>{name}</h3>
@@ -135,17 +139,17 @@ function Episodes(props){
             )}
             )}
         </section>
-        <Watch_episode url={watching} cancel={watch_request} />
+        <Watch_episode epi={watching} cancel={watch_request} others={saison_split[watching.saison - 1]} />
 </section>
     )
     }else {
         return(
             <section id="page_2">
-        <Dropdown_epi filter={filter_by_saison} saison={last_saison}/>
-        <section id="episodes">
+            <Dropdown_epi filter={filter_by_saison} saison={last_saison}/>
+            <section id="episodes">
             {epi.map((epis, i) => {
                 return (
-                    <div className="epi" onClick={()=>{watch_request(epis.url)}} key={i}>
+                    <div className="epi" onClick={()=>{watch_request(epis)}} key={i}>
                     <iframe frameBorder={0} src={epis.url} style={{pointerEvents : 'none'}}/>
                     <div style={{paddingLeft : '1rem',}}>
                     <h3>{name}</h3>
@@ -154,44 +158,66 @@ function Episodes(props){
                 </div>
             )}
             )}
-        </section>
+            </section>
             </section>
         )
     }
 }
 
 
-export function Watch_episode(props){
-    let lien = props.url
+function Watch_episode(props){
+    // we will have an array with all the episodes of the actual saison 
+    const all_episodes = props.others
+
+    //we make a state with the actual episode
+    const [actual, setActual] = useState(props.epi)
+    // let lien = props.epi.url
+
+    function next(){
+        // we know that the episode number of actual we'll correspond to it's index -1 in the list so
+        // by just changing the index to +1 we get the next
+        setActual(all_episodes[parseInt(actual.episode)])
+    }
+    function precedent(){
+        //the index -2 for this case
+        setActual(all_episodes[parseInt(actual.episode) - 2])
+    }
     return (
         <>
-    <div id="watching">
+        <div id="watching">
             <h1 onClick={()=>{props.cancel(false)}} id="close"><i className="fa-regular fa-circle-xmark"></i></h1>
         <div>
-        <iframe src={lien} frameBorder={0} />
+        <iframe src={actual.url} frameBorder={0} allowFullScreen />
         <div style={{display : 'flex', justifyContent : 'center', height : '5vh',}}>
-            <button><h1>Precedent</h1></button>
-            <button><h1>Voir tout</h1></button>
-            <button><h1>Prochain</h1></button>
+            {parseInt(actual.episode) -1 === 0 ?  null : <button onClick={()=>{precedent()}}><h1>Precedent</h1></button>}
+            {/* <button><h1>Precedent</h1></button> */}
+            <button onClick={()=>{props.cancel(false)}}><h1>Voir tout</h1></button>
+            {parseInt(actual.episode) >= all_episodes.length ? null : <button onClick={()=>{next()}}><h1>Prochain</h1></button>}
+            {/* <button onClick={()=>{next()}}><h1>Prochain</h1></button> */}
         </div>
         </div>
-    </div>
+        </div>
         </>
     
     )
 }
 
 function Dropdown_epi(props){
+
+    //in order to display the options of saison selection
     let saison = [];
-    console.log('nombre de saison est : ', props.saison)
+    // console.log('nombre de saison est : ', props.saison)
     for (let i = 1 ; i < parseInt(props.saison) +1 ; i++){
         saison.push(i)
-        console.log('une fois')
     }
+
+    // a state for checking if under menu is being displayed
     const [etat, setEtat] = useState(false)
     function show(){
         setEtat(!etat)
     }
+
+    //check for the under menu
     if(etat){
         return (
             <>

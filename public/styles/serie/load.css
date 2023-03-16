@@ -1,0 +1,23 @@
+#genres h2:hover{
+    color : orange ;
+    text-shadow : 0 -40px 100px, 0 0 2px, 0 0 1em gold, 0 0 0.5em gold, 0 0 0.1em gold, 0 10px 3px #000;
+  }
+  .controle button:hover{
+    color: red;
+    scale: 1.0;
+  }
+  .option button:hover{
+    color: #470159;
+  }
+  .epi:hover{
+    border-color:  #f8a100 ;
+  }
+  #watching button:hover{scale : 0.9}
+  #close:hover{
+    rotate: 100deg;
+    color : red ;
+  }
+  #drop h2:hover{
+    color :red;
+    cursor: pointer;
+  }
