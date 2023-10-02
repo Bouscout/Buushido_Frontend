@@ -1,0 +1,14 @@
+---
+import MainLayout from "../layouts/main_layout.astro";
+import NavigationBar from "../layouts/navigation_bar.astro";
+import Watchliste from "../components/watchlist/watchlist";
+---
+
+<link rel="preload stylesheet" href="/styles/watch/main.css" as="style" type="text/css">
+
+
+<MainLayout>
+    <NavigationBar />
+    <Watchliste client:only/>
+</MainLayout>
+

@@ -11,7 +11,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position: fixed;
     z-index: 3;
     top: 50%;
     left: 50%;
@@ -22,22 +22,27 @@
     border-radius: 15px;
     background: #101010cb;
 
-}#inscription h2{font-size: 0.6rem; text-align: left;}
+}
+#inscription h2{font-size: 0.6rem; text-align: left;}
+#inscription label{
+    font-size: 20px !important;
+}
 #formulaire{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position: fixed;
     z-index: 3;
     top: 50%;
     left: 50%;
     translate: -50% -50%;
     width: 60vw;
-    height: 70vh;
+    height: 80vh;
     /* border: solid #f8a100; */
     border-radius: 15px;
     background: #101010cb;
+    border: solid ;
     /* background: url('Classical_Clouds_Vectors_01.svg') no-repeat -307px 0; */
 }
 #decoration {

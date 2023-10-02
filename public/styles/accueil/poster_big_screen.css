@@ -1,0 +1,102 @@
+#head{
+    display: grid;
+    margin-top: 76px;
+    color: white;
+    /* overflow-y: hidden; */
+    left: 0px;
+    width: 100%;
+    gap : 0px ;
+    top: 1.5vh;
+  
+    /* poster version 1 */
+    position: absolute;
+    grid-template-columns: auto auto auto auto auto;
+  
+    /* poster version 2 */
+    /* position: relative; */
+    /* border: solid red; */
+    /* grid-template-columns: repeat(5, 100vw); 
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;  */
+  
+    /* excample */
+  /*   
+    display: grid;
+    grid-template-columns: repeat(20, min-content);
+    gap: 4vmin;
+    width: 94%;
+    margin: 0 auto;
+    overflow-y: hidden;
+    overflow-x: scroll; */
+  
+    }#head::-webkit-scrollbar{
+      display: none; width: 0px;
+    }
+    .poster{
+      /* scroll-snap-align: start; */
+      /* animation: fade_in 2200ms ease-out 0s 1 both; */
+    height : 89vh ;
+    border-radius: 30px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-repeat: no-repeat;
+    /* background-size: 100% auto; */
+    background-size: auto 100%;
+  
+    /* put animation to 500 for old */
+    background-position: center;
+    -moz-transition: width 500ms ease-in-out;
+    -o-transition: width 500ms ease-in-out;
+    transition: width 500ms ease-in-out;
+  }
+  .info{
+    display: none;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-left: 2rem;
+    width: 50%;
+    height: 100%;
+    animation: visi 500ms linear 500ms 1 both;
+    
+  }.info h3{
+    font-size: 0.8rem;
+    font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;  
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 26.4px; 
+  }
+  .watch{
+    /* background-color: #141414; */
+    background: linear-gradient(to bottom right, #00093a,#310034, #360600) padding-box,
+    linear-gradient(to top right, #000c4e,#3d0042, #740072, #5e0b00) border-box;
+    /* background: linear-gradient(to bottom right, #000c4f,#420047, #620b00) padding-box,
+    linear-gradient(to top right, #5770ff,#8d0696, #c44bc1, #ff7c6b) border-box; */
+    border: 2px solid transparent;
+    box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+    /* text-shadow : 0 -40px 50px, 0 0 2px, 0 0 0.1rem purple, 0 0 0.5rem purple, 0 0 0.1rem purple, 0 10px 3px #000; */
+    color: #fff;
+    font-family: odachi;
+    /* font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; */
+    font-size: 3vmin;    
+    font-weight: 600;
+    outline: none;
+    border-radius: 10px;
+    padding: 5px 30px;
+    text-align: center;
+    transition: all 200ms;
+    -webkit-transition: -webkit-transform 200ms;
+    margin-left: 3rem ;
+    margin-bottom: 1rem;
+    /* animation: color_swap 2s linear 0s infinite alternate-reverse ; */
+  }
+
+  #all_onglets{
+    margin-top: 101vh;
+    /* margin-top: 1vh; */
+    margin-bottom: 10rem;
+    z-index: 1;
+  }

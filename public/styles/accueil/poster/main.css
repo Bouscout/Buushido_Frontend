@@ -1,0 +1,192 @@
+:root{
+    --hauteur : 95vh ;
+  }
+  
+  body{
+    background: #090909;
+    color: #fff;
+  }
+  
+  #head{
+    margin-top: 2vh;
+    width: 100%;
+    height: var(--hauteur);
+    background-position: center;
+    background-repeat: no-repeat;
+    /* background-size: auto 100%; */
+    background-size: 100% auto;
+    /* background: linear-gradient(to right, rgba(0, 0, 0, 0.899), rgba(0, 0, 0, 0.602)); */
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .info{
+    margin-top: 10vmax;
+    margin-left: 1vmax;
+    display: flex;
+    width: 40%;
+    flex-direction: column;
+    justify-content: flex-end;
+    /* border: solid red; */
+    animation: visi 500ms linear 500ms 1 both;
+
+  }.info h1{
+    font-size: 8vmin;
+    color : #fff ;
+  }
+  .info h3{
+    font-size: 3vmin;
+    font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;  
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 26.4px;
+    color: #d7d7d7;
+    }
+ 
+    #watch{
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      gap: 5vmax;
+      translate: -50% -50%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      /* border: solid orange; */
+      z-index: 3;
+
+    }
+    #watch button:nth-child(1){
+       /* background-color: #141414; */
+  background: linear-gradient(to bottom right, #000c4f,#420047, #620b00) padding-box,
+  linear-gradient(to top right, #5770ff,#8d0696, #c44bc1, #ff7c6b) border-box;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+  /* text-shadow : 0 -40px 50px, 0 0 2px, 0 0 0.1rem purple, 0 0 0.5rem purple, 0 0 0.1rem purple, 0 10px 3px #000; */
+  color: #fff;
+  font-family: odachi;
+  /* font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; */
+  font-size: 2.5vmin;    
+  font-weight: 600;
+  outline: none;
+  padding: 0 4vmin;
+  border-radius: 10px;
+  line-height: 10%;
+  cursor: pointer;  
+  text-align: center;
+  transition: all 200ms;
+  -webkit-transition: -webkit-transform 200ms;
+    }
+
+    #watch button:nth-child(2){
+      cursor: pointer;
+      color : white ;
+      /* background: linear-gradient(to right, #14141481, #141414) padding-box,
+      linear-gradient(to top right, #5770ff,#8d0696, #c44bc1, #ff7c6b) border-box;
+      border: 2px solid transparent;
+      box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75); */
+      /* width: 4vmin;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%; */
+
+    }#watch button:hover{
+      color : purple ;
+    }
+  
+  .poster{
+    width: 18vmax;
+    max-width: 240px;
+    aspect-ratio: 10 / 16;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    transition: all 500ms;
+    z-index: 2;
+    border-radius: 10px;
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  }
+ 
+  .smooth{
+    z-index: 3;
+   position: absolute;
+    top: 50%;
+    left: 50%; 
+    translate: -50% -50%;
+    transition: all 1000ms;
+    filter: brightness(60%);
+    background-size: 100% auto;
+    /* background-size: auto 100%; */
+    width: 15vw;
+    aspect-ratio: 10 / 16;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* animation: extend 1000ms linear 0s 1 both; */
+    /* animation: fade_in 1000ms linear 0s 1 both; */
+  }
+  
+  @keyframes slide_in {
+    from {
+      transform : translateX(150px) ;
+    }
+    to{
+      transform: translateX(0px);
+    }
+  }
+  
+  @keyframes extend {
+    from{
+      width: 15vw;
+      aspect-ratio: 10 / 16;
+    }
+    to{
+      width: 100vw;
+      aspect-ratio: none;
+    background-size: 100% auto;
+  
+    }
+  }
+  @keyframes disparait {
+      from {
+        opacity: 1;
+      }
+      95%{opacity: 1;}
+      100% { opacity: 0;}
+  }
+  @keyframes fade_in {
+    from {opacity: 0; }
+    95%{opacity: 0; }
+    100% {opacity: 1;}
+  }
+  @keyframes visi {
+    from {opacity: 0;
+          transform: translateY(70px);
+    }
+    /* 95% {opacity: 0; 
+        transform: translateY(0);
+    } */
+    100%{
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @media screen and (max-width : 800px) {
+      #head{
+        background-size: auto 100%;
+        border: solid blue;
+      }
+      .smooth{
+        background-size: auto 100%;
+      }
+      .poster{
+        top: 70%;
+      }
+  }
+  

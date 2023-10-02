@@ -1,0 +1,68 @@
+#agenda{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5vmax;
+}
+
+#title{
+    width: 100%;
+    text-align: center;
+    margin-top: 15vmin;
+    margin-bottom: 15vmin;
+    color: #fff;
+    font-size: 10vmin;
+    font-size: 10vmin;
+    color: transparent;
+  background: linear-gradient(to right,  #5770ff,#8d0696, #c44bc1, #ff7c6b, #f8a100 ); 
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 -10px 40px, 0 0 2px, 0 0 1em rgba(199, 21, 134, 0.506), 0 0 0.5em rgba(199, 21, 134, 0.506), 0 0 0.1em rgba(199, 21, 134, 0.506), 
+  0 5px 3px #00000056
+  ;
+}
+
+.jour{
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 4vmin;
+    border: solid black;
+    background: #121212;
+    border-radius: 10px;
+}
+.jour h1{
+    margin-left: 4vmax;
+    color: transparent;
+  background: linear-gradient(to right,  mediumvioletred ,#8d0696, #c44bc1, #ff7c6b, #f8a100 ); 
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 100%;
+}
+
+.series{
+    /* display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4vmin; */
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(215px, 18vw));
+    gap: 5vmin;
+    justify-content: center;
+    justify-items: center;
+}
+.series h2{
+    line-height: 90%;
+}
+
+
+@media screen and (max-width : 700px) {
+    #agenda {
+        width: 100%;
+    }
+}

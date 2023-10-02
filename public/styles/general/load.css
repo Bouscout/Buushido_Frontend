@@ -5,13 +5,23 @@
   }
   html{
       font-size: 30px;
-    max-width: 100%;
+    max-width: 100vw;
+    width: 100vw;
+    z-index: -3;
+    margin: 0px;
+    padding: 0px;
     overflow-x: hidden; 
-    background-color: #090909; 
+    background-color: var(--full-black); 
+    /* background-color: rgb(25, 26, 28); */
+
     -webkit-tap-highlight-color: transparent;
     font-family: odachi;
   font-style: normal;
   font-variant: normal;
   font-weight: 700;
   line-height: 26.4px; 
+  }
+
+  @media screen {
+    
   }

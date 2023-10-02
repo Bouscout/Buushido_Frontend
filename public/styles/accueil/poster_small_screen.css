@@ -1,0 +1,130 @@
+:root{
+    --distance-from-top : 8vmax;
+}
+
+
+
+#head{
+    width: 100%;
+    height: 42vh;
+    display: grid;
+    grid-template-columns: repeat(5, 100%);
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    color : #0808084e;
+    scroll-behavior: instant;
+
+    transition: all 200ms;
+    overflow-y: hidden;
+
+
+}#head::-webkit-scrollbar{display: none; visibility: hidden; width: 0px;}
+
+
+.surface{
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+   
+    position: relative;
+    scroll-snap-align: start;
+    
+}
+
+.poster{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    /* filter: blur(4px); */
+    -webkit-backdrop-filter: blur(5px) brightness(50%);
+    backdrop-filter: blur(5px) brightness(50%);
+    display: grid;
+    grid-template-columns: 40% 60%;
+    /* justify-content: space-evenly; */
+    justify-content: center;
+    /* align-items: flex-start; */
+    /* background: linear-gradient(to top, rgb(25, 26, 28) 64px, transparent 0); */
+    /* background-image: linear-gradient(to top, rgb(25, 26, 28) 100px, transparent 0); */
+    /* background: #000; */
+    /* align-items: center; */
+    gap: 2px;
+
+
+}
+.poster img{
+    border-radius: 9px;
+    margin-top: var(--distance-from-top);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Open+Sans:wght@500&family=Poppins:wght@700&display=swap');
+
+
+
+.poster-details{
+    margin-top: calc(var(--distance-from-top) - 1.5vmax);
+    width: 100%;
+    font-size: 3vmin;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color : #fff ;
+    font-family: 'Poppins', sans-serif;
+    margin-left: -0.7em;
+}
+
+.poster h2{
+    margin-top: 1.3em;
+    font-size: 1.5em;
+    line-height: 100%;
+    font-weight: 750;
+}
+
+.poster-details h3{
+    font-size: 0.7em;
+    font-weight: 700;
+    line-height: 0.1em;
+    /* background-color: #282828; */
+    /* padding: 0 1.1em; */
+    border-radius: 0.75em;
+}
+
+.poster-details h4{
+    font-weight: 500;
+    color: #ffffffc0;
+    width: 98%;
+    margin: 0.1em auto;
+}
+.watch{
+    width: 100%;
+    background: linear-gradient(to  right, #101010, #101010 ) padding-box,
+    linear-gradient(to top right, #000c4e,#3d0042, #740072, #5e0b00) border-box ;
+    /* linear-gradient(to top right, #8b4800,#9b5a00, #6b1200, #5e0b00) border-box ; */
+    border: 1px solid transparent ;
+
+    border-radius: 0.5em;
+
+    cursor: pointer; 
+}
+.watch h2{
+    text-align: center;
+    font-size: 1em;
+    color: white;
+}
+.watch h2:hover{ color:#3d0042;}
+
+
+@keyframes fade-in {
+    from{
+        opacity: 0;
+        transform: scale(0.97);
+        filter: brightness(30%);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+        filter: brightness(100%);
+    }
+}

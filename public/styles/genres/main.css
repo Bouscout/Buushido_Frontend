@@ -1,3 +1,6 @@
+:root{
+    --size : 14.2vw;
+}
 html{
     overflow-x: hidden;
     width : 100vw ;
@@ -10,11 +13,11 @@ body{
 }body::-webkit-scrollbar{display: none; visibility: hidden;}
 
 .contenu img{
-    width: 15.5vw;
-    height: auto;
+    width: var(--size);
     aspect-ratio: 10 / 16;
-    min-width: 117px;
+    min-width: 110px;
     transition: all 200ms;
+    animation: fade_in 1700ms ease-out 0s 1 both;
 }
 
 #header{
@@ -41,17 +44,21 @@ body{
     width: 100%;
     display: grid;
     z-index: 1;
-    grid-template-columns: repeat(auto-fit, minmax(117px, 15.5vw));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 15vw));
+    gap: 1.5rem;
     justify-content: center;
     margin-bottom: 10rem;
 }
 .contenu{
     overflow: hidden;
     z-index: 1;
+    width: var(--size);
+    min-width: 110px;
     aspect-ratio: 10 / 16;
     filter: saturate(110%);
     border-radius: 10px;
-    box-shadow: inset 30px 0 30px #f8a100;
+    /* box-shadow: inset 30px 0 30px #f8a100; */
     transition: all 200ms;
+    animation: smooth 1700ms ease-out 0s 1 both;
+
 }

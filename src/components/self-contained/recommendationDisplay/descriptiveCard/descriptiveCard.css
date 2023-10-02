@@ -1,0 +1,79 @@
+.descriptive-card{
+    color: white;
+    font-size: clamp(14px, 2vmin, 17px);
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    /* background-color: #2f2f2f; */
+    background-color: var(--dark-gray);
+    transition: all 200ms;
+    overflow: hidden;
+    margin: 0.5em 0;
+    border-radius: 0.3em;
+    width: 45vw;
+    height: 380px;
+    max-width: 270px;
+
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+
+.descriptive-card h2{
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: 700;
+    line-height: 1.5em;
+    height: 1em;
+    padding: 0;
+    margin: 0.3em 0;
+    text-align: left;
+    background: transparent;
+  }
+
+.descriptive-card h4{
+    color: var(--accent-white);
+    font-size: 0.8em;
+    margin: 0.3em 0;
+    margin-right: 0.7em;
+    font-weight: 500;
+    line-height: 1em;
+}
+
+.descriptive-card p, pre{
+    color: var(--light-white);
+    font-weight: 400;
+    margin-top: 7px;
+    /* font-size: 1.7em; */
+    line-height: 1.3em;
+  }
+
+.descriptive-card p{
+    font-size: 0.85em;
+    color: var(--light-white);
+    height: 50% ;
+    overflow: hidden;
+}
+
+.descriptive-card .icon{
+    justify-content: center;
+    gap: 0.4em;
+    font-size: 0.7em;
+    color: var(--light-white);
+    padding: 0.15em 0.4em;
+    border-radius: 0.3em;
+    background-color: var(--medium-black);
+    margin-bottom: 0.2em;
+    cursor: pointer;
+}
+
+.descriptive-card .icon:hover{
+    background-color: var(--light-gray);
+}
+
+@media screen and (max-width : 800px) {
+    .descriptive-card .icon{
+        font-size: 0.55em;
+    }
+    .descriptive-card p{font-size: 1em;}
+    .descriptive-card h4{font-size: 0.9em;}
+  } 

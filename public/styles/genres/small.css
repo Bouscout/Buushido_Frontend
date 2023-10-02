@@ -2,17 +2,12 @@
     #heading{
         font-size: 4.4rem;
         line-height: 120%;
-    }.contenu{
-        box-shadow: inset 10px 0 10px #f8a100;
-
+    }#conteneur{
+        gap : 0.5rem ;
     }
 }
 @media screen and (max-width : 400px) {
-    img{
-        min-width: 98px !important;
-    }#conteneur{
-        grid-template-columns: repeat(auto-fit, minmax(98px, 15.5vw));
-    }#heading{
+  #heading{
         font-size: 3.0rem;
     }
 }

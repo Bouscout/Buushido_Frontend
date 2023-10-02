@@ -1,0 +1,229 @@
+body {
+    background: #111213 ;
+    position: static;
+    
+    /* background: linear-gradient(180deg, blue ,red) */
+    /* background-image: conic-gradient(
+        from 0deg at 50% 50%,
+        blue, purple, purple, blue
+    );
+    background-blend-mode: multiply ; */
+}
+#app{
+    /* scroll-snap-type: y mandatory; */
+    scroll-behavior: smooth;
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+    position: relative;
+    overflow-x: hidden;
+}
+img{
+
+    transition: all 300ms;
+    filter: contrast(110%) ; 
+}
+img:hover{
+    scale: 0.95 ;
+}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Open+Sans:wght@500&display=swap');
+#app h1{
+    text-rendering: optimizeLegibility;
+    font-size: 9vmin;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    /* font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;  */
+    /* font-family: 'Open Sans', sans-serif; */
+  /* font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; */
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 100%;
+  color: transparent;
+background: linear-gradient(180deg,rgb(255, 255, 255), rgba(255, 255, 255, 0.75) ); 
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent; 
+}
+h2{
+    text-align: center;
+    font-weight: 400;
+    font-size: 18px;
+    font-size: clamp(18px, 20px, 3vmin);
+    color: #888;
+    font-family: 'Inter', sans-serif;
+    
+}
+#app h3{
+    text-align: center;
+    font-weight: 400;
+    font-size: clamp(18px, 20px, 3vmin);
+    color: #888;
+    font-family: 'Inter', sans-serif;
+}
+
+#saison{
+    animation: color_swap 3s linear 0s infinite alternate-reverse ;
+    color: transparent;
+    text-shadow: none;
+  background: linear-gradient(90deg,#7929c8, #ff0080 ); 
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+section{
+    display: flex;
+    flex-direction: column;
+    row-gap: 2vmin;
+    width: 90vw;
+    margin: 30vmin auto;   
+    padding: 4vmax 0;
+    scroll-snap-align: center;
+    position: relative;
+}.day-section h2{
+    text-align: left;
+    margin-left: 4vmin;
+    font-weight: 600;
+    font-size: 6vmin;
+    /* font-size: 10vmin !important; */
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    animation: pop-out 500ms linear 0s 1 both;
+}
+.container{
+    display: grid;
+    width: 100%;
+    aspect-ratio: 16 / 6;
+    /* height: 100px; */
+    /* border: solid purple; */
+    gap: 2vmin;
+    row-gap: 5vmin;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 16.3vw));
+    /* overflow-y: scroll; */
+    overflow: hidden;
+    transition: scroll-behavior 0.3s ease-in-out;
+    /* margin: 5vmin 0; */
+
+}
+section img{
+    opacity: 0;
+    animation: appear 4.5s linear 0s 1 both;
+}
+section h3{
+    /* animation: appear 4.5s linear 0s infinite alternate-reverse; */
+
+}
+.next{
+    position: absolute;
+    display: grid;
+    place-items: center;
+    z-index: 3;
+    left: 50%;
+    bottom: -5%;
+    translate: -50% -50%;
+    text-align: center;
+}.next h2{
+    font-size: 5.5vmin;
+    border: none;
+    color: #888;
+    aspect-ratio: 1;
+    outline: none;
+    animation: appear 2s linear 0s 1 both;
+}
+
+.tracker{
+    position: sticky;
+    z-index: 20;
+    position: -webkit-sticky;
+     top: 11.7%;
+    left: 0; 
+    /* border: solid red; */
+    width: 100%;
+    height: 4px;
+}.tracker h3{
+    color: #fff;
+}
+.progres{
+    height: 1px;
+    border: 0;
+    border-top: 4px solid transparent;
+    border-width: 5px;
+    background: linear-gradient(to top right, #011dba,#67006e, #5e115c, #9b1200) border-box;
+    color: purple;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    transform: scaleX(0);
+    transition: transform 1000ms ease;
+    transform-origin: left;
+}
+.tracker:hover .progres{
+    transform: scale(1);
+}
+.stamp{
+    position: absolute;
+    top: 0;
+    translate : -50% -50%;
+    width: 4vmax;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: solid purple;
+    background-color: #111213;
+    cursor: pointer;
+}
+@keyframes emerging {
+    from {
+        box-shadow: none;
+    }
+    to {
+        box-shadow: 0 0 2rem rgb(0 0 0 / 1);
+    }
+}
+
+@keyframes color_swap {
+    from {
+        filter: grayscale(0%);
+        
+    }to{
+        filter: grayscale(50%);
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+     }35%{
+        opacity: 0;
+     }
+     100% {
+        opacity: 1;
+    }
+}
+@keyframes pop-out{
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+
+    }
+}
+
+@media screen and (max-width : 800px) {
+    section{
+        aspect-ratio: 10 /16;
+    }
+    .container{
+        aspect-ratio: 8 / 10;
+    }.next h2{
+        font-size: 8vmin;
+    }
+    .stamp{    line-height: 10%;
+    }.stamp h3{
+        font-size: 3vmin;
+    }
+  
+}

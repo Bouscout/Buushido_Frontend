@@ -1,23 +1,204 @@
-#genres h2:hover{
-    color : orange ;
-    text-shadow : 0 -40px 100px, 0 0 2px, 0 0 1em gold, 0 0 0.5em gold, 0 0 0.1em gold, 0 10px 3px #000;
+#watching button{
+  font-size: 1.2vmin;
+  display: flex;
+  align-items: center;
+  background: var(--button_back);
+  color: #fff;
+  white-space: nowrap;
+  padding: 0 1rem;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  outline: none;
+  transition: all 200ms;
+}
+#close {
+
+  text-align: left;
+  /* border: solid red; */
+  margin-left: 16vmin;
+  margin-top: 8vmax;
+  /* line-height: 50%; */
+  margin-bottom: 0;
+  /* overflow-x: hidden; */
+  width: 100%;
+  z-index: 5;
+  font-size: 1.5rem;
+  color: #f8a100;
+  transition: all 800ms;
+  cursor: pointer;
+}
+.drop{
+  position: relative;
+  cursor: pointer;
+  width: 45vmin;
+  text-align: center;
+  margin: 1rem;
+  padding: 0.1rem;
+  color: #f8a100;
+  /* background: linear-gradient(#181818, #181818) padding-box,
+  linear-gradient(to top right, #5770ff,#8d0696, #c44bc1, #ff7c6b) border-box;
+  border: 3px solid transparent; */
+  background: transparent;
+  border: 1px solid #fff;
+  z-index: 3;
+  border-radius: 15px;
+  transition: all 1s;
+}
+.drop h1{
+  font-size: 4vmin;
+  /* font-family:  Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; */
+  font-family: 'Poppins', sans-serif;
+
+  color: #fff;
+  /* background: linear-gradient(to right, #5770ff, #c44bc1 ); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;  */
+}
+#genres-serie h2:hover{
+  /* color : purple ; */
+  text-shadow : 0 -4px 10px, 0 0 2px, 0 0 1em pink, 0 0 0.5em pink, 0 0 0.1em pink;
+}
+
+.controle button:hover strong{
+  color: purple;
+  scale: 1.0;
+}
+.option button:hover{
+  /* color : #f8a100; */
+border-top:1px solid rgb(138, 7, 7);
+}
+.epi:hover{
+  border-bottom: solid #f8a100 ;
+}
+#watching button:hover{scale : 0.9}
+#close:hover{
+  /* rotate: 100deg; */
+  color : red ;
+}
+.drop h2{color : #fff ;}
+.drop h2:hover{
+  color :red;
+  cursor: pointer;
+}
+
+.drop h3:hover{
+  color :rgb(157, 0, 97);
+}
+
+.drop:hover{
+  background: linear-gradient(to  right, #090909, #090909 ) padding-box,
+  linear-gradient(to bottom left, #000c4e,#3d0042, #740072, #5e0b00) border-box ;
+  
+  border: 1px solid transparent ;
+}
+
+.drop h3{
+  transition: all 300ms;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(0.6em, 0.7em, 16px);
+}
+
+
+#buush{
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--button_back);
+  color: #fff;
+  border-radius: 8px;
+  font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif; 
+  font-size: 2vmin;
+  text-align: center;
+  padding: 0 1rem;
+  cursor: pointer;
+}#buush select{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  /* background: transparent; */
+}
+
+
+
+#pop-up{
+  position: fixed;
+  z-index: 4;
+  top: 0; left: 0;
+  width: 100%; height: 35vmin;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  background: rgba(0, 0, 0, 0.692);
+  backdrop-filter: blur(8px);
+  color : #fff ;
+}
+#pop-up hr{
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 4px solid transparent;
+  /* border-top: 4px solid rgba(194, 1, 162, 0.745); */
+  background: linear-gradient(to top right, #011dba,#67006e, #5e115c, #9b1200) border-box;
+  /* background-color: purple; */
+  color: purple;
+  margin: 0;
+  padding: 0;
+  width: 0%;
+  animation: loading 7.5s linear 0s 1 forwards ;
+}
+#pop-up h1{
+  font-size: 5vmin; text-align: center;
+  font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif; 
+  font-weight: 700; font-size: 4vmin;
+}
+#pop-up button h2{
+  font-size: 3vmin; line-height: 40%; color: #fff;
+}
+
+#pop-up button{
+  background: #161616;
+  outline: none;
+  border: none;
+  padding: 1vmin 4vmin;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: scale 200ms;
+}
+#pop-up button:hover, h2{
+  scale: 0.9;
+  color: #f8a100;
+}
+#pop-up button:nth-child(1){
+  background: linear-gradient(to bottom right,rgb(103, 0, 0), rgb(53, 11, 0)) padding-box,
+  linear-gradient(to top right, #5b70e4a8,#36003a, #a60ba18d, #4b0900) border-box;
+  border: 3px solid transparent;
+}
+#pop-up button:nth-child(2){
+  border: 2px solid transparent;
+  background: linear-gradient(#181818, #181818) padding-box,
+  linear-gradient(to top right, #021377,#36003a, #4a0048, #620c01) border-box;
+  border: 3px solid transparent;
+}
+
+@keyframes loading {
+  from {
+    opacity: 0;
+    width : 0%
+  }10%{
+    opacity: 1;
   }
-  .controle button:hover{
-    color: red;
-    scale: 1.0;
+  to {width: 100%;}
+}
+@keyframes slider {
+  from {transform: translateY(-15vmin);}
+  to {transform: translateY(0px);}
+}
+
+@media screen and (max-width : 800px) {
+  #pop-up{
+    height: 23vmax;
   }
-  .option button:hover{
-    color: #470159;
-  }
-  .epi:hover{
-    border-color:  #f8a100 ;
-  }
-  #watching button:hover{scale : 0.9}
-  #close:hover{
-    rotate: 100deg;
-    color : red ;
-  }
-  #drop h2:hover{
-    color :red;
-    cursor: pointer;
   }

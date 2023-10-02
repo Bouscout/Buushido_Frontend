@@ -1,13 +1,29 @@
 // import './voir.css'
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Loader_numero_uno from "../self-contained/load_test";
+const BASE_URL = "https://buushido.com"
 
-export default function Voir_tout(props){
+export default function Voir_tout(){
     //getting the data from the api
-    const couplet = props.data
+    const [couplet, setcouplet] = useState([])
+    // const couplet = props.data
     const indexes = 'abcdefghijklmnopqrstuvwxyz'.split('');
-    return (
-        <>
+
+    useEffect(()=>{
+        fetch(`${BASE_URL}/api/all/`)
+        .then(response => response.json())
+        .then(data => {
+            setcouplet(data)
+        },(error)=>{
+            console.log('error : ', error)
+        }
+        )
+    }, [])
+    if(couplet.length > 0){
+
+        return (
+            <>
         <All_index data={indexes} />
         <div id='contenu-tout'>
         {couplet.map((duo, i) => {
@@ -18,6 +34,30 @@ export default function Voir_tout(props){
             </div>
         </>
     )
+
+}else{
+    let style = {
+        position : 'fixed',
+        zIndex : '2',
+        display : 'flex',
+        justifyContent : 'center',
+        alignItems : 'center',
+      textAlign : 'center',
+      top : '50%',
+      left : '50%',
+      width : '80vw',
+      height : '100vh',
+      translate : '-50% -50%'
+        }
+        return(
+            <>
+            <div style={{
+                margin : '120vh 0',
+            }}></div>
+            <Loader_numero_uno style={style} />
+            </>
+            ) 
+}
 
 }
 

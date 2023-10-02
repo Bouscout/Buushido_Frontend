@@ -1,36 +1,84 @@
 ---
 import MainLayout from "../layouts/main_layout.astro";
-import Paralax from "../components/test_features/paralax";
+import NavigationBar from "../layouts/navigation_bar.astro";
+import The_agenda from "../components/agenda/agenda";
+import Footer from "../layouts/footer.astro";
+const BASE_URL = "https://buushido.com"
 const pos = {
     top : '50%',
     left : '50%',
     translate : '-50% -50%',
     position : 'fixed',
 }
----
-<!-- <style>
-    div{
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        translate : -50% -50%
-    }
-</style> -->
-<link rel="preload stylesheet" href="/styles/general/test/main_test.css" as="style" type="text/css">	
 
-<style>
-    h1{
-        margin-bottom: 30px;
-        font-size: 50px;
-        text-align: center;
-    }
-</style>
+let lundi = [
+    [26, 'Vinland Saga Saison 2'], [ 246, 'I Got a cheat skill... saison 1'], [ 185, 'Dead Mount Death Play'],
+    [262, 'Kuma'], [260, 'Insomnia'], [283, 'Kizuna']
+]
+let mardi = [
+    [186, 'Skip to Loafer'], [284, 'marginal']
+]
+
+let mercredi = [
+    [171, 'Oshi No Ko'], [257, 'Kami'], [291, 'Xy'], [290, 'princesse']
+]
+
+let jeudi = [
+    [125, 'Dr Stone saison 3'], [60, 'Konosuba Explosion'], [63, 'Ranking of King saison 2'], [85, 'Magus'],
+    [213, 'Legend'], [286, 'yuri']
+]
+
+let vendredi = [
+    [106, 'Tonikaku Kawai'], [248, 'Mahou Shojo Magical Destroyers'], [212, 'Mashle Muscle and Magic'],
+    [263, "elf"], [287, 'Rokudo'], [288, 'Cafe'], [294, 'sister']
+]
+
+let samedi = [
+    [169, "Hell's Paradise"], [121, "Eden's Zero saison 2"], [247, 'My love story with Yamada-kun lvl999'], 
+    [184, 'Heavenly Delusion'],[258, 'Isekai Shoukan'], [255, 'Boku no'], [289, 'galaxy']
+]
+
+let dimanche = [
+    [249, 'One Piece'], [40, 'Demon Slayer saison 3'], [218, 'Mobile Suit Gundam : witch from mercury part 2'],
+    [256, 'My Home'], [261, 'Aristot'], [292, 'ami']
+]
+function make_order(day){
+    let order = ''
+    day.forEach(element => {
+        let id = element[0]
+        order += id + '|'
+    });
+    order += '<end>'
+    return order
+    
+}
+
+let monday = await fetch(`${BASE_URL}/api/liste/${make_order(lundi)}/`).then(response=>response.json())
+let tuesday = await fetch(`${BASE_URL}/api/liste/${make_order(mardi)}/`).then(response=>response.json())
+let wedns = await fetch(`${BASE_URL}/api/liste/${make_order(mercredi)}/`).then(response=>response.json())
+let thurs = await fetch(`${BASE_URL}/api/liste/${make_order(jeudi)}/`).then(response=>response.json())
+let frid = await fetch(`${BASE_URL}/api/liste/${make_order(vendredi)}/`).then(response=>response.json())
+let satur = await fetch(`${BASE_URL}/api/liste/${make_order(samedi)}/`).then(response=>response.json())
+let sunday = await fetch(`${BASE_URL}/api/liste/${make_order(dimanche)}/`).then(response=>response.json())
+
+// console.log(monday)
+
+---
+<link rel="preload stylesheet" href="/styles/agenda/main.css" as="style" type="text/css">
+
+
 <MainLayout>
-    <!-- <Nuage_9 style={pos} /> -->
-    <h1>On va faire un test</h1>
-    <div>
-        <Paralax client:visible/>
-        <!-- <h1>This page is not ready yet</h1> -->
-    </div>    
-    <!-- <Loader_numero_uno /> -->
+    <NavigationBar />
+    <The_agenda 
+    lundi={monday}
+    mardi={tuesday}
+    mercredi={wedns}
+    jeudi={thurs}
+    vendredi={frid}
+    samedi={satur}
+    dimanche={sunday}
+    />
+    
+    <Footer />
+    <!-- <New_poster  client:load/> -->
 </MainLayout>

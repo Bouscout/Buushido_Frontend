@@ -1,32 +1,146 @@
+
+#hidden-dropdown{
+    position: fixed;
+    z-index: 3;
+    top : 0 ;
+    left: 1px;
+    width: 100%;
+    /* width: 75vw; */
+    height: 100vh;
+    background: #16161696;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 3px solid rgba(128, 0, 128, 0.351);
+    border-radius: 5px;
+    color: white;
+    animation: slide-in 200ms linear 0s both;
+    overflow-y: scroll;
+}
+#hidden-dropdown h1{
+    font-size: 50px;
+    /* border-bottom: solid purple; */
+    width: 70%;
+    padding-top: 40px;
+    font-family: odachi;
+    text-shadow : 0 -4px 10px, 0 0 2px, 0 0 0.1rem #f8a100, 0 0 0.5rem #f8a100, 0 0 0.1rem #f8a100;
+}#hidden-dropdown h2{
+    font-size: 20px; text-align: left; width: 70%;
+    cursor: pointer;
+}
+
+#hidden-dropdown a{
+    text-align: left;
+    width: 70%;
+}#hidden-dropdown #social{
+    width: 70%;
+    text-align: center;
+    /* font-size: 14px; */
+    /* animation: glasseffect 500ms linear 0s forwards forwards; */
+}
+/* 
+@keyframes glasseffect {
+    from{
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
+    }to{
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+} */
+
 @media screen and (max-width : 800px) {
-    #navbar{
-        font-size: 12px;
+    #hidden-dropdown #genres{
         width: 100%;
+        animation: slide-in 200ms linear 0s both;
     }
-    #navbar a{
-        padding: 0 17px;
+    #hidden-menu{
+        display: block; cursor: pointer; 
+        z-index: 3;
     }
-    /* #dropdown-content{right: 3px;} */
-    #dropdown-content{
-        width: 100%;
-        gap: 0px;
+    #navbar-left-side{
+        justify-content: space-evenly;
+        width: 35%;
     }
-    #dropdown-content a{
-        font-size: 18px;
-        color : #f8a100 ;
-        margin: 20px 0;
+    .navbar-main{
+        width: 65%;
+    }.navbar-main-small{
+        width: 30%;
     }
-    
-    .small{
+    .navbar-extra{display: none;}
+    .small {
         display: none;
-    }
-    #icon-text{
-        display: none;
-    }#icon-image{
-        left: -5%;
-        top: -45%;
-    }
+    }#logo h3{display: none;}
     #logo{
-        width: 10px;
+        width: 50%;
     }
+    /* #s_bar{width: 50px;} */
+    #resultat{
+        width: 97vw !important;
+        font-size: 14px;
+    }.search-genre{
+        /* padding: 0.5rem 0.3rem;
+        margin : 0 0.2rem ; */
+        padding: 0rem 0rem;
+        margin : 0 0rem ;
+        }
+    #search-input label{left : 20% ; }
+
+    .details-search h2{
+        font-size: 18px;
+    }
+    .search-compact {
+        gap: 0.3rem;
+        margin-left: 0.2rem;
+    }
+    input[type='text'],
+input[type='number'],
+textarea {
+  font-size: 16px;
+}
+#genres{
+    margin-left: 8px;
+    padding-top: 0px !important;
+}
+#genres a{
+    padding: 9px;
+    font-size: 16px;
+    text-align: center;
+    color: #fee;
+    white-space: nowrap;
+    /* text-shadow : 0 -4px 15px, 0 0 2px, 0 0 0.1rem white, 0 0 5px white, 0 0 0.1rem white; */
+}    
+#social h1{
+    text-shadow: none;
+    font-size: 7vmin;
+}.search-compact{
+    margin-left: 0.1rem;
+    width: 90vw;
+    gap: 6px !important;
+}
+/* .details-search{
+    max-width: 50px !important;
+} */
+.details-search h2{
+    font-size: 16px;
+    line-height: 150%;
+}
+.details-search h3{
+    font-size: 12px !important;
+}
+#result-closer{
+    left: 8% !important;
+}
+
+}
+@media screen and (max-width : 400px) {
+    .search-genre{
+    padding: 0.5rem 0.3rem;
+    margin : 0 0.2rem ;
+    }
+    input[type='text'],
+input[type='number'],
+textarea {
+  font-size: 16px;
+}
 }

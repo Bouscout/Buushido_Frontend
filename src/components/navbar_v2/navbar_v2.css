@@ -1,0 +1,176 @@
+nav{
+    display: flex;
+    /* justify-content: space-between; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    align-items: center;
+    z-index: 5;
+    width: 100%;
+    /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0.365) 0% 70%, transparent); */
+    background: var(--dark-blue);
+    /* background: transparent; */
+    /* background-color: gray; */
+    /* color : rgb(0, 0, 0) ; */
+    color: #818181;
+    /* font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;  */
+  /* font-size: 2vmin; */
+  font-size: clamp(15px, 2vmin, 17px);
+  /* font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; */
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 26.4px;  
+  /* margin-top: -10px; */
+  margin-bottom: 0.1em 0;
+    border-bottom: 1px solid purple ;
+  height: 70px;
+
+}
+
+
+nav a{
+    text-decoration: none;
+    color:  #fff;
+}
+
+nav h2{
+    background-color: var(--light-gray);
+    color:  #fff;
+    font-size: 1em;
+    font-weight: 700;
+    margin: 0 1em;
+    padding: 0.2em 0.4em;
+    border-radius: 0.2em;
+
+    cursor: pointer;
+}
+
+
+/* seach bar styles */
+#search-bar{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--light-gray);
+    transition: all 200ms;
+    border-radius: 0.2em;
+    color: #fff;
+    font-weight: 450;
+    padding: 0.2em 0.4em;
+}
+#search-bar i{
+    font-size: 1em;
+}
+#search-bar input{
+    position: absolute;
+    inset: 0;
+    z-index: 8;
+    /* visibility: hidden; */
+    opacity: 0;
+    border: solid purple;
+}
+
+#search-bar section{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    color : #f82100 ;
+    text-decoration: none;
+    opacity: 1 !important;
+    height: 85vh;
+    gap: 1em;
+    /* top: 54%;
+    left: 50%; */
+    top: 104%;
+    left: 0;
+    /* translate : -50% -50%; */
+    /* width: 70vw; */
+    width: 100%;
+    background: #111111;
+    border-radius: 16px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#search-bar section::-webkit-scrollbar {
+    display: none; visibility: hidden;
+}
+
+.side-menu{
+    position: fixed;
+    width: 20vmax;
+    top: 0;
+    height: 100vh;
+    background: var(--full-black);
+    display: flex;
+    flex-direction: column;
+    z-index: 8;
+}
+.side-menu h2{
+    background: var(--dark-blue);
+}
+
+.side-menu section{
+    width: 15vmax;
+    background: var(--dark-blue);
+    border: solid var(--dark-gray);
+    border-radius: 0.5em;
+    position: absolute;
+    left: 20vmax;
+}
+
+.side-menu h2:hover{
+    color: var(--accent-orange);
+}
+
+
+@media screen and (max-width : 800px) {
+    .icon span{
+        display: none;
+    }
+    #search-bar i, span, h3{
+        font-size: 1.4em;
+    }
+
+    nav h2{
+        font-size: 1.4em;
+        margin: 0 0.2em;
+        padding: 0.2em 0.3em;
+        /* animation: slide-in 300ms linear 0s 1 both; */
+    }
+
+    .side-menu{
+        width: 35vmax ;
+        font-size: 1em;
+    }
+    .side-menu section{
+        left: 30vmax;
+    }
+    .side-menu h2{
+        font-size: clamp(13px, 1em, 15px);
+    }
+    /* .side-menu section h2{
+        font-size: 1em;
+    }
+    .side-menu a h2{
+        font-size: 1em;
+    } */
+
+}
+
+@keyframes slide-right {
+    from {left: -10vw;}
+    to {left: 0px;    }
+}
+@keyframes slide-left {
+    from {right: -10vw;}
+    to {right: 0px;   }
+}
+
+
+
+/* box-shadow: 0 0 24px -8px var(--main-color); */

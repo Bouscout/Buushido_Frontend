@@ -1,8 +1,16 @@
-export default function ImagePortrait (props){
+// Basic image card component
+
+const BASE_URL = "https://buushido.com"
+export const ImagePortrait = ({
+    src,
+    alt,
+    style,
+    load,
+}) =>{
      
-    let style = props.style ? props.style : {
+    style = style ? style : {
         width : '17vw',
-        height : 'auto',
+        aspectRatio : '10 / 16',
         minWidth : '200px',
     } ;
     let mediatype = 'image/webp' ;
@@ -10,8 +18,8 @@ export default function ImagePortrait (props){
     return (
         <picture>
             {/* <source srcSet={'http://127.0.0.1:8000/'+src+'.webp'} type={mediatype} /> */}
-            <source srcSet={'https://buushido.ml'+props.src+'.webp'} type={mediatype} />
-            <img style={style} src={'https://buushido.ml'+props.src} alt={props.alt} loading='lazy' />
+            <source srcSet={`${BASE_URL}/static/media`+src+'.webp'} type={mediatype} />
+            <img style={style} src={`${BASE_URL}/static/media`+src} alt={alt} loading={load ? 'eager' : 'lazy' } />
         </picture>
     )
 }

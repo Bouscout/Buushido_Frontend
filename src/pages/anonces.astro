@@ -1,0 +1,82 @@
+---
+import New_poster from "../components/accueil/poster/new_poster/new_poster.jsx"
+import MainLayout from "../layouts/main_layout.astro";
+import NavigationBar from "../layouts/navigation_bar.astro";
+import Tracker from '../components/annonces/tracker.jsx'
+import Recent_episodes from "../components/accueil/recent_updates/recent_episodes.jsx"
+import Navbar_v2 from "../components/navbar_v2/navbar_v2.jsx"
+import RecommendationWindowPopUp from "../components/self-contained/recommendationDisplay/recommendationWindow"
+
+---
+
+<link rel="preload stylesheet" href="/styles/accueil/poster/main.css" as="style" type="text/css">
+<link rel="preload stylesheet" href="/styles/accueil/main.css" as="style" type="text/css">
+<link rel="preload stylesheet" href="/styles/accueil/big_only.css" as="style" media="screen and (min-width : 800px)" type="text/css">
+
+
+<!-- <script>
+     window.addEventListener('wheel', (event) => {
+        event.preventDefault();
+        const scrollSpeed = 0.5; // Adjust the scrolling speed (higher values make it feel faster)
+        window.scrollBy(0, event.deltaY * scrollSpeed);
+      }, { passive: false });
+
+      // for mobile 
+      let startY = null;
+
+        window.addEventListener('touchstart', (event) => {
+        startY = event.touches[0].clientY;
+        });
+
+        window.addEventListener('touchmove', (event) => {
+        if (startY !== null) {
+            event.preventDefault();
+            const scrollSpeed = 1; // Adjust the scrolling speed (higher values make it feel faster)
+            const deltaY = event.touches[0].clientY - startY;
+            window.scrollBy(0, deltaY * scrollSpeed);
+            startY = event.touches[0].clientY;
+        }
+        });
+
+        window.addEventListener('touchend', () => {
+        startY = null;
+        });
+</script> -->
+
+<!-- <style>
+    h1{
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        line-height: 150%;
+    }
+</style> -->
+<!-- <NavigationBar /> -->
+
+<MainLayout>
+    
+    <Navbar_v2 client:only/>
+    <!-- <Recent_episodes client:only/> -->
+    <RecommendationWindowPopUp client:only/>
+
+</MainLayout>
+    <!-- <div id="app">
+        <div style="scroll-snap-align: start; margin: 15vmax 0; padding-top : 10vmax;">
+            <h1>Cette Saison <span id='saison'>été</span> </h1>
+            <h2>Les animes qui auront leurs episodes postes regulierement pendant cette saison</h2>
+        </div>
+        ``            <Tracker client:only/>
+
+        <Anonces series={images} name={'Lundi'} client:visible/>
+        <Anonces series={images} name={'Mardi'} client:visible/>
+        <Anonces series={images} name={'Mercredi'} client:visible/>
+        <Anonces series={images} name={'Jeudi'} client:visible/>
+        <Anonces series={images} name={'Vendredi'} client:visible/>
+        <Anonces series={images} name={'Samedi'} client:visible/>
+        <Anonces series={images} name={'Dimanche'} client:visible/>
+    </div> -->
+    <!-- <New_poster client:load/> -->
+    <!-- <h1>This Page will be ready later..⌚</h1> -->
+    
+

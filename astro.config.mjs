@@ -14,6 +14,6 @@ export default defineConfig({
   build: {
     format: 'file'
   },
-  site: 'https://buushido.ml',
+  site: 'https://buushido.com',
   integrations: [react(), sitemap()]
 });

@@ -1,15 +1,59 @@
-import ImagePortrait from '../self-contained/image-portrait'
+import { useEffect } from "react"
+import { ImagePortrait } from "../self-contained/image-portrait"
+import { useState } from "react"
+import Loader_numero_uno from "../self-contained/load_test"
+const BASE_URL = "https://buushido.com"
 // import './genre.css'
 export default function Genres_serie(props){
-    //getting data from top level api
-    const series = props.data
+
+    const [series, setSeries] = useState([])
     const name = props.name
-    return (
-        <>
+
+    useEffect(()=>{
+        fetch(`${BASE_URL}/api/genre/`+name+'/')
+        .then(response => response.json())
+        .then(data =>{
+            console.log('les donnes sont : ', data)
+            setSeries(data)
+        },(error)=>{
+            console.log('error : ', error)
+        }
+        )
+    }, [])
+    //getting data from top level api
+
+    if (series.length > 0){
+        
+        return (
+            <>
+            <Header name={name} />
+            <Series data={series} />
+            </>
+        )
+    }else {
         <Header name={name} />
-        <Series data={series} />
-        </>
-    )
+        let style = {
+            position : 'fixed',
+            zIndex : '2',
+            display : 'flex',
+            justifyContent : 'center',
+            alignItems : 'center',
+          textAlign : 'center',
+          top : '50%',
+          left : '50%',
+          width : '80vw',
+          height : '100vh',
+          translate : '-50% -50%'
+            }
+            return(
+                <>
+                <div style={{
+                    margin : '120vh 0',
+                }}></div>
+                <Loader_numero_uno style={style} />
+                </>
+                ) 
+    }
 }
 
 
@@ -28,16 +72,19 @@ function Header(props){
 function Series(props){
     const series = props.data
     const styling = {
-        width : '15.5vw',
-        height : 'auto', 
-        minWidth : '117px'
+        width : '14.2vw',
+        minWidth : '110px',
+        aspectRatio : ' 10 / 16',
     }
-    return (
-        <>
+
+        return (
+            <>
         <section id="conteneur">
             {series.map((serie, i)=>{
                 return(
-                <div key={i} className="contenu">
+                <div key={i} className="contenu" style={{
+                    animationDelay : (Math.random() * 500 )  + 'ms',
+                }}>
                     <a href={'/serie/'+serie.id}>
                     <ImagePortrait style={styling} src={serie.tof_url} alt={serie.name} />
                     </a>
@@ -47,4 +94,6 @@ function Series(props){
         </section>
         </>
     )
+   
+
 }

@@ -1,0 +1,13 @@
+---
+import MainLayout from "../layouts/main_layout.astro";
+import Formulaire from "../components/login/login";
+// import "../components/login/login.css";
+---
+
+<link rel="preload stylesheet" href="/styles/login/main.css" as="style" type="text/css">
+
+
+<MainLayout>
+    <!-- <Anim_login /> -->
+    <Formulaire client:only/>
+</MainLayout>

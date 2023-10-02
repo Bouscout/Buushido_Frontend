@@ -1,38 +1,128 @@
 
 @media screen and (max-width : 800px) {
-    html{font-size: 14px !important;}
-      #water{
-          background-size: auto 100%;
-      }#genres h2{
-        font-size: 15px;
-        text-shadow : 0 -4px 10px, 0 0 2px, 0 0 0.1rem purple, 0 0 0.5rem purple, 0 0 0.1rem purple;
-  
-      }.option button{
-        font-size: 2rem;
-      }
-      footer{
-        font-size: 20px !important;
-      }
-      #watching {
-        height : 30vh ;
-        top : 25% ;
-      }#watching iframe{
-        height: 30vh;
-      }#close{font-size: 33px;}  
-      #heading h1{
-          font-size: 3rem;
-      }#details h2{
-        font-size: 0.8rem;
-      }#details-serie{width: 100%; padding: 0.3rem;}
-      #details-serie h1{
-        font-size: 2.5rem;
-      }
-      .cloud-9{
-        scale : 2 ;
-      }
-  }@media screen and (max-width : 400px){
-    #heading h1{font-size: 1.5rem;}
-    .compact-details h2{
-      font-size: 0.5rem;
+  html{font-size: 14px !important;}
+    #water{
+        /* background-size: auto 100%; */
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        height: auto;
     }
-  }
+    #layer{
+      margin-bottom: -16vmin;
+
+    }
+   .option button{
+      font-size: 2rem;
+    }
+    footer{
+      font-size: 20px !important;
+    }
+
+    #close{font-size: 33px; top: 7%;}  
+    #heading{
+      width: 100%;
+    }
+   #details h2{
+      font-size: 0.8rem;
+    }#details-serie{width: 100%;}
+    /* #details-serie h1{
+      font-size: 10vmin;
+    } */
+    .controle button{
+      font-size: 2.8vmin;
+    }
+    .cloud-9{
+      scale : 2 ;
+    }
+
+    
+    #heading img{
+      display: none;
+    }
+    #heading{
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: left;
+      width: 98%;
+      margin: 0 auto;
+    }.controle{
+      width: 100%;
+      border-radius: 8px;
+      grid-template-columns: 35% 35% 30%;
+      grid-template-rows: auto auto;
+      margin-left: -2vmin;
+      /* display: flex;
+      justify-content: space-between; */
+      background-color: transparent;
+      /* background-color: #121212; */
+      padding: 2.5vmin 0;
+      column-gap: 5px;
+      row-gap: 1vmin;
+    }
+   
+    
+    .controle button{
+      /* scale: 0.95;  */
+      font-size: 3.2vmin;
+      min-width: 25%;
+      padding: 4vmin 0;
+      background-color: transparent;
+      border: 1px solid #ffffff9b;
+      /* grid-row: 2; */
+    }
+    .controle button:nth-child(1){
+      border: 2px solid transparent;
+      font-size: 4vmin;
+      width: 100%;
+      grid-column: 1 / span 3;
+      grid-row: 1;
+    } 
+    .controle button:nth-child(2){grid-row: 2; grid-column: 1/ span 1; }
+    .controle button:nth-child(3){grid-row: 2; grid-column: 2/ span 1; }
+    .controle button:nth-child(4){grid-row: 2; grid-column: 3/ span 1; }
+
+    #details{
+      width: 100%;
+      margin : 0 auto ;
+      /* grid-row: 1; */
+    }
+    
+    #layer{
+      background: linear-gradient(to bottom,transparent 5%, rgb(0, 4, 15), #000), linear-gradient(to right, #00000042, transparent);
+    }
+    #episodes{
+      grid-template-columns: repeat(auto-fit, minmax(50vw, 1fr));
+      gap: 0px;
+      background: transparent;
+    }
+    .epi{
+      width: 48vw;
+      border-radius: 0px;
+      margin-bottom: 3vmin;
+      padding: 0 1vmin;
+      background: transparent;
+    }
+    iframe{
+    }
+    iframe{
+      border : 1px solid #b6b4b47b ;
+      width: 48vw;
+      border-radius: 8px;
+      height: auto;
+      aspect-ratio: 16 / 9;
+    }
+
+    #serie-app{
+      width: 100%;
+      /* margin-left: 20%; */
+      margin: 0;
+      /* border: solid purple; */
+    }
+    #genres-serie a{
+      width: 22.5vmin;
+    }
+    #floater{display: none};
+  }@media screen and (max-width : 400px){
+  #heading h1{font-size: 1.5rem;}
+ 
+}

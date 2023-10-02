@@ -2,3 +2,25 @@
 .contenu:hover img{
     scale : 1.03
 }
+
+
+@keyframes fade_in{
+    from {opacity: 0;}
+    95%{opacity: 0;}
+    100%{opacity: 1;}
+  }
+  
+  @keyframes smooth {
+    from {
+      /* opacity: 0; */
+      background: #111111;}
+      25%{background: #202020;}
+      30%{background: #060606;}
+      40%{background: #181818;}
+      50%{background: #121212;}
+      75%{background: #090909;}
+      85%{background: #040404;}
+      100%{background: #141414;
+      /* opacity: 1; */
+    }
+  }
