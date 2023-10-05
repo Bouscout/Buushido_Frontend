@@ -6,13 +6,36 @@ import { DescriptiveCard } from "./descriptiveCard/descriptiveCard";
 import SetLabel from "../../../background_processes/recommendations/label";
 import GetRecommendations from "../../../background_processes/recommendations/get_recommendations";
 import { updateSeriesList, RemoveFromList } from "../../../background_processes/recommendations/seriesList";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function RecommendationWindowPopUp(props) {
-    const [recommendations, setRecommendations] = useState(GetRecommendations())
+    const [recommendations, setRecommendations] = useState(null)
     // const recommendations = GetRecommendations();
+
+    function initRecommendations(){
+        const recommended = GetRecommendations(true, null, true)
+        if (Array.isArray(recommended)){
+            setRecommendations(recommended)
+            return true
+        }
+
+        return false
+    }
+
+    useEffect(() => {
+       const initialized = initRecommendations()
+       
+       if (!initialized){
+        setTimeout(()=>{
+            console.log("using time out")
+            initRecommendations()
+        }, 500)
+       }
+ 
+    }, [])
+
     const isMobile = window.innerWidth < 700;
-    const width = isMobile ? 95 : 55;
+    const width = isMobile ? 98 : 55;
     return (
         <section
             className="pop-up"
@@ -23,7 +46,6 @@ export default function RecommendationWindowPopUp(props) {
                 // WebkitBackdropFilter: 'blur(4px)',
                 display: 'flex',
                 justifyContent: 'center',
-                border : 'solid red',
                 background : 'rgba(0, 0, 0, 0.551)'
             }}
         >
@@ -44,11 +66,16 @@ export default function RecommendationWindowPopUp(props) {
                         fontSize : "clamp(22px, 3vmin, 25px)", margin : '1em 0.5em'
                         }}>
                         <div className="icon" style={{justifyContent : "space-between", width : '95%'}}>
-                            Recommendees pour vous...
+                            Recommendées pour vous...
                             <i onClick={()=>{props.reset(false)}} style={{fontSize : '1.5em', color : 'var(--light-white)'}} className="fa-regular fa-circle-xmark"></i>
                         </div>
                     </h2>
-                    <Container series={recommendations} changer={setRecommendations}/>
+
+                        {Array.isArray(recommendations) && 
+                        <Container series={recommendations} changer={setRecommendations}/>
+                        }
+
+
                 </div>
             </div>
         </section>
@@ -60,21 +87,19 @@ export default function RecommendationWindowPopUp(props) {
 
 const Container = ({series, changer}) => {    
     return (
-        <div className="grid-repeat" style={{
-            margin : '0 0.5em', justifyContent : 'center', gap : '0.2em',
-            overflowY : "auto", 
-        }}>
+        <div className="grid-repeat">
             {series.map((serie, i)=>{
                 function posLabel(){
-                    RemoveFromList(serie)
+                    serie.last_saison = 1
+                    serie.last_episode = 1
                     updateSeriesList(serie)
+                    RemoveFromList(serie)
                     SetLabel(serie.id, 1, true)
+                    window.location.href = `/serie/${serie.id}`
                 }
 
                 function negLabel(){
-                    updateSeriesList(serie)
                     SetLabel(serie.id, 0, true)
-
                     changer(series.filter(obj => obj.id !== serie.id))
                 }
 
@@ -86,7 +111,6 @@ const Container = ({series, changer}) => {
 
                 function alreadyWacthed(){
                     RemoveFromList(serie)
-                    updateSeriesList(serie)
                     SetLabel(serie.id, 1, true)
 
                     changer(series.filter(obj => obj.id !== serie.id))

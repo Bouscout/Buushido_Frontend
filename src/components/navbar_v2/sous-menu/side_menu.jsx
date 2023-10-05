@@ -22,13 +22,13 @@ export default function SideMenuLeft(){
 
                         <HomeButton />
 
-                        <a>
+                        <a href="/genre/Film">
                             <h2>
                             <div className="icon"><i className="fa-solid fa-clapperboard"></i>Film</div>
                             </h2>
                         </a>
 
-                        <a>
+                        <a href="/agenda">
                             <h2>
                             <div className="icon"><i className="fa-solid fa-calendar-days"></i>Agenda</div>
                             </h2>

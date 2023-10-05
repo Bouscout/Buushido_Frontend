@@ -66,6 +66,8 @@ export default async function FetchRecommendations(){
         console.log("user params are : ", params)
 
         saveResponse(series, params)
+
+        return series
     })
 
 }
@@ -84,9 +86,9 @@ function saveResponse(series, userParameters){
     }
 }
 
-export async function fetchPopular(){
+export function fetchPopular(){
     const url = `${BASE_URL}/api/recommend_popular`
-    fetch(url)
+    const data = fetch(url)
     .then(response => response.json())
     .then(data => {
         const series = data.series
@@ -94,8 +96,13 @@ export async function fetchPopular(){
 
         saveResponse(series)
         console.log("popular fetched")
+
+        return series
     })
     .catch(error => {
         console.log("failed to fetch popular : ", error)
+        return []
     })
+
+    return data
 }

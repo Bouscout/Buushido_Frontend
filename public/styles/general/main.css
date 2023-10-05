@@ -72,12 +72,6 @@ body::-webkit-scrollbar{display: none;}
   display: none; visibility: hidden; width: 0;
 }
 
-.grid-repeat{
-  display: grid;
-  /* grid-template-columns: repeat(auto, minmax(150px, 250px)); */
-  grid-template-columns: repeat(3, 1fr);
-  justify-content: center;
-}
 
 ::-webkit-scrollbar{
   display: none;

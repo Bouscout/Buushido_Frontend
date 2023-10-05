@@ -1,14 +1,13 @@
 @media screen and (max-width : 800px) {
     html{font-size: 14px; 
       /* background-color: rgb(25, 26, 28); */
-      background-color: var(--dark-blue);
+      background-color: var(--full-black);
+      /* background-color: var(--dark-blue); */
     }
     body{
       /* background-color: rgb(25, 26, 28); */
-      background-color: var(--dark-blue);
+      background-color: var(--full-black);
+      /* background-color: var(--dark-blue); */
     }
 
-    .grid-repeat{
-      grid-template-columns: repeat(2, 1fr);
-    }
   } 

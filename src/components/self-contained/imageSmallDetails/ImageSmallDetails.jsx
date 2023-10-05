@@ -113,7 +113,7 @@ const SmallDetails = ({
                     </div>
         }else{
             return <div style={statutStyle}>
-                        <h3>En cours</h3>
+                        <h3>Complet</h3>
                         <h6/>
                     </div>
         }

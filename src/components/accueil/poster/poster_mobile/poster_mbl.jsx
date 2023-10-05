@@ -106,7 +106,7 @@ const Layout = ({
         width : "32vw",
         aspectRatio : '10 / 16',
         minWidth : '150px',
-        marginLeft : "0.5em",
+        marginLeft : "0.2em",
     } 
 
     return(

@@ -1,25 +1,38 @@
 // this will return the recommendations stored from the server response
 // we have different options for only returning section of the list
-
-export default function GetRecommendations(shuffle=false, limit=null){
+import { fetchPopular } from "./fetch_recommendations"
+export default function GetRecommendations(shuffle=false, limit=null, forceResponse=false){
     // parse it from local storage
-    try {
-        let recommendations = JSON.parse(localStorage.getItem("buushido_recommendations"))
+    let recommendations = JSON.parse(localStorage.getItem("buushido_recommendations"))
+    if (typeof recommendations === "object" && recommendations !== null) {
 
-        if (shuffle){
-            recommendations = shuffleArray(recommendations)
+        if (recommendations.length > 0){
+
+            console.log("returning normal pick")
+            
+            if (shuffle){
+                recommendations = shuffleArray(recommendations)
+            }
+            
+            if (limit){
+                recommendations = recommendations.slice(0, limit)
+            }
+            
+            return recommendations
+       
+        } else {
+            if (forceResponse){
+                return PopularPicks()
+            }
+            return []
         }
-
-        if (limit){
-            recommendations = recommendations.slice(0, limit)
-        }
-
-        return recommendations
         
-    } catch(e){
-        console.log("the error is : ", e)
-        return []
+    } else {
+        if (forceResponse){
 
+            return PopularPicks()
+        }
+        return []
     }
     
 
@@ -43,3 +56,9 @@ function shuffleArray(array) {
   
     return array;
   }
+
+function PopularPicks(){
+    console.log("returning popular picks")
+    const series = fetchPopular()
+    return series
+}

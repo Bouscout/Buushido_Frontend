@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 // import './watchlist.css'
 import { ImagePortrait } from '../self-contained/image-portrait'
-import is_connected from '../self-contained/check_connection'
+import is_connected from '../../background_processes/check_connection.js'
 import Loader_numero_uno from '../self-contained/load_test'
 const BASE_URL = "https://buushido.com"
 

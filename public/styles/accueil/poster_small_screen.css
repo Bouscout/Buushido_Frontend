@@ -6,7 +6,7 @@
 
 #head{
     width: 100%;
-    height: 42vh;
+    height: 50vh;
     display: grid;
     grid-template-columns: repeat(5, 100%);
     overflow-x: scroll;
@@ -32,25 +32,17 @@
 }
 
 .poster{
-    top: 0;
+    top: 10%;
     left: 0;
     width: 100%;
     height: 100%;
     position: absolute;
     z-index: 1;
-    /* filter: blur(4px); */
     -webkit-backdrop-filter: blur(5px) brightness(50%);
     backdrop-filter: blur(5px) brightness(50%);
-    display: grid;
-    grid-template-columns: 40% 60%;
-    /* justify-content: space-evenly; */
-    justify-content: center;
-    /* align-items: flex-start; */
-    /* background: linear-gradient(to top, rgb(25, 26, 28) 64px, transparent 0); */
-    /* background-image: linear-gradient(to top, rgb(25, 26, 28) 100px, transparent 0); */
-    /* background: #000; */
-    /* align-items: center; */
-    gap: 2px;
+    display: flex;
+    justify-content: space-around;
+    gap: 0.3em;
 
 
 }
@@ -66,13 +58,14 @@
 .poster-details{
     margin-top: calc(var(--distance-from-top) - 1.5vmax);
     width: 100%;
+    height: 100%;
     font-size: 3vmin;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     color : #fff ;
     font-family: 'Poppins', sans-serif;
-    margin-left: -0.7em;
+    /* margin-left: -0.7em; */
 }
 
 .poster h2{
@@ -96,6 +89,7 @@
     color: #ffffffc0;
     width: 98%;
     margin: 0.1em auto;
+    line-height: 1.5em;
 }
 .watch{
     width: 100%;

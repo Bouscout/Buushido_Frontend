@@ -44,7 +44,7 @@ const RightSideMenu = ({
 
                 <div className="flex-column" style={{gap : '0.5em'}}>
                 <ReportButton />
-                <NormalButton text={"Faire une Suggestion"} icon={"fa-solid fa-clipboard-list"}/>
+                <NormalButton text={"Faire une Suggestion"} icon={"fa-solid fa-clipboard-list"} link={"mailto:buushidobug1@gmail.com"}/>
                 </div>
 
 
@@ -89,7 +89,7 @@ const UserInfo = ({
                 width : '100%', lineHeight : '50%', display : 'block'
             }}>
                 {connected && 
-                    username ? username : "Connected"
+                    username ? username : ""
                 }
                 {!connected && "Visiteur"}
             </span>
@@ -111,7 +111,7 @@ const ReportButton = () =>{
     return (
         <SpecialButton 
         text={"Signaler un Probleme"}
-        link={"bug"}
+        link={"mailto:buushidobug1@gmail.com"}
         color={"accent-dark-red"}
         icon={"fa-solid fa-bug"}
         />
@@ -163,11 +163,11 @@ const SpecialButton = ({
 }
 
 const NormalButton = ({
-    text, icon, func
+    text, icon, func, link
 }) =>{
     return (
         
-        <a>
+        <a href={link}>
             <h2 style={{
                 background : 'var(--dark-blue)', fontWeight : '600', 
                 textAlign : 'center', 
@@ -184,7 +184,8 @@ const NormalButton = ({
 
 
 function resetReprendre(){
-    localStorage.setItem("buushido_liste", null)
+    localStorage.removeItem("buushido_liste")
     localStorage.removeItem("buushido_label")
+    localStorage.removeItem("buushido_recommendations")
     window.location.href = "/"
 }

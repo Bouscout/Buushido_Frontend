@@ -9,7 +9,7 @@
     overflow: hidden;
     margin: 0.5em 0;
     border-radius: 0.3em;
-    width: 45vw;
+    width: 48vw;
     height: 380px;
     max-width: 270px;
 
@@ -70,10 +70,27 @@
     background-color: var(--light-gray);
 }
 
+.grid-repeat{
+    display: grid;
+    /* grid-template-columns: repeat(auto, minmax(150px, 250px)); */
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    margin : 0 0.5em;
+    gap : 0.2em ;
+    overflow-y : auto ; 
+  }
+  
+
 @media screen and (max-width : 800px) {
     .descriptive-card .icon{
         font-size: 0.55em;
     }
     .descriptive-card p{font-size: 1em;}
     .descriptive-card h4{font-size: 0.9em;}
+
+    
+    .grid-repeat{
+        grid-template-columns: repeat(2, 1fr);
+        margin: 0 0.1em;
+      }
   } 

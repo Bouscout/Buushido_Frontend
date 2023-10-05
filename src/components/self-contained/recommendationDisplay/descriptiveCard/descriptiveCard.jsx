@@ -15,7 +15,7 @@ export const DescriptiveCard = ({
     const width = 20
 
     const imageStyle = customStyle ? customStyle : {
-        width : `${45}vw`,
+        width : `${48}vw`,
         aspectRatio : '16 / 9',
         maxWidth : `${270}px`,
         borderRadius : '0.1em',
@@ -77,7 +77,7 @@ const Options = ({addFunc, delFunc, watched,pre}) => {
             <SpecialButton 
             func={watched}
             color={"accent-green"}
-            text={"Deja regarde"}
+            text={"regardé"}
             icon={"fa-solid fa-circle-check"}
             />
 
