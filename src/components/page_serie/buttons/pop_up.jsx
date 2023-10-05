@@ -6,12 +6,13 @@ import { useEffect, useState } from 'react'
 // import '../serie.css'
 export default function FastStart(props){
     const [show, setShow] = useState([])
+    const id = props.id
     
     useEffect(()=>{
         
     // checking if we have data about the show
     const liste = JSON.parse(localStorage.getItem("buushido_liste"))
-    const serie = liste[props.id]
+    const serie = liste ? liste[id] : null
 
      if(typeof serie === "object" && serie !== null){
             if (serie.last_episode){

@@ -91,7 +91,7 @@ export default function Serie_accueil(props){
         // retrieving last watch episode
         //all logics
         let to_watch = JSON.parse(localStorage.getItem('buushido_liste'))
-        const serie = to_watch[id]
+        const serie = to_watch ? to_watch[id] : null
         
 
         let watching ;

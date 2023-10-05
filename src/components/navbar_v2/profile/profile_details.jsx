@@ -185,4 +185,6 @@ const NormalButton = ({
 
 function resetReprendre(){
     localStorage.setItem("buushido_liste", null)
+    localStorage.removeItem("buushido_label")
+    window.location.href = "/"
 }

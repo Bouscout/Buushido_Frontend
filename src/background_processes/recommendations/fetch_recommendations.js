@@ -2,8 +2,8 @@
 // the server will return us a response representing the shows recommended to the user
 // we store those recommendations
 import is_connected from "../check_connection"
-// const BASE_URL = "https://buushido.com"
-const BASE_URL = "http://10.0.0.89:8000"
+const BASE_URL = "https://buushido.com"
+import SendLabel from "./send_label"
 
 export default async function FetchRecommendations(){
     // chech last watched show and order them according to an order of importance
@@ -43,13 +43,16 @@ export default async function FetchRecommendations(){
     const url = new URL(recomendation_url)
 
 
-    url.searchParams.append("lastWatched", strLastWatched)
+    url.searchParams.append("watched", strLastWatched)
     
     for (const info of Object.keys(userInfos)){
         if(userInfos[info]){
             url.searchParams.append(info, userInfos[info])
         }
     }
+
+    // before we fetch the suggestions, we try to post the labels we already have
+    SendLabel()
     
     
     fetch(url)
@@ -58,10 +61,11 @@ export default async function FetchRecommendations(){
         const series = data.series
         const params = data.userParams
 
+
         console.log("the series are : ", series)
         console.log("user params are : ", params)
 
-        // saveResponse(series, params)
+        saveResponse(series, params)
     })
 
 }
@@ -78,4 +82,20 @@ function saveResponse(series, userParameters){
     if (userParameters) {
         localStorage.setItem("buushido_userParams", userParameters)
     }
+}
+
+export async function fetchPopular(){
+    const url = `${BASE_URL}/api/recommend_popular`
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        const series = data.series
+        const runtime = data.runtime
+
+        saveResponse(series)
+        console.log("popular fetched")
+    })
+    .catch(error => {
+        console.log("failed to fetch popular : ", error)
+    })
 }

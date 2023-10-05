@@ -1,7 +1,7 @@
 import { useState } from "react";
 // import './search_bar.css'
 import { ImagePortrait } from "../self-contained/image-portrait";
-import { ImageSmallDetails } from "../self-contained/ImageSmallDetails.jsx";
+import { ImageSmallDetails } from "../self-contained/ImageSmallDetails/ImageSmallDetails";
 import Loader_1 from "../self-contained/load_test";
 const BASE_URL = "https://buushido.com"
 

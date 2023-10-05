@@ -4,37 +4,42 @@
 
 export default function SetLabel(showId, label_value, enforce=false){
     // init the list of watched series
-    const liste = JSON.parse(localStorage.getItem("buushido_liste"))
+    const liste = JSON.parse(localStorage.getItem("buushido_label"))
 
     if (typeof liste === "object" && liste !== null){
 
-            const element = liste[showId]
+            const value = liste[showId]
 
-            if (element) {
+            if (value) {
                 // we change the label only if it was smaller or the change is to be enforced
-                let make_changes = enforce ? enforce : parseFloat(element.label) < label_value
-                
+                let make_changes = enforce ? enforce : parseFloat(value) < label_value
+                console.log("label func called, label_valuec: ", label_value, " enforce : ", make_changes)
                 if (make_changes){
-                    element.label = label_value
+                    liste[showId] = label_value
                     
                     // save changes
-                    localStorage.setItem("buushido_liste", JSON.stringify(liste))
-                    console.log("set new label for : ", element.name, " to : ", label_value)
+                    save_change(liste)
+                    console.log("set new label for : ", showId, " to : ", label_value)
+                    console.log(liste)
                 }
                 return
 
+            }else {
+                liste[showId] = label_value
+                console.log("set label to : ", liste)
+                save_change(liste)
             }
 
-            
-        
-
-        // if we get to this line, item was not found in recommendation liste
-        console.log("item not found in r list")
 
 
     }else {
         // no recommendation liste
-        return
+        const liste = {[showId] : label_value}
+        save_change(liste)
     }
 
+}
+
+function save_change(liste){
+    localStorage.setItem("buushido_label", JSON.stringify(liste))
 }

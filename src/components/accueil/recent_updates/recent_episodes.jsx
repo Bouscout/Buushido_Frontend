@@ -149,6 +149,17 @@ const SingleTab = ({series, mobile}) => {
         background :  "var(--dark-blue)",
     }
     
+    function find_missing_days(date_str){
+        const now = new Date()
+        const day = new Date(date_str)
+
+        const diffInMilliseconds = now - day
+        
+        const diffInDays = Math.floor(diffInMilliseconds / (1000 * 60 * 60 * 24))
+
+        return diffInDays
+    }
+
     return (
         <div style={tabStyle}>
             {series.map((episode, i) => {
@@ -156,9 +167,9 @@ const SingleTab = ({series, mobile}) => {
                 // episode.serie.genre_1 = null
                 episode.serie.note = null
                 let extraMessage = `Saison ${episode.saison} episode ${episode.episode}`
-                let date = episode.date.split("-")
                 
-                const diff = rightNow - parseInt(date.at(-1))
+                const diff = find_missing_days(episode.date)
+
                 let answer 
                 if (diff == 0){
                     answer = " aujourd'hui"
@@ -168,18 +179,19 @@ const SingleTab = ({series, mobile}) => {
 
                 extraMessage = extraMessage + answer 
             return (
-                <ImageSmallDetails
-                key={i}
-                serie={episode.serie}
-                picWidth={3}
-                picMaxWidth={100}
-                picMinWidth={50}
-                picAspectRatio={[10, 16]}
-                extraDetails={extraMessage}
-                extraStyle={{}}
-                rounded={2}
-                preserve={true}
-                />
+                <a href={"/serie/"+episode.serie.id} key={i}>
+                    <ImageSmallDetails
+                    serie={episode.serie}
+                    picWidth={3}
+                    picMaxWidth={100}
+                    picMinWidth={50}
+                    picAspectRatio={[10, 16]}
+                    extraDetails={extraMessage}
+                    extraStyle={{}}
+                    rounded={2}
+                    preserve={true}
+                    />
+                </a>
                 )      
 })  }
         </div>

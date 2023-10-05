@@ -22,7 +22,6 @@ export default function Reprendre(){
             const to_display = []
 
             for (const element of Object.values(la_liste).reverse()){
-                console.log("an element : ", element)
                 if (element.last_episode){
                     to_display.push(element)
 

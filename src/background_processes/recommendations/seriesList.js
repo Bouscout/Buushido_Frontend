@@ -1,6 +1,10 @@
 // handle all the logic about the data collection and user response as they interact with a show's episodes
+import FetchRecommendations from "./fetch_recommendations"
+import { fetchPopular } from "./fetch_recommendations"
 
 export function updateSeriesList(serie){
+    const INTERVAL = 3
+
     const liste = JSON.parse(localStorage.getItem("buushido_liste"))
     
     if (typeof liste === "object" && liste !== null){
@@ -12,6 +16,14 @@ export function updateSeriesList(serie){
             
             liste[serie.id] = serie
             localStorage.setItem('buushido_liste', JSON.stringify(liste))
+
+            const number_entries = Object.keys(liste).length
+
+            console.log("inside number is : ", number_entries)
+            if (number_entries !== 0 && number_entries % INTERVAL === 0){
+                console.log("fetching now num is : ", number_entries)
+                FetchRecommendations()
+            }
             
         }else{
             console.log("already in")
@@ -31,6 +43,7 @@ export function updateSeriesList(serie){
     }else {
         const newliste = {[serie.id] : serie}
         localStorage.setItem('buushido_liste', JSON.stringify(newliste))
+        fetchPopular()
     }
 }
 
