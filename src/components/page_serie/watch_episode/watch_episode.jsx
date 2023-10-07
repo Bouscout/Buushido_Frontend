@@ -103,10 +103,17 @@ export default function Watch_episode(props){
         setLect(lien)
     }
 
+    // exit from watching window
+    function exit(){
+        props.cancel(false)
+        interestTimer(false, serie.id)
+    }
+
+
     return (
         <>
         <div id="watching">
-            <h1 onClick={()=>{props.cancel(false)}} id="close"><i className="fa-regular fa-circle-xmark"></i>  Retour</h1>
+            <h1 onClick={()=>{exit()}} id="close"><i className="fa-regular fa-circle-xmark"></i>  Retour</h1>
         <div>
         <div style={{
             width : '91vw', aspectRatio : '16 / 9', margin : '0 auto', 

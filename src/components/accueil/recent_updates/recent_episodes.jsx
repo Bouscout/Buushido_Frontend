@@ -66,7 +66,8 @@ const Tab = ({series, isMobile}) =>{
         scrollFunction = ScrollToElement
         
     }
-    const numSections = Math.floor(series.length / 5)  // num of divisions 
+    let numSections = Math.floor(series.length / 5)  // num of divisions 
+    numSections = numSections > 3 ? 3 : numSections
 
     let sections = series
     if (series.length > 18){

@@ -1,7 +1,7 @@
 // this file handle the logic to send the recolted label to the server for further training
 
-// const BASE_URL = "https://buushido.com"
-const BASE_URL = "http://10.0.0.89:8000"
+const BASE_URL = "https://buushido.com"
+// const BASE_URL = "http://10.0.0.89:8000"
 
 export default function SendLabel(){
     let labels = JSON.parse(localStorage.getItem("buushido_label"))
