@@ -27,7 +27,7 @@ const RightSideMenu = ({
     console.log("connected is : ", connected)
     return(
         <section className="side-menu" style={{
-            right : '0', borderLeft : '1px solid var(--dark-gray)',
+            right : '0px', borderLeft : '1px solid var(--dark-gray)',
             animation : "slide-left 100ms linear 0s 1 both",
         }}>
             <div className="flex-column" style={{margin : '0 1em', justifyContent : 'space-between', height : '80%'}}>

@@ -58,7 +58,7 @@ export default function Profil_v2(props){
     return (
         <>
         <h2 onClick={()=>{ShowSubMenu()}}>
-            <div className="icon" style={{position : 'relative'}}>
+            <div className="icon">
             <i className="fa-solid fa-user"></i>
                     <span>Profil</span>
                     {show && 
@@ -74,32 +74,4 @@ export default function Profil_v2(props){
                     </h2>
         </>
     )
-}
-
-function Details(props){
-
-    return (
-        <>
-        <div style={{
-            position : 'absolute', width : '115px', height : '120px', 
-            flexDirection : 'column', justifyContent : 'flex-end', border : 'solid black',
-            top :'60px', right : '0', gap : '0px', background : '#161616', borderRadius : '10px'
-        }}>
-            {props.conn ? 
-            <>
-            <h4 style={{fontSize : '14px', background : '#060606', borderRadius : '7px', textAlign : 'center', color : '#f8a100'}}>Online</h4>
-            <h4 onClick={()=>{deco(props.regle)}} style={{fontSize : '14px', background : '#060606', borderRadius : '7px', textAlign : 'center'}}>Se deconnecter</h4>
-            </>
-            :
-            <a href="/login"><h4 style={{fontSize : '14px', background : '#060606', borderRadius : '7px', textAlign : 'center'}}>Se connecter</h4></a>
-        }
-        </div>
-        </>
-    )
-}
-
-
-function deco(setting){
-    sessionStorage.clear()
-    setting(false)
 }

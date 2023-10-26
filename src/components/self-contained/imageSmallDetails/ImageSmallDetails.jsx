@@ -1,7 +1,7 @@
 // component with a image and some details to its side
 import { ImagePortrait } from "../image-portrait"
 
-import "./imgSmallDetails.css"
+// import "./imgSmallDetails.css"
 
 export const ImageSmallDetails = ({
     serie,

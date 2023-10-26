@@ -1,4 +1,4 @@
-import "./navbar_v2.css"
+// import "./navbar_v2.css"
 import Profil_v2 from "./profile/profile_v2"
 import Search_bar_v2 from "./search_bar/search_bar_v2"
 import SideMenuLeft from "./sous-menu/side_menu"

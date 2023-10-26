@@ -42,17 +42,21 @@ export default function FastStart(props){
             <section id="pop-up" style={{
                 animation: 'slider 0.3s linear 0s 1 forwards ',
             }}>
-            <h1><i style={{
-                fontWeight : '300',
-            }}>Reprendre</i> : <strong>Saison {show[1]} Episode {show[2]} ?</strong></h1>
-            <div style={{display : 'flex', justifyContent : 'space-evenly',
-             width : '100%', marginBottom : '3vmin'
-            }}>
-                <button onClick={()=>{setShow(false)}}><h2>Annuler</h2></button>
-                <button onClick={()=>{launcher(show)}}><h2>Reprendre</h2></button>
-            </div>
+                <h1><i style={{
+                    fontWeight : '300',
+                }}>Reprendre</i> : <strong>Saison {show[1]} Episode {show[2]} ?</strong></h1>
+                
+
+                <div style={{display : 'flex', justifyContent : 'space-evenly',
+                width : '100%', marginBottom : '3vmin'
+                }}>
+                    <button onClick={()=>{setShow(false)}}><h2>Annuler</h2></button>
+                    <button onClick={()=>{launcher(show)}}><h2>Reprendre</h2></button>
+                </div>
+                
+                
                 <hr></hr>
-        </section>
+            </section>
     )
 }
 }

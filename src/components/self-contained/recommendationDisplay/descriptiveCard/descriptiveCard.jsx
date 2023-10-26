@@ -1,7 +1,7 @@
 // will display a serie with a short in a vertival fashion with a little description and different interactions options
 
 import { ImagePortrait } from "../../image-portrait";
-import "./descriptiveCard.css"
+// import "./descriptiveCard.css"
 
 export const DescriptiveCard = ({
     serie,

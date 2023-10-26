@@ -6,13 +6,14 @@ import Footer from "../layouts/footer.astro";
 import TopHead from "../components/accueil/poster/head";
 import TopHead_v2 from "../components/accueil/poster/headv2";
 import OngletSerie from "../components/accueil/serie/serie";
-import NavigationBar from "../layouts/navigation_bar.astro";
+// import NavigationBar from "../layouts/navigation_bar.astro";
+import NavigationBarV2 from "../layouts/navigation_bar_v2.astro";
 import Selection from "../components/accueil/serie/selection";
 import Reprendre from "../components/accueil/serie/reprendre";
 import In_watchliste from "../components/accueil/serie/in_ur_watchlist";
 import Recent_episodes from "../components/accueil/recent_updates/recent_episodes.jsx"
 
-import Navbar_v2 from "../layouts/navigation_bar_v2.astro"
+// import Navbar_v2 from "../layouts/navigation_bar_v2.astro"
 
 
 import HeadManager from "../components/accueil/poster/head_manager";
@@ -39,7 +40,7 @@ import HeadManager from "../components/accueil/poster/head_manager";
 
 
 <MainLayout>
-	<Navbar_v2 />
+	<NavigationBarV2 />
 	
 	<HeadManager client:only/>
 	<!-- <TopHead choix={poster_data} client:load/> -->

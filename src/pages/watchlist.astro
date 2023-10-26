@@ -1,6 +1,7 @@
 ---
 import MainLayout from "../layouts/main_layout.astro";
-import NavigationBar from "../layouts/navigation_bar.astro";
+// import NavigationBar from "../layouts/navigation_bar.astro";
+import NavigationBarV2 from "../layouts/navigation_bar_v2.astro";
 import Watchliste from "../components/watchlist/watchlist";
 ---
 
@@ -8,7 +9,7 @@ import Watchliste from "../components/watchlist/watchlist";
 
 
 <MainLayout>
-    <NavigationBar />
+    <NavigationBarV2 />
     <Watchliste client:only/>
 </MainLayout>
 
