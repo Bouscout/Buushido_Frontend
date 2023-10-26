@@ -10,15 +10,12 @@ const BASE_URL = "https://buushido.com"
 export default function Reprendre(){
     const [found, setFound] = useState(false)
     const [series, setSeries] = useState([])
-    const [saison_epi, setSaion_epi]= useState([])
 
     function checking_presence(){ // to check if there is a liste already
         const la_liste = JSON.parse(localStorage.getItem('buushido_liste'))
 
         if (typeof la_liste === "object" && la_liste !== null){
-            // making sure the size of the array is no more than 14 elements othersize take 14 latest
-            let size = la_liste.length
-          
+            // making sure the size of the array is no more than 14 elements othersize take 14 latest          
             const to_display = []
 
             for (const element of Object.values(la_liste).reverse()){
@@ -33,7 +30,6 @@ export default function Reprendre(){
 
             setSeries(to_display)
 
-           
             setFound(true)
             return true
 
@@ -45,16 +41,9 @@ export default function Reprendre(){
     
 
     useEffect(()=>{
-        // let order = 
         checking_presence()
-        // if (order){
-        //     fetch(`${BASE_URL}/api/liste/`+order+'/')
-        //     .then(response => response.json())
-        //     .then(data =>{
-        //         setSeries(data)
-        //     })
-        // }
     }, [])
+
 
     if(series.length > 0){
         return(
@@ -101,16 +90,18 @@ const Serie_episode = ({
     const [display, setDisplay] = useState(true)
 
     function handle_delete(){
-        const id = serie.id
         let liste = JSON.parse(localStorage.getItem('buushido_liste')) 
 
         // removing it from the liste of last watched
-        liste = liste.filter(v => parseInt(v) !== parseInt(id) )
+        const chosen = liste[serie.id]
 
-       
+        chosen.last_episode = null
+        chosen.last_saison = null
+
+        liste[serie.id] = chosen
+
         //update the list 
         localStorage.setItem('buushido_liste', JSON.stringify(liste))
-        localStorage.removeItem('buushido_lastEpisode'+id)
 
         setDisplay(false)
         console.log(`${serie.name} deleted`)

@@ -12,9 +12,15 @@ export default function ContainerSeries(props){
 
     let shuffle_data ;
     if(props.conserve){
-        const conserved = series.slice(0, 10)
-        shuffle_data = shuffle(series.slice(10, series.length))
-        shuffle_data = conserved.concat(shuffle_data)
+        const head = shuffle(series.slice(0, 5))
+        const middle = shuffle(series.slice(5, 10))
+        const rest = shuffle(series.slice(10, series.length))
+
+        shuffle_data = head.concat(middle)
+        shuffle_data = shuffle_data.concat(rest)
+        // const conserved = series.slice(0, 10)
+        // shuffle_data = shuffle(series.slice(10, series.length))
+        // shuffle_data = conserved.concat(shuffle_data)
 
     }else{
         shuffle_data = shuffle(series)
