@@ -98,10 +98,12 @@ const SmallDetails = ({
         display : 'flex',
         justifyContent : 'space-between',
         alignItems : 'center',
-        background : '#3d3d3d',
+        // background : '#3d3d3d',
+        background : '#2c2c2c',
         padding : "0.1em 0.4em", 
         borderRadius : '0.25em' ,
         height : '100%',
+        fontWeight : "300",
     }
 
     // small light beacon indicating the if a serie is on going or not
@@ -109,7 +111,7 @@ const SmallDetails = ({
         if (statut){
             return <div style={statutStyle}>
                         <h3>En cours</h3>
-                        <h6 style={{background : "green"}}/>
+                        <h6 style={{background : "var(--status-green)"}}/>
                     </div>
         }else{
             return <div style={statutStyle}>

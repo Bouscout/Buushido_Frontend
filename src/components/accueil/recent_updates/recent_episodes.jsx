@@ -1,6 +1,7 @@
 // contain the logic for displaying the most recent posted episodes in the database
 import { useEffect, useRef, useState, useCallback } from "react";
 import { ImageSmallDetails } from "../../self-contained/imageSmallDetails/ImageSmallDetails";
+import ScrollHandler from "../../self-contained/scrollMark/scrollMark";
 
 const BASE_URL = "https://buushido.com"
 
@@ -50,22 +51,15 @@ export default function Recent_episodes(){
 const Tab = ({series, isMobile}) =>{
     let containerRef = null
     let scrollFunction = null
+    let position = 0
+    
+    // handling scrolling if its mobile device
     if (isMobile){
         const Ref = useRef(null)
 
-        function ScrollToElement(dir){
-            if (containerRef.current){
-                const width = containerRef.current.offsetWidth
-                containerRef.current.scrollLeft += width * dir
-                
-                console.log("performed scrolling with : ", width)
-            }
-        }
-
         containerRef = Ref
-        scrollFunction = ScrollToElement
-        
     }
+
     let numSections = Math.floor(series.length / 5)  // num of divisions 
     numSections = numSections > 3 ? 3 : numSections
 
@@ -100,28 +94,35 @@ const Tab = ({series, isMobile}) =>{
         overflowX : 'scroll',
     }
 
+
+
     return (
         <>
         <section className="flex-column" style={{position : 'relative', paddingBottom : '1.5em', }}>
 
-        <Title isMobile={isMobile}/>
+            <Title isMobile={isMobile}/>
 
-        <div style={tab_style} className="onglet-serie-details" ref={isMobile ? containerRef : null}>
+            <div style={tab_style} className="onglet-serie-details" ref={isMobile ? containerRef : null}>
 
-            {isMobile && 
-                <ScrollButton set={scrollFunction}/>
+
+                {parts.map((episodes, i)=>{
+                    return (
+                        <SingleTab 
+                        key={i}
+                        series={episodes}
+                        mobile={isMobile}
+                        />
+                        )
+                    })}
+            </div>
+            
+            {isMobile &&
+            <ScrollHandler
+            divRef={containerRef}
+            numSection={numSections}
+            />
             }
 
-            {parts.map((episodes, i)=>{
-                return (
-                    <SingleTab 
-                    key={i}
-                    series={episodes}
-                    mobile={isMobile}
-                    />
-                    )
-                })}
-        </div>
         </section>
         </>
     )
@@ -129,7 +130,7 @@ const Tab = ({series, isMobile}) =>{
 const Title = ({isMobile})=>{
     return (
         <h2 style={{
-            color : 'var(--accent-white)',  fontFamily: "'Poppins', sans-serif", fontSize : '1em',
+            color : 'var(--accent-white)',  fontFamily: "'Poppins', sans-serif", fontSize : '0.8em',
             width : isMobile ? "96%" : "85%", margin : '1em auto'
         }}>Ajoutes Recemment</h2>
     )
@@ -196,27 +197,5 @@ const SingleTab = ({series, mobile}) => {
                 )      
 })  }
         </div>
-    )
-}
-
-const ScrollButton = ({set}) => {
-    
-    return (
-        <>
-        {/* right button */}
-        <button style={{
-            bottom : '2%', right : '2%', zIndex : "2", position : 'absolute', outline : 'none', border : 'none', borderRadius : '50%',
-            background : "#303030",
-        }} onClick={()=>{set(1)}}><h2><i className="fa-solid fa-arrow-right"></i></h2></button>
-        {/* right button */}
-
-        {/* left button */}
-        <button style={{
-            bottom : '2%', left : '2%', zIndex : "2", position : 'absolute', outline : 'none', border : 'none', borderRadius : '50%',
-            background : '#303030'
-        }} onClick={()=>{set(-1)}}><h2><i className="fa-solid fa-arrow-left"></i></h2></button>
-        {/* left button */}
-        
-        </>
     )
 }

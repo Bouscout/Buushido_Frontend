@@ -1,10 +1,7 @@
 ---
 import MainLayout from "../../layouts/main_layout.astro"
 import Serie_accueil from "../../components/page_serie/page_serie.jsx"
-// import "../../components/page_serie/serie.css"
 import Footer from "../../layouts/footer.astro"
-import { Nuage_9, Nuage_6 } from "../../components/accueil/decorations/decor"
-// import NavigationBar from "../../layouts/navigation_bar.astro"
 import NavigationBarV2 from "../../layouts/navigation_bar_v2.astro"
 
 export async function getStaticPaths(){
@@ -43,9 +40,10 @@ const pos_6 = {
 
 <MainLayout>
     <NavigationBarV2 />
-    <!-- <Nuage_6  style={pos_6}/>
-    <Nuage_9  style={pos_9}/> -->
+   
     <Serie_accueil id={id} client:only />
-    <!-- <Serie_accueil data={show_data} id={id} client:only /> -->
+
+
+
     <Footer />
 </MainLayout>

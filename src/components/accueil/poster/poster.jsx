@@ -10,13 +10,7 @@ export default function TopPoster(props){
     let url = `url('${BASE_URL}/static/media` + props.serie.poster_tof + "')"
 
     const i = props.pos
-    // poster url for debug mode
-    // let url = "url('https://buushido.ml" + props.serie.poster_tof + "')"
-
-    // for server serving image files
-
-    //for testing server
-    // let url = "url('http://10.0.0.89:8000" + props.serie.background_tof + "')"
+   
 
     useEffect(()=>{
         setEtat(props.etat_main)

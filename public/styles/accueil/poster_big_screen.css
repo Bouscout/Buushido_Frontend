@@ -70,28 +70,30 @@
     line-height: 26.4px; 
   }
   .watch{
-    /* background-color: #141414; */
-    background: linear-gradient(to bottom right, #00093a,#310034, #360600) padding-box,
-    linear-gradient(to top right, #000c4e,#3d0042, #740072, #5e0b00) border-box;
-    /* background: linear-gradient(to bottom right, #000c4f,#420047, #620b00) padding-box,
-    linear-gradient(to top right, #5770ff,#8d0696, #c44bc1, #ff7c6b) border-box; */
-    border: 2px solid transparent;
-    box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
-    /* text-shadow : 0 -40px 50px, 0 0 2px, 0 0 0.1rem purple, 0 0 0.5rem purple, 0 0 0.1rem purple, 0 10px 3px #000; */
+    /* background: linear-gradient(to bottom right, #00093a,#310034, #360600) padding-box,
+    linear-gradient(to top right, #000c4e,#3d0042, #740072, #5e0b00) border-box; */
+
+    background : var(--accent-orange);
+    box-shadow: 0 0 40px -8px var(--accent-orange);
+  
+    /* border: 2px solid transparent; */
+    /* box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75); */
     color: #fff;
-    font-family: odachi;
-    /* font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; */
-    font-size: 3vmin;    
+    /* font-family: odachi; */
+    font-family: 'Poppins', sans-serif;
+
+    /* font-size: 3vmin;     */
+    font-size: 0.65em;    
     font-weight: 600;
     outline: none;
-    border-radius: 10px;
+    border: none;
+    border-radius: 0.2em;
     padding: 5px 30px;
     text-align: center;
     transition: all 200ms;
     -webkit-transition: -webkit-transform 200ms;
     margin-left: 3rem ;
     margin-bottom: 1rem;
-    /* animation: color_swap 2s linear 0s infinite alternate-reverse ; */
   }
 
   #all_onglets{

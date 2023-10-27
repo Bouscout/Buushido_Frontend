@@ -25,11 +25,11 @@
   }
 
   .image-small-details h6{
-    --circleRadius : 1.2em ;
+    --circleRadius : 1.0em ;
     width: var(--circleRadius);
     height: var(--circleRadius);
     border-radius: 50%;
-    background: lightseagreen;
+    background: var(--status-blue);
   
     margin-left: 0.8em;
   }

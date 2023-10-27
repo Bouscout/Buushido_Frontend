@@ -1,5 +1,6 @@
 import { useRef, useState } from "react"
 import { ImagePortrait } from "../../../self-contained/image-portrait"
+import ScrollHandler from "../../../self-contained/scrollMark/scrollMark"
 
 const BASE_URL = "https://buushido.com"
 
@@ -15,24 +16,10 @@ export default function Posters_mobile(props){
     
     const containerRef = useRef(null)
     
-    // for user clicking
-    function ScrollToElement(dir){
-        if (containerRef.current){
-            
-            if (containerRef.current.scrollLeft + 50 > window.innerWidth * 4){
-                console.log("reseting")
-                containerRef.current.scrollLeft = 0
-                return
-            }
-            
-            containerRef.current.scrollLeft += scrollValue * dir
-            console.log("found it", containerRef.current.scrollLeft , " big value is  :", window.innerWidth * 4 )
-
-        }
-    }
+    
 
     // animation
-    function Animation(dir){
+    function Animation(){
         const animation = {
             transform : 'scale(0.98)',
             webkitFilter : 'brightness(30%)',
@@ -40,7 +27,7 @@ export default function Posters_mobile(props){
         }
         setState(animation)
         setTimeout(() => {
-            ScrollToElement(dir)
+            // ScrollToElement(dir)
             const animation = {
                 transform : "scale(1)",
                 webkitFilter : 'brightness(100%)',
@@ -68,7 +55,14 @@ export default function Posters_mobile(props){
                     })}
             </section>
 
-        <ChangeButtons change={Animation}/>
+        {/* <ChangeButtons change={Animation}/> */}
+        <ScrollHandler 
+        divRef={containerRef}
+        numSection={5}
+        specialFunc={Animation}
+        delay={150}
+        automaticScrolling={true}
+        />
         </div>
         </>
     )

@@ -100,6 +100,7 @@ const Container = ({series, changer}) => {
 
                 function negLabel(){
                     SetLabel(serie.id, 0, true)
+                    RemoveFromList(serie)
                     changer(series.filter(obj => obj.id !== serie.id))
                 }
 
