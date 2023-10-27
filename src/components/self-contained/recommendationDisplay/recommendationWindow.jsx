@@ -7,6 +7,13 @@ import SetLabel from "../../../background_processes/recommendations/label";
 import GetRecommendations from "../../../background_processes/recommendations/get_recommendations";
 import { updateSeriesList, RemoveFromList } from "../../../background_processes/recommendations/seriesList";
 import { useEffect, useState } from "react";
+import FetchRecommendations from "../../../background_processes/recommendations/fetch_recommendations";
+
+
+function getRecommendations(){
+    FetchRecommendations()
+    console.log("recommendations fetched")
+}
 
 export default function RecommendationWindowPopUp(props) {
     const [recommendations, setRecommendations] = useState(null)
@@ -75,14 +82,32 @@ export default function RecommendationWindowPopUp(props) {
                         <Container series={recommendations} changer={setRecommendations}/>
                         }
 
-
+                    {/* <RefreshButton /> */}
                 </div>
             </div>
+            
+
         </section>
     );
 }
 
-
+const RefreshButton = () => {
+    const glowStyle = {
+        border : "solid var(--accent-purple)",
+        textAlign : 'center',
+        width : 'clamp(100px, 35%, 200px)',
+    }
+    return (
+        <>
+            <h2 style={glowStyle} onClick={()=>getRecommendations()}>
+                <div className="icon" style={{justifyContent : 'center', marginRight : "0.5em"}}>
+                    {"Refresh"}
+                <i className="fa-solid fa-arrows-rotate"></i>
+                </div>
+            </h2>
+        </>
+    )
+}
 
 
 const Container = ({series, changer}) => {    

@@ -8,10 +8,6 @@ const BASE_URL = "https://buushido.com"
 export default function Posters_mobile(props){
     const [state, setState] = useState(null)
 
-    const scrollValue = window.innerWidth / 1.5
-    const bias = 50
-
-    const [active, setActive] = useState([true, false, false, false, false])
     const posters = props.posters
     
     const containerRef = useRef(null)
@@ -108,12 +104,14 @@ const Layout = ({
         <div className="poster">
 
             {/* <div style={{display : 'flex', flexDirection : 'column', gap:'1vmin', marginLeft:"8px", border : 'solid red'}}> */}
-            <ImagePortrait 
-            src={element.tof_url}
-            alt={element.name}
-            load={true}
-            style={imageStyle}
-            />
+            <a href={'serie/'+element.id}>
+                <ImagePortrait 
+                src={element.tof_url}
+                alt={element.name}
+                load={true}
+                style={imageStyle}
+                />
+            </a>
 
             {/* <WatchButton id={element.id}/> */}
             {/* </div> */}

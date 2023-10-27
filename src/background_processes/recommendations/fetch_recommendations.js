@@ -3,6 +3,7 @@
 // we store those recommendations
 import is_connected from "../check_connection"
 const BASE_URL = "https://buushido.com"
+// const BASE_URL = "http://10.0.0.89:8000"
 import SendLabel from "./send_label"
 
 export default async function FetchRecommendations(){
@@ -30,8 +31,8 @@ export default async function FetchRecommendations(){
     
     // getting extra information about the user
     // console.log("user agent : ", navigator.userAgent)
+
     const userInfos = {
-        // 'userAgent' : navigator.userAgent,
         'userOnWifi' : navigator.onLine,
         'userLanguage' : navigator.language,
         "userParams" : userParams, 
@@ -43,6 +44,7 @@ export default async function FetchRecommendations(){
     const url = new URL(recomendation_url)
 
 
+    // appending without the encoding
     url.searchParams.append("watched", strLastWatched)
     
     for (const info of Object.keys(userInfos)){
@@ -54,7 +56,8 @@ export default async function FetchRecommendations(){
     // before we fetch the suggestions, we try to post the labels we already have
     SendLabel()
     
-    
+    console.log("fetching with : ", strLastWatched)
+
     fetch(url)
     .then(response => response.json())
     .then(data => {

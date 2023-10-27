@@ -37,7 +37,8 @@
       /* scroll-snap-align: start; */
       /* animation: fade_in 2200ms ease-out 0s 1 both; */
     height : 89vh ;
-    border-radius: 30px;
+    /* border-radius: 30px; */
+    border-radius: 0.3em;
     border: none;
     display: flex;
     flex-direction: column;

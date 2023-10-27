@@ -41,6 +41,7 @@ export function updateSeriesList(serie){
         }
 
     }else {
+        console.log("creating the list")
         const newliste = {[serie.id] : serie}
         localStorage.setItem('buushido_liste', JSON.stringify(newliste))
         fetchPopular()
