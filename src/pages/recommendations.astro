@@ -1,0 +1,13 @@
+---
+import MainLayout from "../layouts/main_layout.astro";
+import RecommendationPage from "../components/recommendation_page/recommendation_page.jsx"
+---
+
+<link rel="preload stylesheet" href="/styles/general/navbar_v2/image_small_details.css" as="style" type="text/css">
+
+
+<MainLayout>
+    <RecommendationPage client:load/>
+    
+
+</MainLayout>
