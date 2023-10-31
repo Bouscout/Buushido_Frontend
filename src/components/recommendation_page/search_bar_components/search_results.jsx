@@ -23,7 +23,9 @@ export default function SearchSuggestions(props){
                     <>
                     {series.map((serie, i)=>{
                         return (
-                            <Suggestion serie={serie} key={i}/>
+                            <div key={i} onClick={()=>{props.addFunc(serie)}}>
+                            <Suggestion serie={serie}/>
+                            </div>
                             )
                     })}
                     </>

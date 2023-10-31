@@ -30,10 +30,14 @@ export default function BigSearchBar(props){
             
             // saving the most likely search
             if (suggest.length > 0){
-                props.func(suggest[0].id)
+                props.func(suggest[0])
                 ressetting()
             }
         }
+    }
+
+    function AddFunc(serie){
+        props.func(serie)
     }
 
     // Function to reset the searched word and the suggestions
@@ -94,7 +98,7 @@ export default function BigSearchBar(props){
     }
 
     const focusStyle = {
-        top : "13%", flexDirection : 'row', 
+        top : "8%", flexDirection : 'row', 
         animationDuration : '300ms'
     }
 
@@ -108,6 +112,7 @@ export default function BigSearchBar(props){
             isTyping={isTyping}
             suggestions={suggest}
             func={EnterFunc}
+            addFunc={AddFunc}
             />
 
             <div id="special-buttons">

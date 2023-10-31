@@ -7,3 +7,17 @@
 .fade-in{
     animation: fade-in 1000ms linear 0s 1 both;
 }
+
+@keyframes slide-in {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+.slide-in{
+    animation: slide-in 1000ms linear 0s 1 both;
+}

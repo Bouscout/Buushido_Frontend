@@ -8,6 +8,7 @@
     line-height: 2em;  
     color: var(--accent-white);
     position: fixed;
+    z-index: 5;
     top : 35%;
     left : 50%;
     translate: -50% -50%;

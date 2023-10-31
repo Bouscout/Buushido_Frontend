@@ -1,0 +1,58 @@
+
+#conteneur{
+    margin-top: 15vh;
+    width: 100%;
+    display: grid;
+    z-index: 1;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 11vw));
+    gap: 1.5rem;
+    justify-content: center;
+    margin-bottom: 10rem;
+
+    font-size: clamp(18px, 5.5vmin, 60px);
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 2em;  
+    color: var(--accent-white);
+}
+
+.contenu{
+    /* position: relative; */
+    overflow: hidden;
+    z-index: 1;
+    width: 11vw;
+    min-width: 50px;
+    aspect-ratio: 10 / 16;
+    border-radius: 10px;
+    transition: all 200ms;
+    border-radius: 0.1em 0.1em 0 0;
+}
+
+.card{
+    animation: slide-in 500ms linear 0s 1 both;
+    background-color: var(--dark-blue);
+    border-radius: 0.1em;
+    align-items: center;
+    justify-content: center;
+}
+
+.card h2{
+    height: 10%;
+    font-size: 0.3em;
+    line-height: 15px;
+} 
+
+.contenu img{
+    width: 11vw;
+    aspect-ratio: 10 / 16;
+    min-width: 50px;
+    transition: all 200ms;
+    animation: fade_in 1700ms ease-out 0s 1 both;
+    border-radius: inherit;
+}
+
+.contenu img:hover {
+    scale: 1.05;
+}

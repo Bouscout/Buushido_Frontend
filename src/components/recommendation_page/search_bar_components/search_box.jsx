@@ -2,7 +2,7 @@
 import SearchSuggestions from "./search_results"
 
 export const SearchBox = ({
-    word, wordChanger, isTyping, reset, suggestions, func
+    word, wordChanger, isTyping, reset, suggestions, func, addFunc
 }) => {
     return (
         <>
@@ -13,7 +13,7 @@ export const SearchBox = ({
             <CancelSearch visible={isTyping}/>
 
             {isTyping && 
-            <SearchSuggestions data={suggestions}/>
+            <SearchSuggestions data={suggestions} addFunc={addFunc}/>
             }
         </div>
         </>
