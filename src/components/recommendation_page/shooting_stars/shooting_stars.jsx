@@ -52,13 +52,15 @@ export default function NightSky(){
 
     function ActivateFalling(){
         console.log("function ac : ")
-        setFalling(true)
+        setFalling(!falling)
     }
 
     console.log(starsPosition)
 
     return (
-        <section id="sky" onClick={()=>{ActivateFalling()}}>
+        <section id="sky" style={{
+            animation : falling ? " exploring 10s linear 0s 1 both " : null
+        }} onClick={()=>{ActivateFalling()}}>
             {starsPosition.map((starSection, i)=> {
                 return starSection.map((star, i) => {
                     return <BlinkingStar xPosition={star[0]} yPosition={star[1]} key={i}/>
@@ -91,17 +93,17 @@ const BlinkingStar = ({xPosition, yPosition}) => {
 }
 
 const FallingStars = () =>{
-    const xPosition = Math.floor(Math.random() * (20))
+    const xPosition = Math.floor(Math.random() * (30))
     const yPosition = Math.floor(Math.random() * (90 - 10 + 1)) + 10
 
-    const ShiningDelay = Math.floor(Math.random() * 4000)
+    const ShiningDelay = Math.floor(Math.random() * 10)
 
     console.log("falling star : ")
     return (
         <div className="star" style={{
             top : `${yPosition}%` , left : `${-xPosition}%`, 
             "--duration" : "3s",
-            "--delay" : `${ShiningDelay}ms`,
+            "--delay" : `${ShiningDelay}s`,
             animation : "tail var(--duration) ease-in-out var(--delay) infinite, falling var(--duration) ease-in-out var(--delay) infinite "
         }}></div>
     )

@@ -13,6 +13,7 @@
     overflow: hidden;
     /* transform: rotateZ(45deg); */
     background: radial-gradient(ellipse at bottom, #0D1E31, #111);
+    /* animation: exploring 5s linear 0s infinite ; */
 }
 
 .star{
@@ -61,7 +62,7 @@
         transform: translateX(0);
     }
     to{
-        transform : translateX(1200px) ;
+        transform : translateX(105vw) ;
     }
 }
 
@@ -69,4 +70,15 @@
     0% {width: 0px;}
     30% {width: 30px;}
     100% {width: 0px;}
+}
+
+@keyframes exploring {
+    from {
+        scale: 1;
+        transform: translateY(0) translateX(0);
+    }
+    to {
+        scale: 1.2;
+        transform: translateY(-50px) translateX(-100px);
+    }
 }
