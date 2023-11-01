@@ -11,6 +11,8 @@ export default function NightSky(props){
     const StarsPerSection = Math.floor(numStars / 4)
     const margin = 2
 
+    const NumFallingStarts = 20
+
     useEffect(() => {
         const allStars = []
 
@@ -48,13 +50,7 @@ export default function NightSky(props){
     useEffect(() => {
         setFalling(props.animate)
         console.log("animation is : ", props.animate)
-    }, [props.animate])
-
-
-    const NumFallingStarts = 15
-
-   
-
+    }, [props.animate])   
 
     return (
         <section id="sky" style={{
@@ -96,7 +92,7 @@ const FallingStars = () =>{
     const xPosition = Math.floor(Math.random() * (30))
     const yPosition = Math.floor(Math.random() * (90 - 10 + 1)) + 10
 
-    const ShiningDelay = Math.floor(Math.random() * 10)
+    const ShiningDelay = Math.floor(Math.random() * 5)
 
     return (
         <div className="star" style={{

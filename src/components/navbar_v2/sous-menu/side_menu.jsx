@@ -36,6 +36,12 @@ export default function SideMenuLeft(){
 
                         <GenresMenu />
 
+                        <a href="/recommendations">
+                            <h2>
+                                <div className="icon"><i className="fa-solid fa-gear"></i>Recommendation Engine</div>
+                            </h2>
+                        </a>
+
                     </div>
 
                     <Social />
@@ -76,9 +82,9 @@ const Social = ({}) =>{
             display : 'flex', justifyContent : 'space-evenly', width : '90%', margin : '0 auto',
             fontSize : '1.8em', padding : '0.7em 0', borderTop : '1px solid var(--accent-white)'
         }}>
-            <i className="fa-brands fa-telegram"></i>
-            <i className="fa-brands fa-square-x-twitter"></i>
-            <i className="fa-brands fa-discord"></i>
+            <i className="fa-brands fa-telegram hover-color"></i>
+            <i className="fa-brands fa-square-x-twitter hover-color"></i>
+            <i className="fa-brands fa-discord hover-color"></i>
         </div>
         
         </>

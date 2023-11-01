@@ -16,7 +16,7 @@ export const ReturnButton = ({
         ...style
     }
     return (
-        <div style={customStyle} onClick={()=>{func()}}>
+        <div className="hover-color" style={customStyle} onClick={()=>{func()}}>
         <i className="fa-solid fa-x"></i>
         </div>
     )
