@@ -94,7 +94,14 @@ export default function BigSearchBar(props){
     }
 
     function focusing(){
-        setFocus(true)
+        if (focus){
+            props.switch(true)
+        }
+        else {
+
+            setFocus(true)
+        }
+        
     }
 
     const focusStyle = {

@@ -1,0 +1,69 @@
+
+:root{
+    --duration : 2s ;
+}
+
+#sky {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center ;
+    align-items: center ;
+    overflow: hidden;
+    /* transform: rotateZ(45deg); */
+    background: radial-gradient(ellipse at bottom, #0D1E31, #111);
+}
+
+.star{
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    top: 50%;
+    /* width: 100px; */
+    width: 0px;
+    height: 4px;
+    background: linear-gradient(-45deg, #5F91FF, rgba(0, 0, 255, 0));
+    border-radius: 999px;
+    filter: drop-shadow(0 0 6px #699BFF);
+
+    /* animation: tail var(--duration) ease-in-out infinite,
+                falling var(--duration) ease-in-out infinite ; */
+}
+
+.star::before, .star::after{
+    content: "";
+    position: absolute;
+    top: calc(50% - 2px);
+    right: 0;
+    height: 4px;
+    width: 30px;
+    background: linear-gradient(-45deg, rgba(0, 0, 255, 0), #5F91FF, rgba(0, 0, 255, 0));
+    border-radius: 100%;
+    transform: translateX(50%) rotate(45deg);
+    animation: shining var(--duration) ease-in-out infinite ;
+}
+.star::after{
+    transform: translateX(50%) rotateZ(-45deg);
+}
+
+@keyframes tail {
+    0%{
+        width: 0px;
+    }30%{ width: 100px;}
+    100%{width: 0px;}
+}
+
+@keyframes falling {
+    from {
+        transform: translateX(0);
+    }
+    to{
+        transform : translateX(300px) ;
+    }
+}
+
+@keyframes shining {
+    0% {width: 0px;}
+    30% {width: 30px;}
+    100% {width: 0px;}
+}

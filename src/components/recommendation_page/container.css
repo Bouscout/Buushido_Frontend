@@ -1,10 +1,14 @@
+:root{
+    --image-min-width : 100px;
+    --image-width : 11vw;
+}
 
 #conteneur{
     margin-top: 15vh;
     width: 100%;
     display: grid;
     z-index: 1;
-    grid-template-columns: repeat(auto-fit, minmax(50px, 11vw));
+    grid-template-columns: repeat(auto-fit, minmax(var(--image-min-width), var(--image-width)));
     gap: 1.5rem;
     justify-content: center;
     margin-bottom: 10rem;
@@ -22,8 +26,8 @@
     /* position: relative; */
     overflow: hidden;
     z-index: 1;
-    width: 11vw;
-    min-width: 50px;
+    width: var(--image-width);
+    min-width: var(--image-min-width);
     aspect-ratio: 10 / 16;
     border-radius: 10px;
     transition: all 200ms;
@@ -44,10 +48,19 @@
     line-height: 15px;
 } 
 
+.card i{
+    font-size: 0.5em;
+    padding: 0.5em 0;
+    transition: all 200ms;
+}
+.card i:hover{
+    scale: 1.2;
+}
+
 .contenu img{
-    width: 11vw;
+    width: var(--image-width);
     aspect-ratio: 10 / 16;
-    min-width: 50px;
+    min-width: var(--image-min-width);
     transition: all 200ms;
     animation: fade_in 1700ms ease-out 0s 1 both;
     border-radius: inherit;
