@@ -4,6 +4,8 @@
   --light-gray-transparent : rgba(44, 44, 44, 0.738);
   --gray-blue : rgb(25, 26, 28) ;
   --dark-blue : #191a1c;
+  --deep-blue : #030917;
+  --accent-black : #111111;
   --accent-purple : purple ;
   --accent-orange : #ff6740;
   --accent-red : red;
@@ -79,3 +81,5 @@ body::-webkit-scrollbar{display: none;}
 ::-webkit-scrollbar{
   display: none;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Open+Sans:wght@500&family=Poppins:wght@700&display=swap');

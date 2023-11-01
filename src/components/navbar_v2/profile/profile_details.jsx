@@ -1,5 +1,6 @@
 // file for displaying the details when the user click on the profile icon
 import { RecommendationButton } from "./recommendations_button/recommendations_button"
+import { SpecialButton, NormalButton } from "../../self-contained/usefulButtons"
 
 export default function ProfileDetails(props){
     /* 
@@ -137,50 +138,6 @@ const DeconnexionButton = ({reset}) =>{
         </div>
 )
 }
-
-const SpecialButton = ({
-    text, link, color, icon
-}) => {
-    let glowStyle
-    if (color){
-        glowStyle ={
-            background : `var(--${color})`,
-            boxShadow : `0 0 40px -8px var(--${color})`,
-        }
-    }
-    return (
-        <a href={link}>
-
-            <h2 style={glowStyle}>
-                <div className="icon" style={{justifyContent : 'left', marginRight : "0.5em"}}>
-                <i className={icon}></i>
-                    {text}
-                </div>
-            </h2>
-
-        </a>
-    )
-}
-
-const NormalButton = ({
-    text, icon, func, link
-}) =>{
-    return (
-        
-        <a href={link}>
-            <h2 style={{
-                background : 'var(--dark-blue)', fontWeight : '600', 
-                textAlign : 'center', 
-            }} onClick={()=>{func ? func() : null}}>
-                    <div className="icon" style={{justifyContent : 'left', marginRight : '0.5em'}}>
-                        <i className={icon}></i>
-                        {text}
-                    </div>
-            </h2>
-        </a>
-    )
-}
-
 
 
 function resetReprendre(){

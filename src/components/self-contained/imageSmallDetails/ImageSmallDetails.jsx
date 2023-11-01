@@ -12,7 +12,7 @@ export const ImageSmallDetails = ({
     extraDetails = null,
     extraStyle,
     rounded,
-    preserve,
+    preserve, // enclose the information in extraDetails in <pre> tag
     gap_between,
 }) => {
     rounded = rounded ? rounded : 1
@@ -135,7 +135,7 @@ const SmallDetails = ({
             {note &&
             <div style={{display : 'flex', justifyContent: "left", alignItems : 'center',
             height : '12%', gap: "4vmin", 
-        }}>
+            }}>
                 <h3>
                     <strong>{note} <i className="fa-regular fa-star"></i></strong>
                 </h3>

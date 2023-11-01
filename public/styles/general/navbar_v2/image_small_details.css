@@ -5,6 +5,7 @@
     text-decoration: none;
     background-color: var(--dark-blue);
     transition: all 200ms;
+    cursor: pointer;
 }
 
 .image-small-details:hover{
