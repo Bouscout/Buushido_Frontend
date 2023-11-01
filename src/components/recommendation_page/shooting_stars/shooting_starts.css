@@ -1,6 +1,7 @@
 
 :root{
     --duration : 2s ;
+    --delay : 0ms;
 }
 
 #sky {
@@ -20,6 +21,7 @@
     left: 50%;
     top: 50%;
     /* width: 100px; */
+    scale: 0.80;
     width: 0px;
     height: 4px;
     background: linear-gradient(-45deg, #5F91FF, rgba(0, 0, 255, 0));
@@ -36,11 +38,12 @@
     top: calc(50% - 2px);
     right: 0;
     height: 4px;
-    width: 30px;
+    width: 20px;
     background: linear-gradient(-45deg, rgba(0, 0, 255, 0), #5F91FF, rgba(0, 0, 255, 0));
     border-radius: 100%;
     transform: translateX(50%) rotate(45deg);
-    animation: shining var(--duration) ease-in-out infinite ;
+    animation: shining var(--duration) ease-in-out var(--delay) infinite ;
+    
 }
 .star::after{
     transform: translateX(50%) rotateZ(-45deg);
@@ -58,7 +61,7 @@
         transform: translateX(0);
     }
     to{
-        transform : translateX(300px) ;
+        transform : translateX(1200px) ;
     }
 }
 
