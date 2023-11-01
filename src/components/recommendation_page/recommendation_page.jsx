@@ -10,19 +10,62 @@ import Predictions from "./predictions"
 
 import NightSky from "./shooting_stars/shooting_stars"
 
+import { ReturnButton } from "./interactionsButton"
+
 export default function RecommendationPage(){
 
-    const [seriesArray, setSerieArray] = useState([])
+    const [seriesArray, setSerieArray] = useState({})
     const [recommending, setRecommending] = useState(false)
+    const [fetchPopular, setFetchPopular] = useState(false)
 
-    function AddInput(show){
-        const fake = seriesArray.slice()
-        fake.push(show)
-        // console.log(inputSeries.length)
+    function AddInput(show, refresh=true, del=false){
+        // add or delete an element
+        if (del){
+            delete seriesArray[show.id]
+        }else{
+            console.log("adding : ", show)
+            seriesArray[show.id] = show
+        }
+        // no need to display the changes directly
+        console.log(seriesArray)
+        if (!refresh){
+            return
+        }
+        
+        // creating new object
+        const fake = {...seriesArray}
+        
+        if (recommending){
+            setRecommending(false)
+        }
         setSerieArray(fake)
+        // in case we don't need to display the changes directly
+
     }
 
-    return <NightSky />
+    function getPopular(){
+        setFetchPopular(true)
+        setRecommending(true)
+    }
+
+    function inputMode(){
+        setRecommending(false)
+    }
+
+    return (
+        <>
+        <BigSearchBar func={AddInput} switch={setRecommending} popular={getPopular}/>
+        <NightSky animate={recommending}/>
+
+        {recommending ?
+        <>
+        <ReturnButton func={inputMode}/>
+        <Predictions inputs={seriesArray} popular={fetchPopular} addFunc={AddInput}/>
+        </> :
+        <InputSeries series_data={seriesArray}/>
+        }
+        </>
+    )
 
     if (recommending){
         return (

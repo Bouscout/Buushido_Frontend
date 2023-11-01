@@ -1,19 +1,10 @@
 // for storing and displaying the shows the user chose as inputs
 
-import { useState } from "react";
-import { useEffect } from "react";
-
 import { ImagePortrait } from "../self-contained/image-portrait";
 
 export const InputSeries = ({series_data}) => {
-    const series = series_data
-    // const [series, setSeries] = useState([])
-
-    // useEffect(() => {
-    //     setSeries(series)
-    //     console.log("taille : ", series.length)
-    // }, [series_data])
-    
+    const series = Object.values(series_data)
+      
     if (series.length > 0){
 
         return (

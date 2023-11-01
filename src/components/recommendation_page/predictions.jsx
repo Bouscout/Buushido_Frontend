@@ -1,6 +1,8 @@
 // for fetching and displaying the predictions
 
 import { ImagePortrait } from "../self-contained/image-portrait";
+import SetLabel from "../../background_processes/recommendations/label";
+import SendLabel from "../../background_processes/recommendations/send_label";
 
 import { useEffect, useState } from "react";
 
@@ -11,10 +13,19 @@ export default function Predictions(props){
     const [predicted, setPredicted] = useState([])
     const [parameters, setParams] = useState('')
 
+    const delay = 5000
+
     // fetching the predictions
     useEffect(() => {
+        let url
+
+        if (props.popular){
+            url = `${BASE_URL}/api/recommend_popular`
+        
+        }else {
         // parse the information from the array
-        const strInputs = props.inputs.map(watch => watch.id).join(",")
+        const series = Object.values(props.inputs)
+        const strInputs = series.map(watch => watch.id).join(",")
 
         const userInfos = {
             'userOnWifi' : navigator.onLine,
@@ -25,7 +36,7 @@ export default function Predictions(props){
     
         let recomendation_url = `${BASE_URL}/api/recommendations`
         
-        const url = new URL(recomendation_url)
+        url = new URL(recomendation_url)
     
     
         url.searchParams.append("watched", strInputs)
@@ -35,6 +46,7 @@ export default function Predictions(props){
                 url.searchParams.append(info, userInfos[info])
             }
         }
+    }
 
         // fetching
         fetch(url)
@@ -49,7 +61,10 @@ export default function Predictions(props){
                 setParams(params)
             }
             console.log("recommended : ", series)
-            setPredicted(series)            
+
+            setTimeout(() => {
+                setPredicted(series)            
+            }, delay)
 
     })
 
@@ -58,7 +73,7 @@ export default function Predictions(props){
     if (predicted.length > 0){
 
         return (
-                <Labeliseur series={predicted}/>   
+                <Labeliseur series={predicted} addFunc={props.addFunc}/>   
             )
         }
 
@@ -66,12 +81,21 @@ export default function Predictions(props){
 
 
 // sub components
-const Labeliseur = ({series}) => {
+const Labeliseur = ({series, addFunc}) => {
     const Labels = {}
 
-    function giveLabel(id, rate){
-        Labels[id] = rate
+    function giveLabel(show, rate){
+        Labels[show.id] = rate
         console.log(Labels)
+
+        if (rate === 1){
+            // we add the show to the list of liked
+            addFunc(show, false)
+        }else if(rate === 0){
+            // we delete the show from liked show list
+            addFunc(show, false, true)
+        }
+
     }
 
     return (
@@ -90,7 +114,7 @@ const LabelCard = ({serie, pos, giveLabel}) => {
 
     function giveRating(rate){
         setRating(rate)
-        giveLabel(serie.id, rate)
+        giveLabel(serie, rate)
     }
 
     return (
@@ -115,7 +139,7 @@ const LabelCard = ({serie, pos, giveLabel}) => {
                     color : rating === 0 ? "var(--accent-dark-red)" : null
                 }} className={`fa-${rating === 0 ? "solid" : "regular"} fa-thumbs-down`}></i>
 
-                <i onClick={()=>giveRating(1)} style={{
+                <i onClick={()=>giveRating(1) } style={{
                     color : rating === 1 ? "pink" : 'var(--accent-white)'
                 }} className={`fa-${rating === 1 ? "solid" : "regular"} fa-heart`}></i>
             

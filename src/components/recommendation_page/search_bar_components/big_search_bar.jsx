@@ -98,10 +98,14 @@ export default function BigSearchBar(props){
             props.switch(true)
         }
         else {
-
             setFocus(true)
         }
         
+    }
+
+    function getPopular(){
+        props.popular()
+        focusing()
     }
 
     const focusStyle = {
@@ -126,7 +130,7 @@ export default function BigSearchBar(props){
                 <PredictionButton func={focusing}/>
 
                 {!focus &&
-                <PopularPredictionButton />
+                <PopularPredictionButton func={getPopular}/>
                 }
             </div>
         

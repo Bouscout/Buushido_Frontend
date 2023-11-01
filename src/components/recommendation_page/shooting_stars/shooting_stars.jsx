@@ -2,8 +2,9 @@ import { useEffect, useState } from "react"
 import "./shooting_starts.css"
 
 
-export default function NightSky(){
-    const [falling, setFalling] = useState(false)
+export default function NightSky(props){
+    console.log("animation is : ", props.animate)
+    const [falling, setFalling] = useState(props.animate)
     const [starsPosition, setStarsPosition] = useState([])
 
     const numStars = 20
@@ -31,9 +32,6 @@ export default function NightSky(){
                 upperY = ((i % 2) * 50) + 50 - margin
                 lowerY = ((i % 2) * 50) + margin
                 
-                let xPosition = Math.floor(Math.random() * (upperX - lowerX + 1)) + lowerX
-                let yPosition = Math.floor(Math.random() * (upperY - lowerY + 1)) + lowerY
-                
                 Section.push([
                     Math.floor(Math.random() * (upperX - lowerX + 1)) + lowerX,
                     Math.floor(Math.random() * (upperY - lowerY + 1)) + lowerY
@@ -46,21 +44,22 @@ export default function NightSky(){
 
     }, [])
 
+    // for triggering animation of shooting starts
+    useEffect(() => {
+        setFalling(props.animate)
+        console.log("animation is : ", props.animate)
+    }, [props.animate])
 
 
     const NumFallingStarts = 15
 
-    function ActivateFalling(){
-        console.log("function ac : ")
-        setFalling(!falling)
-    }
+   
 
-    console.log(starsPosition)
 
     return (
         <section id="sky" style={{
             animation : falling ? " exploring 10s linear 0s 1 both " : null
-        }} onClick={()=>{ActivateFalling()}}>
+        }} >
             {starsPosition.map((starSection, i)=> {
                 return starSection.map((star, i) => {
                     return <BlinkingStar xPosition={star[0]} yPosition={star[1]} key={i}/>
@@ -88,7 +87,8 @@ const BlinkingStar = ({xPosition, yPosition}) => {
 
     return <div className="star" style={{
         top : `${yPosition}%` , left : `${xPosition}%`, 
-        "--delay" : `${ShiningDelay}ms`
+        "--delay" : `${ShiningDelay}ms`,
+        "--duration" : '2s',
     }}></div>
 }
 
@@ -98,7 +98,6 @@ const FallingStars = () =>{
 
     const ShiningDelay = Math.floor(Math.random() * 10)
 
-    console.log("falling star : ")
     return (
         <div className="star" style={{
             top : `${yPosition}%` , left : `${-xPosition}%`, 
