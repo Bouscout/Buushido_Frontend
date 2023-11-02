@@ -4,22 +4,18 @@ import { useState } from "react";
 
 import "./burger.css"
 
-export default function BurgerButton(props){
+export default function BurgerButton({func}){
     const [activated, setActivated] = useState(false)
 
-    const customStyle = {
-        color : 'var(--accent-white)',
-        position : 'fixed',
-        zIndex : '6',
-        top : '5%',
-        left : "5%",
-        fontSize : '3vmax',
-        ...props.style
+    function activation(){
+        func()
+        setActivated(!activated)
+        console.log("trigerring")
     }
 
     return (
         <>
-        <div style={customStyle} onClick={()=>{setActivated(!activated)}}>
+        <div id="burger" onClick={()=>{activation()}}>
             {activated ?
             <Active state={!activated}/> :
             <Inactive state={!activated}/>    

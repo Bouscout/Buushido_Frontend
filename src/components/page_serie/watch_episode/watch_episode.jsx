@@ -27,17 +27,16 @@ export default function Watch_episode(props){
 
         // checking if the next episode is the last episode to remove the item from recently watch
         let liste = JSON.parse(localStorage.getItem('buushido_liste'))
-        if((all_episodes.indexOf(actual) + 1) >= all_episodes.length - 1 && Array.isArray(liste)){            
-            
-            for (const serie of liste){
-                console.log("try : ", liste)
-                if (serie.id === parseInt(id)){
-                    serie.last_episode = null
-                    serie.last_saison = null
-                    console.log("removed : ", serie)
-                } 
 
-                break
+        if((all_episodes.indexOf(actual)) >= all_episodes.length - 1){            
+            const concerned = liste[id]
+            if (concerned){
+                
+                concerned.last_episode = null
+                concerned.last_saison = null
+                console.log("removed : ", serie)
+                 
+                liste[id] = concerned
             }
 
             //update the list 

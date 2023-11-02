@@ -4,14 +4,48 @@
     from { transform: scaleX(0); }
     to {transform: scaleX(1);}
 }
+@keyframes slide-down{
+    from {height: 0;}
+    to {height: 100vh;}
+}
 
+#burger{
+    position : fixed;
+    z-index : 6;
+    top : 5%;
+    left : 5% ;
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid var(--accent-white);
+    /* border: 2px solid transparent; */
+    transition: all 200ms;
+}
+
+#burger:hover{
+    border: 2px solid var(--accent-purple);
+}
 
 .bar{
-    transition: all 300ms;
     width: 30px;
     height: 2px;
     background: var(--accent-white);
     border-radius: 2px;
     transform-origin: center;
-    animation: get-in 500ms ease-out 0ms 1 reverse both;
+}
+
+#up-menu{
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    z-index: 5;
+    width: 100vw;
+    /* animation: slide-down 500ms ease-in 0ms both; */
+    display: flex;
+    flex-direction: column;
+    background-color: blue;
 }

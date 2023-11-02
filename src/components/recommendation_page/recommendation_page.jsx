@@ -11,13 +11,14 @@ import Predictions from "./predictions"
 import NightSky from "./shooting_stars/shooting_stars"
 
 import { ReturnButton } from "./interactionsButton"
-import BurgerButton from "./burger_menu/burger_button"
+import UpMenu from "./burger_menu/up_menu"
 
 export default function RecommendationPage(){
 
     const [seriesArray, setSerieArray] = useState({})
     const [recommending, setRecommending] = useState(false)
     const [fetchPopular, setFetchPopular] = useState(false)
+
 
     function AddInput(show, refresh=true, del=false){
         // add or delete an element
@@ -55,7 +56,7 @@ export default function RecommendationPage(){
 
     return (
         <>
-        <BurgerButton />
+        <UpMenu />
 
         <BigSearchBar func={AddInput} switch={setRecommending} popular={getPopular}/>
         <NightSky animate={recommending}/>

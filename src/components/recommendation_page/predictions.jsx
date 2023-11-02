@@ -13,7 +13,7 @@ export default function Predictions(props){
     const [predicted, setPredicted] = useState([])
     const [parameters, setParams] = useState('')
 
-    const delay = 5000
+    const delay = 2000
 
     // fetching the predictions
     useEffect(() => {
