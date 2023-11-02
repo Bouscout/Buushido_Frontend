@@ -1,0 +1,17 @@
+
+
+@keyframes get-in {
+    from { transform: scaleX(0); }
+    to {transform: scaleX(1);}
+}
+
+
+.bar{
+    transition: all 300ms;
+    width: 30px;
+    height: 2px;
+    background: var(--accent-white);
+    border-radius: 2px;
+    transform-origin: center;
+    animation: get-in 500ms ease-out 0ms 1 reverse both;
+}

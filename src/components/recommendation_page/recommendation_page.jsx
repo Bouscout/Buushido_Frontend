@@ -11,6 +11,7 @@ import Predictions from "./predictions"
 import NightSky from "./shooting_stars/shooting_stars"
 
 import { ReturnButton } from "./interactionsButton"
+import BurgerButton from "./burger_menu/burger_button"
 
 export default function RecommendationPage(){
 
@@ -54,6 +55,8 @@ export default function RecommendationPage(){
 
     return (
         <>
+        <BurgerButton />
+
         <BigSearchBar func={AddInput} switch={setRecommending} popular={getPopular}/>
         <NightSky animate={recommending}/>
 
