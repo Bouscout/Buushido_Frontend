@@ -98,7 +98,7 @@ const Tab = ({series, isMobile}) =>{
 
     return (
         <>
-        <section className="flex-column" style={{position : 'relative', paddingBottom : '1.5em', }}>
+        <section className="flex-column" style={{position : 'relative', paddingBottom : '0.5em', }}>
 
             <Title isMobile={isMobile}/>
 

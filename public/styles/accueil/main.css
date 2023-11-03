@@ -172,25 +172,15 @@ img{
   text-align: center;
   font-size: 4vmin ;
   width: 40%;
-  z-index: 1;
   line-height: 120%;
-  
-  /* text-shadow : 0 -1px 6px, 0 0 2px, 0 0 0.1rem rgba(199, 21, 134, 0.45), 0 0 0.5rem rgba(199, 21, 134, 0.45), 0 0 0.1rem rgba(199, 21, 134, 0.45); */
-  /* color: #f8a100; */
-  /* text-shadow : 0 -1px 6px, 0 0 2px, 0 0 0.1rem purple, 0 0 0.5rem purple, 0 0 0.1rem purple; */
-  /* transition: all 200ms;
-  color: transparent;
-  background: linear-gradient(to right,  #5770ff,#8d0696, #c44bc1, #ff7c6b, #f8a100 ); 
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 -40px 70px, 0 0 2px, 0 0 1em rgba(199, 21, 134, 0.506), 0 0 0.5em rgba(199, 21, 134, 0.506), 0 0 0.1em rgba(199, 21, 134, 0.506), 
-  0 5px 3px #00000056
-  ; */
   padding: 8px 0px;
   border-radius: 8px;
   cursor: pointer;
   margin-bottom: 0.5vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.7em;
 }
 .onglet-name span{
     animation: color_swap 2s linear 0s infinite alternate-reverse ;
@@ -253,7 +243,7 @@ img{
   overflow: hidden;
 } */
 
-.ongle{
+.onglet{
   display: grid;
   grid-template-rows: auto auto;
   visibility: visible;
@@ -265,43 +255,29 @@ img{
   z-index: 1;
 }
 
-.deleteur{
-  color : #d3d3d3cb; transition: all 100ms;
-  text-shadow: 2px 2px 8px #92929235; cursor: pointer;
-} .deleteur:hover{
-  color :  #aa0404;
-}
+
 @keyframes visi {
   from {opacity: 0;
-        transform: translateY(70px);
+        transform: translateX(-50px);
   }
-  /* 95% {opacity: 0; 
-      transform: translateY(0);
-  } */
   100%{
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 
 @keyframes fade_in{
   from {
     opacity: 0;
-    /* background: red;
-    color: transparent; */
   }
   95%{
     opacity: 0;
-    /* background: red;
-    color: transparent; */
-  
   }
   100%{
     opacity: 1;
-    /* color: #f8a100;
-    background: transparent; */
   }
 }
+
 @keyframes fade_out {
   from{opacity: 1;}
   95%{opacity: 1;}

@@ -33,17 +33,14 @@ export default function OngletSerie(props){
         ) ; 
     }, [])
     }
-
-        
-    
     return (
         <>
-        <Montre donne={data} conserve={props.conserve}/>
+        <Wrapper donne={data} conserve={props.conserve}/>
         </>
     )
 }
 
-function Montre(props){
+function Wrapper(props){
     
     if (props.donne.length > 0){
         let data = props.donne
@@ -55,7 +52,7 @@ function Montre(props){
                 const onglet = couplet[0]
                 const series = couplet[1]
                 return ( 
-                    <section key={i} className="ongle">
+                    <section key={i} className="onglet">
                        <Onglet_container onglet={onglet} series={series} conserve={
                         Array.isArray(props.conserve) ? props.conserve[i]:false 
                             }  key={i}/>
@@ -93,10 +90,8 @@ function Onglet_container(props){
     
     return (
         <>
-        <div>
             <Onglet_info onglet={onglet} series={series}/>
                         
-        </div>
             <ContainerSeries all_series={trimmed_serie} conserve={props.conserve}/>
         </>
     )

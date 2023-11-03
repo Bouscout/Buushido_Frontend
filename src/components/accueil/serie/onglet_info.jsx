@@ -32,7 +32,7 @@ export default function Onglet_info(props){
 
              {/* the actual details */}
             <section id="hidden-details" style={{
-            position : 'fixed', inset: '0',background : 'var(--full-black)', zIndex : '6', overflowY : 'scroll',
+            position : 'fixed', inset: '0',background : 'var(--black-carbon)', zIndex : '6', overflowY : 'scroll',
             }}>
                 <div style={{
                     marginTop : '8vmax', marginLeft : '3vmax', display : 'grid', gridTemplateColumns : '15% 80%',
@@ -79,12 +79,11 @@ export default function Onglet_info(props){
     else{
         return (
 
-            <h1 onClick={()=>{setShowDetails(true)}} className="onglet-name">{onglet.name}  <span style={{
-                fontWeight : '100', fontSize : mobile ? '5.5vmin' : "4vmin",
-                fontFamily : 'monospace', marginLeft : '1.5vmin',
-            }}>
-                <i className="fa-solid fa-arrow-right"></i>
-                </span></h1>
+            <h1 onClick={()=>{setShowDetails(true)}} className="onglet-name">{onglet.name} 
+            
+                <i className="fa-solid fa-circle-chevron-down"></i>
+              
+                </h1>
             
             )
         }

@@ -16,6 +16,7 @@
   --full-black : #000;
   --light-black :rgb(20, 20, 20);
   --medium-black : #181818;
+  --black-carbon : #0e0e0e;
   --dark-gray : #2c2c2c;
   --status-blue : #00c9f5;
   --status-green : #04d000;
@@ -31,7 +32,10 @@ body{
     /* background: linear-gradient(to bottom, #101010 0% 50%, #000 ); */
     /* background: #000; */
     /* background: rgb(25, 26, 28); */
-    background: var(--full-black);
+    /* background: var(--black-carbon); */
+    background: linear-gradient(to top, var(--full-black), var(--black-carbon));
+    /* background: radial-gradient(ellipse at bottom, #000e1e, var(--black-carbon)); */
+
 
     /* background: #111213 ;
     background: #111213 ;

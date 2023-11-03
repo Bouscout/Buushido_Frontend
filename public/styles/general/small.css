@@ -6,7 +6,8 @@
     }
     body{
       /* background-color: rgb(25, 26, 28); */
-      background-color: var(--full-black);
+      /* background-color: var(--black-carbon); */
+      background: linear-gradient(to top, var(--full-black), var(--black-carbon));
       /* background-color: var(--dark-blue); */
     }
 

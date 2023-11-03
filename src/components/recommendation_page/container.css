@@ -28,7 +28,7 @@
     z-index: 1;
     width: var(--image-width);
     min-width: var(--image-min-width);
-    aspect-ratio: 10 / 16;
+    aspect-ratio: 11.45 / 16;
     border-radius: 10px;
     transition: all 200ms;
     border-radius: 0.1em 0.1em 0 0;
@@ -36,7 +36,7 @@
 
 .card{
     animation: slide-in 500ms linear 0s 1 both;
-    background-color: var(--dark-blue);
+    background-color: var(--medium-black);
     border-radius: 0.1em;
     align-items: center;
     justify-content: center;
@@ -61,7 +61,7 @@
 
 .contenu img{
     width: var(--image-width);
-    aspect-ratio: 10 / 16;
+    aspect-ratio: 11.45 / 16;
     min-width: var(--image-min-width);
     transition: all 200ms;
     animation: fade_in 1700ms ease-out 0s 1 both;

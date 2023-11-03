@@ -20,12 +20,7 @@ export default function UpMenu(props){
         <BurgerButton func={trigger}/>
 
         {show &&
-        <section id="up-menu" style={{
-            animation : "slide-down 500ms ease-in 0ms both" 
-        }}>
-
-
-        </section>
+        <Menu />
         }
         
         {/* animation of closing */}
@@ -43,8 +38,9 @@ export default function UpMenu(props){
 const Menu = ()=>{
     return (
         <section id="up-menu" style={{
-            animation : `slide-down 500ms ease-in 0ms ${!show ? "reverse" : "both"}` 
+            animation : "slide-down 500ms ease-in 0ms both" 
         }}>
+            <a href="/"><h1>Retourner sur Buushido</h1></a>
         </section>
     )
 }

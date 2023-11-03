@@ -1,6 +1,6 @@
 
 :root{
-  --taille : 117px;
+  --taille : 140px;
 }
 .onglet-serie-details{
   grid-template-columns: repeat(auto-fit, minmax(min-content, 100%));
@@ -8,7 +8,7 @@
 }
 .sub-name{
   text-decoration: none;
-  color: white;
+  color: rgb(174, 173, 173);
   font-family: 'Poppins', sans-serif;
   font-size: 0.4em;
   line-height: 93%;
@@ -16,14 +16,14 @@
 }
 @media screen and (max-width : 800px){
   .container{
-    gap : clamp(15px, 3vmax, 23px);
-
+    /* gap : clamp(15px, 3vmax, 23px); */
+    gap: 0.5em;
   }
   .contenu, .contenu div{
     max-width: 240px;
-  aspect-ratio: 10 / 16;
+  aspect-ratio: 11.45 / 16;
   width: 15vw;
-  min-width: var(--taille);
+  min-width: var(--taille) ;
   border-radius: 5px;
   }
   .contenu h1{
@@ -74,7 +74,7 @@ Reactivate this to display names
 
   .contenu img{
     max-width: 220px;
-  aspect-ratio: 10 / 16;
+  aspect-ratio: 11.45 / 16;
   width: 11vw;
   min-width: var(--taille);
   border-radius: 5px;
@@ -112,14 +112,15 @@ Reactivate this to display names
       font-family: 'Poppins', sans-serif;
       font-weight: 600;
       /* text-shadow: none; */
-      margin-bottom: 0.1vmin;
+      margin-bottom: 0.2em;
+      justify-content: left;
       width: 85%;
       text-align: left;
-      margin:  0 auto;
+      margin-left: 0.7em;
+      /* margin:  0 auto; */
       /* margin-left: 3.5vmax; */
 
-      display: flex;
-      justify-content: space-between;
+     
       
       color: #fff;
 
@@ -127,9 +128,7 @@ Reactivate this to display names
       /* text-shadow : 0 -1px 6px, 0 0 2px, 0 0 0.1rem rgba(199, 21, 134, 0.272), 0 0 0.5rem rgba(199, 21, 134, 0.256), 0 0 0.1rem rgba(199, 21, 134, 0.252); */
       /* text-shadow : 0 -1px 6px, 0 0 2px, 0 0 0.1rem rgba(74, 0, 11, 0.531), 0 0 0.5rem lightpink, 0 0 0.1rem lightpink; */
     }
-    .onglet-name span{
-        animation: color_swap 2s linear 0s infinite alternate-reverse ;
-    }
+   
     #all_onglets{
       /* margin-top: 80vh; */
       margin-top: 0vh;
@@ -153,16 +152,14 @@ Reactivate this to display names
       text-shadow: none;
       font-family: odachi;
     }
-    .ongle{
+    .onglet{
       /* margin-bottom: 0px; */
-      margin: 0.2em;
+      margin: 0 0.1em;
       border-radius: 0.2em;
       /* background-color: #252525; */
-      background-color: var(--dark-blue);
+      /* background-color: var(--dark-blue); */
     }
-    .liens{
-      color : mediumvioletred ;
-    }
+   
 
     @supports (font: -apple-system-body) and (-webkit-appearance: none) {
       img[loading="lazy"] {

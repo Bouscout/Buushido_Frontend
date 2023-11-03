@@ -32,8 +32,10 @@ export default function TopPoster(props){
                     >
                         <h1>{props.serie.name}</h1>
                         <h3>{props.serie.lesstext}</h3>
-                    </div>
+
+
                         <a href={'/serie/'+props.serie.id}><button className="watch">Regarder</button></a>
+                    </div>
         
                 </div>
         

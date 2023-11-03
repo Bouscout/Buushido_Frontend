@@ -45,18 +45,21 @@ import HeadManager from "../components/accueil/poster/head_manager";
 	<HeadManager client:only/>
 	<!-- <TopHead choix={poster_data} client:load/> -->
 	<section id="all_onglets">
+		<!-- <Reprendre client:load/> -->
+		<OngletSerie num={'1'} client:load conserve={[true, false, false]}/>
+		
 		<Recent_episodes client:only/>
-		<Reprendre client:load/>
-		<OngletSerie num={'1'} client:visible conserve={[true, false, false]}/>
 		
+		<OngletSerie num={'2'} client:visible/>
 		
+		<OngletSerie  num={'3'} client:visible/>
+		<!-- <Selection client:visible/> -->
+		
+		<!-- <OngletSerie  num={'4'} client:visible/> -->
 		<!-- <OngletSerie  num={'2'} client:visible/>
 			<In_watchliste client:idle/>
-		<OngletSerie  num={'3'} client:visible/>
 		
-		<Selection client:only/>
 		
-		<OngletSerie  num={'4'} client:visible/>
 		<OngletSerie  num={'5'} client:visible/> 
 		 -->
 		

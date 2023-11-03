@@ -12,6 +12,8 @@
     padding: 0px;
     overflow-x: hidden; 
     background-color: var(--full-black); 
+    /* background-color: var(--black-carbon);  */
+    /* background: radial-gradient(ellipse at bottom, #0D1E31, #111); */
     /* background-color: rgb(25, 26, 28); */
 
     -webkit-tap-highlight-color: transparent;
@@ -20,8 +22,4 @@
   font-variant: normal;
   font-weight: 700;
   line-height: 26.4px; 
-  }
-
-  @media screen {
-    
   }

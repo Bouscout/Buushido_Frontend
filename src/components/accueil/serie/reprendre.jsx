@@ -47,12 +47,8 @@ export default function Reprendre(){
 
     if(series.length > 0){
         return(
-            <section className="onglet" style={{
-                paddingTop : '1rem'
-            }}>
-                <h1 className="onglet-name"
-                //  style={{    color : 'transparent', backgroundClip : 'text', WebkitBackgroundClip : 'text',}}
-                    >Reprendre le visionnage</h1>
+            <section className="onglet">
+                <h1 className="onglet-name">Reprendre le visionnage</h1>
                 <div className="container">
                     {series.map((serie, i)=>{
                         return(
