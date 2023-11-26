@@ -14,6 +14,7 @@ export const ImageSmallDetails = ({
     rounded,
     preserve, // enclose the information in extraDetails in <pre> tag
     gap_between,
+    direct=false,
 }) => {
     rounded = rounded ? rounded : 1
 
@@ -22,7 +23,13 @@ export const ImageSmallDetails = ({
     let nom = serie.name
     nom = nom.length > MaxNameLength ? nom.substr(0, 30)+"..." : nom
 
-    const genres = serie.genre_1 ? [serie.genre_1, serie.genre_2, serie.genre_3, serie.genre_4] : null
+    let genres 
+    if (serie.genres){
+        genres = serie.genres 
+    }else{
+        genres = serie.genre_1 ? [serie.genre_1, serie.genre_2, serie.genre_3, serie.genre_4] : null
+    }
+
 
     // setting up the picture shape
     const pictureWidth = picWidth
@@ -69,6 +76,7 @@ export const ImageSmallDetails = ({
             alt={nom}
             load={true}
             style={imageStyle}
+            direct={direct}
             />
 
             <SmallDetails 

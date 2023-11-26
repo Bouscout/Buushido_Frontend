@@ -2,7 +2,7 @@
 
 // buttons with glowy aspect and bright color
 export const SpecialButton = ({
-    text, link, color, icon
+    text, link, color, icon, style={}
 }) => {
     let glowStyle
     if (color){
@@ -10,12 +10,13 @@ export const SpecialButton = ({
             background : `var(--${color})`,
             boxShadow : `0 0 40px -8px var(--${color})`,
             cursor : "pointer",
+            ...style
         }
     }
     return (
         <a href={link}>
 
-            <h2 style={glowStyle}>
+            <h2 style={glowStyle} className="hover-border">
                 <div className="icon" style={{justifyContent : 'left', marginRight : "0.5em"}}>
                 <i className={icon}></i>
                     {text}

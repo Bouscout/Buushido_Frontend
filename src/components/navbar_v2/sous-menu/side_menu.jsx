@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Logo from "../logo";
 import { GenresMenu } from "./Genres_menu";
-
+import { NormalButton, SpecialButton } from "../../self-contained/usefulButtons";
 
 export default function SideMenuLeft(){
 
@@ -22,25 +22,19 @@ export default function SideMenuLeft(){
 
                         <HomeButton />
 
-                        <a href="/genre/Film">
-                            <h2>
-                            <div className="icon"><i className="fa-solid fa-clapperboard"></i>Film</div>
-                            </h2>
-                        </a>
-
-                        <a href="/agenda">
-                            <h2>
-                            <div className="icon"><i className="fa-solid fa-calendar-days"></i>Agenda</div>
-                            </h2>
-                        </a>
+                        <SpecialButton text={"Film"} icon={"fa-solid fa-clapperboard"} link={"/genre/Film"} color={"dark-blue"}/>
+                       
+                        <SpecialButton text={"Agenda"} icon={"fa-solid fa-calendar-days"} link={"/agenda"} color={"dark-blue"}/>
+                       
 
                         <GenresMenu />
 
-                        <a href="/recommendations">
+                        <SpecialButton text={"Recommendations Engine"} icon={"fa-solid fa-gear"} link={"/recommendations"} color={"accent-purple"}/>
+                        {/* <a href="/recommendations">
                             <h2>
                                 <div className="icon"><i className="fa-solid fa-gear"></i>Recommendation Engine</div>
                             </h2>
-                        </a>
+                        </a> */}
 
                     </div>
 
@@ -56,13 +50,7 @@ export default function SideMenuLeft(){
 
 const HomeButton = () =>{
     return (
-        <a>
-            <h2>
-            <div className="icon" style={{
-                background : 'var(--accent-orange)',  
-            }}><i className="fa-solid fa-house"></i>Home</div>
-            </h2>
-        </a>
+        <SpecialButton text={"Home"} icon={"fa-solid fa-house"} color={"accent-orange"} link={"/"}/>
     )
 }
 

@@ -1,15 +1,12 @@
 // burger button to trigger a menu, switches between an activated and deactivated mode
-
-import { useState } from "react";
-
 import "./burger.css"
 
-export default function BurgerButton({func}){
-    const [activated, setActivated] = useState(false)
+export default function BurgerButton({status, func}){
+    const activated = status
 
     function activation(){
         func()
-        setActivated(!activated)
+        // setActivated(!activated)
         console.log("trigerring")
     }
 

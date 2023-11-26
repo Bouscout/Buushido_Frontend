@@ -47,12 +47,28 @@
     /* animation: slide-down 500ms ease-in 0ms both; */
     display: flex;
     flex-direction: column;
-    background-color: blue;
+    background-color: rgb(0, 0, 22);
     justify-content: center;
     align-items: center;
+
+    font-size: clamp(15px, 2vmin, 17px);
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 1em;  
+    color: var(--accent-white);
 }
 #up-menu h1{
     color: white;
     font-size: 1em;
     font-family: 'Poppins', sans-serif;
+}
+
+.range-input{
+    width: 95%;
+    margin: 0 auto;
+    background: var(--medium-black);
+    padding: 0.3em 0.3em;
+    border-radius: 0.2em;
 }

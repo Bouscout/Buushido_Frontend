@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import "./shooting_starts.css"
+import "./shooting_stars.css"
 
 
 export default function NightSky(props){

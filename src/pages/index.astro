@@ -45,8 +45,8 @@ import HeadManager from "../components/accueil/poster/head_manager";
 	<HeadManager client:only/>
 	<!-- <TopHead choix={poster_data} client:load/> -->
 	<section id="all_onglets">
-		<!-- <Reprendre client:load/> -->
 		<OngletSerie num={'1'} client:load conserve={[true, false, false]}/>
+		<Reprendre client:load/>
 		
 		<Recent_episodes client:only/>
 		

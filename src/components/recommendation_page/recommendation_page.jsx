@@ -1,6 +1,5 @@
-import "./barre.css"
 import "./animations.css"
-import "./container.css"
+import "./serieCard/container.css"
 
 import { useState } from "react"
 
@@ -13,19 +12,22 @@ import NightSky from "./shooting_stars/shooting_stars"
 import { ReturnButton } from "./interactionsButton"
 import UpMenu from "./burger_menu/up_menu"
 
-export default function RecommendationPage(){
+import serieContext from "../../utils/serie_context"
 
+export default function RecommendationPage(){
+    const [focus, setFocus] = useState(false)
     const [seriesArray, setSerieArray] = useState({})
+    const [blackList, setBlackList] = useState([])
     const [recommending, setRecommending] = useState(false)
     const [fetchPopular, setFetchPopular] = useState(false)
 
-
+    // add show inside the seriesArray
     function AddInput(show, refresh=true, del=false){
         // add or delete an element
         if (del){
             delete seriesArray[show.id]
         }else{
-            console.log("adding : ", show)
+            console.log(`adding ${show.id} : ${show.title} `)
             seriesArray[show.id] = show
         }
         // no need to display the changes directly
@@ -37,57 +39,54 @@ export default function RecommendationPage(){
         // creating new object
         const fake = {...seriesArray}
         
-        if (recommending){
-            setRecommending(false)
-        }
+        setRecommending(false)
+        setFocus(true)
         setSerieArray(fake)
         // in case we don't need to display the changes directly
 
     }
 
+    // series the user don't want to see
+    function addBlackList(show){
+        blackList.push(show.id)
+    }
+
     function getPopular(){
+        setFocus(true)
         setFetchPopular(true)
         setRecommending(true)
     }
 
+    // shift the seach bar to the top
     function inputMode(){
         setRecommending(false)
     }
 
+
     return (
-        <>
-        <UpMenu />
+        <serieContext.Provider value={{
+            "addLiked" : AddInput,
+            "addBlacklist" : addBlackList,
+            "inputMode" : inputMode,
+            "getPrediction" : setRecommending,
+            "setFocus" : setFocus,
+            "getPopular" : getPopular
+        }}>
+            <UpMenu />
 
-        <BigSearchBar func={AddInput} switch={setRecommending} popular={getPopular}/>
-        <NightSky animate={recommending}/>
+            <BigSearchBar focus={focus} func={AddInput} switch={setRecommending} popular={getPopular}/>
+            <NightSky animate={recommending}/>
 
-        {recommending ?
-        <>
-        <ReturnButton func={inputMode}/>
-        <Predictions inputs={seriesArray} popular={fetchPopular} addFunc={AddInput}/>
-        </> :
-        <InputSeries series_data={seriesArray}/>
-        }
-        </>
+            {recommending ?
+            <>
+            <ReturnButton func={inputMode}/>
+            <Predictions inputs={seriesArray} blackList={blackList} popular={fetchPopular}/>
+            </> :
+            <InputSeries series_data={seriesArray}/>
+            }
+
+        </serieContext.Provider>
     )
 
-    if (recommending){
-        return (
-            <>
-            <BigSearchBar func={AddInput} switch={setRecommending}/>
-            <Predictions inputs={seriesArray}/>
-            </>
-        )
- 
- 
-    }else {
-
-        return (
-            <>
-        <BigSearchBar func={AddInput} switch={setRecommending}/>
-
-        <InputSeries series_data={seriesArray} />
-        </>
-    )
-}
+   
 }

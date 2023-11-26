@@ -6,7 +6,7 @@
 #conteneur{
     width: 76%;
     margin: 0 auto;
-    margin-top: 15vh;
+    margin-top: 19vh;
     display: grid;
     z-index: 1;
     grid-template-columns: repeat(auto-fit, minmax(var(--image-min-width), var(--image-width)));
@@ -41,6 +41,7 @@
     align-items: center;
     justify-content: center;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    gap: 0px;
 }
 
 .card h2{
@@ -48,6 +49,12 @@
     font-size: 0.3em;
     line-height: 15px;
 } 
+
+.card h3{
+    height: 10%;
+    font-size: 0.28em;
+    line-height: 15px;
+}
 
 .card i{
     font-size: 0.5em;
@@ -57,6 +64,19 @@
 }
 .card i:hover{
     scale: 1.2;
+}
+
+.label{
+    position: relative;
+}
+.label::after{
+    border-radius: inherit;
+    border: solid #ffffff44;
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(0deg, var(--full-black) 10%, transparent 90%);
 }
 
 .contenu img{

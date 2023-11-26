@@ -56,12 +56,13 @@ a{
 body::-webkit-scrollbar{display: none;}
 
 .flex-column{
-  display: flex; flex-direction: column;
+  display: flex; flex-direction: column; 
 }
 
 .flex{
   display: flex; align-items: center;
 }
+
 
 .absolute-center{
   position: absolute;
@@ -71,7 +72,7 @@ body::-webkit-scrollbar{display: none;}
 }
 
 .icon{
-  display: flex; align-items: center; gap: 1em;
+  display: flex; align-items: center;  justify-content: center; gap: 1em;
 }
 
 .pop-up{
@@ -96,9 +97,23 @@ body::-webkit-scrollbar{display: none;}
   cursor: pointer;
   transition: all 200ms;
 }
-
 .hover-color:hover{
   color : var(--accent-purple);
+}
+
+.hover-border{
+  border: 1px solid transparent
+}
+.hover-border:hover{
+  border: 1px solid var(--accent-white)
+}
+
+.hover-scale{
+  cursor: pointer;
+  scale: 0.95;
+}
+.hover-scale:hover{
+  scale: 1;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Open+Sans:wght@500&family=Poppins:wght@700&display=swap');

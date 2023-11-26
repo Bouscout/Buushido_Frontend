@@ -1,15 +1,17 @@
 // for fetching and displaying the predictions
 
-import { ImagePortrait } from "../self-contained/image-portrait";
 import SetLabel from "../../background_processes/recommendations/label";
 import SendLabel from "../../background_processes/recommendations/send_label";
 
-import { useEffect, useState } from "react";
+import { LabelCard } from "./serieCard/labelCard";
+
+import { useEffect, useState, useContext } from "react";
+import serieContext from "../../utils/serie_context";
 
 const BASE_URL = "https://buushido.com"
 
 
-export default function Predictions(props){
+export default function Predictions({inputs, blackList, popular}){
     const [predicted, setPredicted] = useState([])
     const [parameters, setParams] = useState('')
 
@@ -18,13 +20,15 @@ export default function Predictions(props){
     // fetching the predictions
     useEffect(() => {
         let url
+        const series = Object.values(inputs)
 
-        if (props.popular){
-            url = `${BASE_URL}/api/recommend_popular`
+        if (series.length == 0 && popular){
+            url = `${BASE_URL}/recommendations/get_popular`
+            console.log("fetching popular")
         
         }else {
+            console.log("fetching regular")
         // parse the information from the array
-        const series = Object.values(props.inputs)
         const strInputs = series.map(watch => watch.id).join(",")
 
         const userInfos = {
@@ -34,13 +38,20 @@ export default function Predictions(props){
         }
         
     
-        let recomendation_url = `${BASE_URL}/api/recommendations`
-        
+        // let recomendation_url = `${BASE_URL}/api/recommendations`
+        let recomendation_url = `${BASE_URL}/recommendations/similar`
         url = new URL(recomendation_url)
-    
-    
-        url.searchParams.append("watched", strInputs)
         
+        // url.searchParams.append("watched", strInputs)
+        url.searchParams.append("animes", strInputs)
+
+        // element to avoid
+        if (blackList.length > 0){
+            console.log("blacklist is : ", blackList)
+            const blacklistStr = blackList.join(",")
+            url.searchParams.append("black_list", blacklistStr)
+        }
+    
         for (const info of Object.keys(userInfos)){
             if(userInfos[info]){
                 url.searchParams.append(info, userInfos[info])
@@ -52,15 +63,15 @@ export default function Predictions(props){
         fetch(url)
         .then(response => response.json())
         .then(data => {
-            const series = data.series
+            // const series = data.series
+            const series = data
             const params = data.userParams
 
-            if (parameters !== ""){
-                // perform operation with new params
-
-                setParams(params)
-            }
-            console.log("recommended : ", series)
+            // if (parameters !== ""){
+            //     // perform operation with new params
+            //     setParams(params)
+            // }
+            console.log("recommended : ", data)
 
             setTimeout(() => {
                 setPredicted(series)            
@@ -73,16 +84,17 @@ export default function Predictions(props){
     if (predicted.length > 0){
 
         return (
-                <Labeliseur series={predicted} addFunc={props.addFunc}/>   
+                <Labeliseur series={predicted}/>   
             )
         }
 
 }
 
-
 // sub components
-const Labeliseur = ({series, addFunc}) => {
+const Labeliseur = ({series}) => {
     const Labels = {}
+
+    const {addLiked, addBlacklist} = useContext(serieContext)
 
     function giveLabel(show, rate){
         Labels[show.id] = rate
@@ -90,10 +102,11 @@ const Labeliseur = ({series, addFunc}) => {
 
         if (rate === 1){
             // we add the show to the list of liked
-            addFunc(show, false)
+            addLiked(show, false)
         }else if(rate === 0){
             // we delete the show from liked show list
-            addFunc(show, false, true)
+            addLiked(show, false, true)
+            addBlacklist(show)
         }
 
     }
@@ -105,48 +118,5 @@ const Labeliseur = ({series, addFunc}) => {
            })}
         
         </section>
-    )
-}
-
-const LabelCard = ({serie, pos, giveLabel}) => {
-    const [rating, setRating] = useState(0.5)
-    const name = serie.name
-
-    function giveRating(rate){
-        setRating(rate)
-        giveLabel(serie, rate)
-    }
-
-    return (
-        <>
-        <div className="flex-column card" style={{
-            animationDelay : `${pos * 150}ms`
-        }}>
-                <div className="contenu">
-                    <ImagePortrait 
-                    src={serie.tof_url}
-                    alt={name}
-                    load={true}
-                    style={{}}
-                    />
-                </div>
-
-            {/* like and dislike label */}
-            <div style={{
-                display : 'flex', justifyContent : 'space-around', width : '100%'
-            }}>
-                <i onClick={()=>giveRating(0)} style={{
-                    color : rating === 0 ? "var(--accent-dark-red)" : null
-                }} className={`fa-${rating === 0 ? "solid" : "regular"} fa-thumbs-down`}></i>
-
-                <i onClick={()=>giveRating(1) } style={{
-                    color : rating === 1 ? "pink" : 'var(--accent-white)'
-                }} className={`fa-${rating === 1 ? "solid" : "regular"} fa-heart`}></i>
-            
-            </div>
-            {/* like and dislike label */}
-
-        </div>
-        </>
     )
 }

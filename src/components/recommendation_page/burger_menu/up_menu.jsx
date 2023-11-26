@@ -3,6 +3,7 @@
 import { useState } from "react"
 import BurgerButton from "./burger_button"
 
+import MenuContent from "./menu_content"
 export default function UpMenu(props){
     const [show, setShow] = useState(false)
     const [first, setFirst] = useState(true)
@@ -17,10 +18,10 @@ export default function UpMenu(props){
 
     return (
         <>
-        <BurgerButton func={trigger}/>
+        <BurgerButton status={show} func={trigger}/>
 
         {show &&
-        <Menu />
+        <Menu cancel={trigger}/>
         }
         
         {/* animation of closing */}
@@ -35,12 +36,12 @@ export default function UpMenu(props){
     )
 }
 
-const Menu = ()=>{
+const Menu = ({cancel})=>{
     return (
         <section id="up-menu" style={{
             animation : "slide-down 500ms ease-in 0ms both" 
         }}>
-            <a href="/"><h1>Retourner sur Buushido</h1></a>
+            <MenuContent cancel={cancel}/>
         </section>
     )
 }

@@ -1,16 +1,20 @@
 
 // getting the suggestion of the search words
 
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { ImageSmallDetails } from "../../self-contained/imageSmallDetails/ImageSmallDetails";
 import { useEffect } from "react";
 
-export default function SearchSuggestions(props){
+import serieContext from "../../../utils/serie_context";
+
+export default function SearchSuggestions({data, cursor}){
     const [series, setSeries] = useState([])
 
+    const {addLiked} = useContext(serieContext)
+
     useEffect(() => {
-        setSeries(props.data)
-    }, [props.data])
+        setSeries(data)
+    }, [data])
 
     return (
         <>
@@ -23,7 +27,9 @@ export default function SearchSuggestions(props){
                     <>
                     {series.map((serie, i)=>{
                         return (
-                            <div key={i} onClick={()=>{props.addFunc(serie)}}>
+                            <div key={i} onClick={()=>{addLiked(serie)}} style={{
+                                border : `1px solid ${i === cursor ? "var(--accent-orange)" : "transparent"}`
+                            }}>
                             <Suggestion serie={serie}/>
                             </div>
                             )
@@ -43,7 +49,8 @@ export default function SearchSuggestions(props){
 
 const Suggestion = ({serie}) => {
     serie.note = null
-    
+    serie.tof_url = serie.portrait_pic
+    serie.name = serie.title
     return (
         <ImageSmallDetails
         serie={serie}
@@ -51,6 +58,7 @@ const Suggestion = ({serie}) => {
         picMaxWidth={100}
         picMinWidth={50}
         picAspectRatio={[10, 16]}
+        direct={true}
         />
     )
 }

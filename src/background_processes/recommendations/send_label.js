@@ -47,9 +47,10 @@ export default function SendLabel(){
 }
 
 function getUserParams(){
-    let userParams = localStorage.getItem("buushido_userParams")
-    if(!userParams){
+    const userInfos = Json.parse(localStorage.getItem("buushido_userInfos"))
+    let userParams = userInfos.userParams
 
+    if(!userParams){
         let lastWatched = JSON.parse(localStorage.getItem("buushido_liste"))
         if (typeof lastWatched === "object" && lastWatched !== null){
             lastWatched = Object.values(lastWatched)

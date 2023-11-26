@@ -18,6 +18,17 @@
         transform: translateX(0px);
     }
 }
+
+@keyframes slide-in-top {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
 .slide-in{
     animation: slide-in 1000ms linear 0s 1 both;
 }

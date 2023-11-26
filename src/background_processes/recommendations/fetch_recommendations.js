@@ -21,24 +21,14 @@ export default async function FetchRecommendations(){
     
     const strLastWatched = lastWatched.map(watch => watch.id).join(",")
 
-    // parsing parameters sent from server, it will be a string with comma separated values
-    const userParams = localStorage.getItem("buushido_userParams")
+    // stored informations on the user
+    const userInfos = JSON.parse(localStorage.getItem("buushido_userInfos"))
 
     // if (is_connected()){
     //     RecommendationConnectedUser(strLastWatched, userParams)
     //     return
     // }
     
-    // getting extra information about the user
-    // console.log("user agent : ", navigator.userAgent)
-
-    const userInfos = {
-        'userOnWifi' : navigator.onLine,
-        'userLanguage' : navigator.language,
-        "userParams" : userParams, 
-    }
-    
-
     let recomendation_url = `${BASE_URL}/api/recommendations`
     
     const url = new URL(recomendation_url)
@@ -68,7 +58,7 @@ export default async function FetchRecommendations(){
         console.log("the series are : ", series)
         console.log("user params are : ", params)
 
-        saveResponse(series, params)
+        saveResponse(series, params, userInfos)
 
         return series
     })
@@ -80,12 +70,13 @@ function RecommendationConnectedUser(watchedStr, userParams){
     // implement this
 }
 
-function saveResponse(series, userParameters){
+function saveResponse(series, userParameters, userInfos){
     // save the response into the appropriate storage location
     localStorage.setItem("buushido_recommendations", JSON.stringify(series))
 
     if (userParameters) {
-        localStorage.setItem("buushido_userParams", userParameters)
+        userInfos.userParams = userParameters
+        localStorage.setItem("buushido_userInfos", JSON.stringify(userInfos))
     }
 }
 
