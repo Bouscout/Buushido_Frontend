@@ -56,13 +56,16 @@ a{
 body::-webkit-scrollbar{display: none;}
 
 .flex-column{
-  display: flex; flex-direction: column; 
+  display: flex; flex-direction: column; width: 100%;
 }
 
 .flex{
   display: flex; align-items: center;
 }
 
+.center {
+  justify-content: center; align-items: center;
+}
 
 .absolute-center{
   position: absolute;
@@ -102,7 +105,8 @@ body::-webkit-scrollbar{display: none;}
 }
 
 .hover-border{
-  border: 1px solid transparent
+  border: 1px solid transparent;
+  transition: all 200ms;
 }
 .hover-border:hover{
   border: 1px solid var(--accent-white)

@@ -6,7 +6,7 @@ import CheckPage from "../../../background_processes/metrics/which_page";
 import is_connected from "../../../background_processes/check_connection";
 
 import ProfileDetails from "./profile_details";
-import { Glass } from "../sous-menu/Genres_menu";
+import { Glass } from "../../self-contained/pop_up_message/pop_up_back_glass";
 
 export default function Profil_v2(props){
     const [show, setShow] = useState(false)

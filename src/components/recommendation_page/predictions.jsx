@@ -7,8 +7,9 @@ import { LabelCard } from "./serieCard/labelCard";
 
 import { useEffect, useState, useContext } from "react";
 import serieContext from "../../utils/serie_context";
+import InfoPopUp from "./serieCard/informations_pop_up/info_pop_up";
 
-const BASE_URL = "https://buushido.com"
+const BASE_URL = import.meta.env.SITE
 
 
 export default function Predictions({inputs, blackList, popular}){
@@ -29,17 +30,10 @@ export default function Predictions({inputs, blackList, popular}){
         }else {
             console.log("fetching regular")
         // parse the information from the array
-        const strInputs = series.map(watch => watch.id).join(",")
-
-        const userInfos = {
-            'userOnWifi' : navigator.onLine,
-            'userLanguage' : navigator.language,
-            "userParams" : parameters, 
-        }
-        
+        const strInputs = series.map(watch => watch.id).join(",")        
     
         // let recomendation_url = `${BASE_URL}/api/recommendations`
-        let recomendation_url = `${BASE_URL}/recommendations/similar`
+        let recomendation_url = `${BASE_URL}/recommendations/get_recommendations_visitor`
         url = new URL(recomendation_url)
         
         // url.searchParams.append("watched", strInputs)
@@ -51,13 +45,17 @@ export default function Predictions({inputs, blackList, popular}){
             const blacklistStr = blackList.join(",")
             url.searchParams.append("black_list", blacklistStr)
         }
-    
-        for (const info of Object.keys(userInfos)){
-            if(userInfos[info]){
-                url.searchParams.append(info, userInfos[info])
+        
+        const userInfos = JSON.parse(localStorage.getItem("buushido_userInfos"))
+        if (userInfos !== null){
+
+            for (const info of Object.keys(userInfos)){
+                if(userInfos[info]){
+                    url.searchParams.append(info, userInfos[info])
+                }
             }
         }
-    }
+        }
 
         // fetching
         fetch(url)
@@ -94,6 +92,7 @@ export default function Predictions({inputs, blackList, popular}){
 const Labeliseur = ({series}) => {
     const Labels = {}
 
+    const [serieFocus, setSerieFocus] = useState(null)
     const {addLiked, addBlacklist} = useContext(serieContext)
 
     function giveLabel(show, rate){
@@ -112,11 +111,18 @@ const Labeliseur = ({series}) => {
     }
 
     return (
+        <>
+
+        {serieFocus && 
+        <InfoPopUp serie={serieFocus} cancel={setSerieFocus}/>
+        }
+        
         <section id="conteneur">
            {series.map((serie, i) => {
-                return <LabelCard serie={serie} key={i} pos={i} giveLabel={giveLabel}/>
-           })}
+               return <LabelCard serie={serie} key={i} pos={i} giveLabel={giveLabel} setFocus={setSerieFocus}/>
+            })}
         
         </section>
+        </>
     )
 }

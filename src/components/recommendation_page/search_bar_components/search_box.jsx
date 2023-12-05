@@ -29,16 +29,20 @@ export const SearchBox = () => {
             // saving the most likely search
             if (suggest.length > 0){
                 // check if they match to a certain extent
-                const match = checkMatch(word, suggest[0].title, 7)
+                const match = checkMatch(word, suggest[0].title, 100)
+
                 if (cursor !== 0 || match ){
                     console.log(`${word} and ${suggest[0].title} match`, match)
                     addLiked(suggest[cursor])
                     ressetting()
+
                 }else {
+
                     // make a direct querry to find better match
                     console.log("don't match")
                     DirectQuery()
                 }
+                
             }else{
                 console.log("making an enter request")
                 DirectQuery()

@@ -91,3 +91,45 @@
 .contenu img:hover {
     scale: 1.05;
 }
+#serie-pop-up-container{
+    position: fixed;
+    z-index: 6;
+    inset: 15%;
+    background: var(--dark-blue);
+    border: 1px var(--medium-black);
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+#serie-info{
+    position: relative;
+    display: grid;
+    grid-template-columns: 23% 77%;
+    justify-content: center;
+    height: 100%;
+    border-radius: inherit;
+
+    color: var(--accent-white);
+    font-size: clamp(15px, 2vmin, 17px);
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 26.4px;  
+
+}
+
+
+#serie-info .flex-column{
+    overflow-y: scroll;
+}
+
+#serie-info .flex-column h2{
+    font-size: 2em;
+}
+#serie-info .flex-column h3{
+    line-height: 2px;
+}
+
+.fa-star{
+    color: yellow;
+}

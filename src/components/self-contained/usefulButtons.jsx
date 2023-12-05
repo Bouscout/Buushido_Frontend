@@ -16,7 +16,7 @@ export const SpecialButton = ({
     return (
         <a href={link}>
 
-            <h2 style={glowStyle} className="hover-border">
+            <h2 style={glowStyle}>
                 <div className="icon" style={{justifyContent : 'left', marginRight : "0.5em"}}>
                 <i className={icon}></i>
                     {text}

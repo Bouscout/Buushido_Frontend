@@ -3,7 +3,7 @@ import Profil_v2 from "./profile/profile_v2"
 import Search_bar_v2 from "./search_bar/search_bar_v2"
 import SideMenuLeft from "./sous-menu/side_menu"
 import Logo from "./logo"
-import { Glass } from "./sous-menu/Genres_menu"
+import { Glass } from "../self-contained/pop_up_message/pop_up_back_glass"
 import { useState, useEffect, useCallback } from "react"
 
 
@@ -66,7 +66,7 @@ export default function Navbar_v2(){
             <>
                 <SideMenuLeft />
                 {blur && 
-                    <Glass />
+                    <Glass index={1}/>
                 }
             </>
             }

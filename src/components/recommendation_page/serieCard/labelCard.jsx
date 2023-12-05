@@ -4,7 +4,7 @@
 import { ImagePortrait } from "../../self-contained/image-portrait"
 import { useState } from "react"
 
-export const LabelCard = ({serie, pos, giveLabel}) => {
+export const LabelCard = ({serie, pos, giveLabel, setFocus}) => {
     const offset = 2.4 // to avoid 100% rating
     const [rating, setRating] = useState(0.5)
 
@@ -16,7 +16,7 @@ export const LabelCard = ({serie, pos, giveLabel}) => {
         giveLabel(serie, rate)
     }
 
-    let affinity = serie.distance ? Math.floor(100 -  (serie.distance + offset)) : null
+    let affinity = serie.affinity ? Math.floor((100 * serie.affinity) - offset) : null
     function updateColor(value) {
         if (!value){
             return "var(--accent-white)"
@@ -45,11 +45,11 @@ export const LabelCard = ({serie, pos, giveLabel}) => {
                     direct={true}
                     />
                 </div>
-
+            <div onClick={()=>setFocus(serie)}>
+            <MoreInfosButton />
+            </div>
            
-            {/* like and dislike label */}
             <CardInfos giveRating={giveRating} updateColor={updateColor} affinity={affinity} name={name} rating={rating} />
-            {/* like and dislike label */}
 
             {/* placeholder */}
             <div style={{display : 'flex', alignItems : 'center'}}>
@@ -90,5 +90,14 @@ const CardInfos = ({giveRating, updateColor, affinity, name, rating}) => {
         </div>
 
         </div>
+    )
+}
+
+const MoreInfosButton = () => {
+    return (
+            <i className="fa-solid fa-circle-info" style={{
+            position : "absolute", top : "0", right : "5%", 
+            zIndex : "2"
+        }}></i>
     )
 }

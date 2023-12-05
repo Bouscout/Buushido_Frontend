@@ -49,7 +49,6 @@ export default function NightSky(props){
     // for triggering animation of shooting starts
     useEffect(() => {
         setFalling(props.animate)
-        console.log("animation is : ", props.animate)
     }, [props.animate])   
 
     return (

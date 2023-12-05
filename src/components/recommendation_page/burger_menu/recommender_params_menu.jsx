@@ -31,6 +31,7 @@ export const RecommenderParams = ({cancel}) => {
         <div className="flex-column" style={{
             gap : '1em',
             borderLeft : "2px solid white",
+            width : '80%'
         }}>
             <Gender valeur={params.gender} setProperty={changeValue}/>
             <Age valeur={params.age} setProperty={changeValue}/>

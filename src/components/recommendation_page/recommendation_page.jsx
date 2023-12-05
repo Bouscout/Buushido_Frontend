@@ -14,6 +14,8 @@ import UpMenu from "./burger_menu/up_menu"
 
 import serieContext from "../../utils/serie_context"
 
+import InfoPopUp from "./serieCard/informations_pop_up/info_pop_up"
+
 export default function RecommendationPage(){
     const [focus, setFocus] = useState(false)
     const [seriesArray, setSerieArray] = useState({})
@@ -70,8 +72,11 @@ export default function RecommendationPage(){
             "inputMode" : inputMode,
             "getPrediction" : setRecommending,
             "setFocus" : setFocus,
-            "getPopular" : getPopular
+            "getPopular" : getPopular,
+            "reset" : setSerieArray,
         }}>
+            <InfoPopUp />
+
             <UpMenu />
 
             <BigSearchBar focus={focus} func={AddInput} switch={setRecommending} popular={getPopular}/>

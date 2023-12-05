@@ -13,6 +13,7 @@ export const ImagePortrait = ({
         width : '17vw',
         aspectRatio : '10 / 16',
         minWidth : '200px',
+        borderRadius : "inherit",
     } ;
     let mediatype = 'image/webp' ;
 
