@@ -2,8 +2,9 @@ import { useState } from "react"
 import { useEffect } from "react"
 // import "../decorations/index.css"
 
+const BASE_URL = import.meta.env.SITE
+
 export default function TopPoster(props){
-    const BASE_URL = "https://buushido.com"
     const[etat, setEtat] = useState(props.etat_main)
 
     // poster url for production mode

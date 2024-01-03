@@ -3,7 +3,7 @@ import "./shooting_stars.css"
 
 
 export default function NightSky(props){
-    console.log("animation is : ", props.animate)
+    // console.log("animation is : ", props.animate)
     const [falling, setFalling] = useState(props.animate)
     const [starsPosition, setStarsPosition] = useState([])
 
@@ -25,7 +25,7 @@ export default function NightSky(props){
             if (i >= 2){
                 upperX = 100 - margin
                 lowerX = 50 + margin
-            }else {
+            }else { 
                 upperX = 50 - margin
                 lowerX = margin
             }

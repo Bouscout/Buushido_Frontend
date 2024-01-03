@@ -46,6 +46,7 @@ export const LabelCard = ({serie, pos, giveLabel, setFocus}) => {
                     />
                 </div>
             <div onClick={()=>setFocus(serie)}>
+                
             <MoreInfosButton />
             </div>
            

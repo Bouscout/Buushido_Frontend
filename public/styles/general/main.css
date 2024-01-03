@@ -97,6 +97,7 @@ body::-webkit-scrollbar{display: none;}
   display: none;
 }
 .hover-color{
+  color: var(--accent-white);
   cursor: pointer;
   transition: all 200ms;
 }

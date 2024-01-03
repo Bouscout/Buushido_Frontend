@@ -1,12 +1,9 @@
 
 @keyframes fade-in {
-    from {
-        opacity: 0;
-    }to {opacity: 1;}
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
-.fade-in{
-    animation: fade-in 1000ms linear 0s 1 both;
-}
+
 
 @keyframes slide-in {
     from {
@@ -31,4 +28,8 @@
 }
 .slide-in{
     animation: slide-in 1000ms linear 0s 1 both;
+}
+
+.fade-in{
+    animation: fade-in 1000ms linear 0s 1 both;
 }

@@ -2,8 +2,7 @@ import { useRef, useState } from "react"
 import { ImagePortrait } from "../../../self-contained/image-portrait"
 import ScrollHandler from "../../../self-contained/scrollMark/scrollMark"
 
-const BASE_URL = "https://buushido.com"
-
+const BASE_URL = import.meta.env.SITE
 
 export default function Posters_mobile(props){
     const [state, setState] = useState(null)

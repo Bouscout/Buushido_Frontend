@@ -1,0 +1,21 @@
+
+#message{
+    color: var(--accent-white);
+    font-size: clamp(15px, 2vmin, 17px);
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 26.4px;  
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1em;
+}
+
+#message h1{
+    font-size: 2em;
+    animation: slide-in 500ms linear 0s 1 both;
+}
+

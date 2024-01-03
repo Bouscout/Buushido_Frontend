@@ -14,8 +14,6 @@ import UpMenu from "./burger_menu/up_menu"
 
 import serieContext from "../../utils/serie_context"
 
-import InfoPopUp from "./serieCard/informations_pop_up/info_pop_up"
-
 export default function RecommendationPage(){
     const [focus, setFocus] = useState(false)
     const [seriesArray, setSerieArray] = useState({})
@@ -75,7 +73,6 @@ export default function RecommendationPage(){
             "getPopular" : getPopular,
             "reset" : setSerieArray,
         }}>
-            <InfoPopUp />
 
             <UpMenu />
 

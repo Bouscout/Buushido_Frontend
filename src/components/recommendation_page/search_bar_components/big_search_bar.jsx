@@ -3,6 +3,7 @@ import { useEffect, useState, useContext } from "react";
 import { LogoWriting } from "../../navbar_v2/logo";
 import { SearchBox } from "./search_box";
 import { SpecialButton } from "../../self-contained/usefulButtons"
+import { Message } from "../message_animation/message";
 import "./barre.css"
 
 import serieContext from "../../../utils/serie_context";
@@ -27,7 +28,10 @@ export default function BigSearchBar({focus}){
 
     return (
         <section className={`big-search-bar ${focus ? "fade-in" : ""}`} style={focus ? focusStyle : null}>
-            <BuushidoLogo />
+            {focus ?
+            <BuushidoLogo /> :
+            <Message />
+            }
 
             <SearchBox />
 
@@ -35,7 +39,9 @@ export default function BigSearchBar({focus}){
                 <PredictionButton func={predict}/>
 
                 {!focus &&
+                <>
                 <PopularPredictionButton func={getPopular}/>
+                </>
                 }
             </div>
         

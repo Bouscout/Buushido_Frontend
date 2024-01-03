@@ -130,6 +130,10 @@
     line-height: 2px;
 }
 
+#serie-info .flex-column span{
+    font-weight: 400;
+}
+
 .fa-star{
     color: yellow;
 }

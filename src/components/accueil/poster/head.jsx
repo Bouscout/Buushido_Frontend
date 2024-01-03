@@ -4,8 +4,9 @@ import TopPoster from "./poster";
 // import './decorations/index.css'
 import Anim from "./anim";
 
+const BASE_URL = import.meta.env.SITE
+
 export default function TopHead(){
-    const BASE_URL = "https://buushido.com"
     //getting the data from the api about the poster and then setting them and set the state of every poster
     const [data, setData] = useState([])
     const [etat, setEtat] = useState([false, true, false, false, false])
